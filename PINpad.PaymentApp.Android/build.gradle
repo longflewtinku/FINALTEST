@@ -1,0 +1,81 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: 'gradle-scripts/dependencies.gradle'
+apply from: 'versioning.gradle'
+apply plugin: 'org.sonarqube'
+apply plugin: 'jacoco'
+
+buildscript {
+    ext {
+        minSdkVer = 24
+        targetSdkVer = 28
+        compileSdkVer = 33
+    }
+
+
+    repositories {        // hopefully this should force us to check other repos first
+        google()
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath libs.android.gradle
+        classpath libs.kotlin.gradle
+        classpath libs.sonar.cube
+        classpath libs.jacoco
+        // Google Services Plugin & Crashlytics Releases: https://developers.google.com/android/guides/releases
+        classpath libs.google.services
+        classpath libs.firebase.crashlytics.gradle
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+// If you have issues pulling libraries down first check https://status.gradle.com/
+allprojects {
+    apply plugin: 'jacoco'
+
+    // Required access for local builds without storing any keys to the repo
+    // The pipeline will not have a token or local properties file.
+    def token = ""
+    try {
+        def localProperties = new Properties()
+        localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+        token = localProperties.getProperty("token")
+    } catch(noTokenException) {
+        println(noTokenException.toString())
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
+        maven {
+            url 'https://pkgs.dev.azure.com/pceftpos/PC-EFTPOS/_packaging/PINpad.Libs.Android/maven/v1'
+            credentials {
+                username "pceftpos"
+                //The Azure DevOps Services build system will use the "SYSTEM_ACCESSTOKEN" to authenticate to Azure DevOps Services feeds
+                password System.getenv("SYSTEM_ACCESSTOKEN") != null ? System.getenv("SYSTEM_ACCESSTOKEN") : token
+            }
+        }
+    }
+
+    tasks.withType(KotlinCompile).configureEach {
+        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.languageVersion = '1.9'
+        kotlinOptions.apiVersion = '1.9'
+    }
+}
+
+// Apply sonar configurations
+apply from: "$project.rootDir/sonar.gradle"
+
+apply from: "$project.rootDir/jacoco_project.gradle"
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

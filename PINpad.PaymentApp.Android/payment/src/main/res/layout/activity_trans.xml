@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="transactionViewModel"
+            type="com.linkly.payment.viewmodel.TransactionViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:id="@+id/container">
+
+        <FrameLayout
+            android:id="@+id/fragment_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+    </RelativeLayout>
+
+</layout>

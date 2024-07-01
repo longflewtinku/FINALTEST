@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.linkly.libui.keyboard.UI2PosKeyboardView
+        android:id="@+id/ui2keyboardview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="@dimen/kbd_margin_left"
+        android:layout_marginEnd="@dimen/kbd_margin_right"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/kbdBackgroundColor"
+        android:keyBackground="@color/colorKeyboardborder"
+        android:visibility="visible" />
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header" />
+
+        <TextView
+            android:id="@+id/textView_Response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headlines_fragment"
+            android:gravity="center"
+            android:text="@string/DEFERRED_AUTHS"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAppearance="@style/ui2MediumSmallFontBlue"
+            android:fontFamily="@font/ui2fontbold"/>
+
+        <RelativeLayout
+            android:id="@+id/btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textView_Response">
+
+
+            <LinearLayout
+                android:id="@+id/btn_Linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:weightSum="2"
+                android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btn_print"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/button_margin"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:fontFamily="@font/ui2font"
+                android:textAppearance="@style/ui2MediumBtnFont"
+                android:text="Print"
+                android:layout_weight="1">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/ui2_buttonstyle_cancel"
+                android:textAppearance="@style/uiCancelBtn"
+                android:text="@string/CANCEL"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/button_margin"
+                >
+
+            </Button>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_deferred_auths"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btn_Linear_layout"
+                />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

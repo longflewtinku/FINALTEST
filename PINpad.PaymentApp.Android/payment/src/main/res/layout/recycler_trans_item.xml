@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.linkly.payment.viewmodel.FragTransactionHistoryViewModel.TransactionInfo" />
+        <variable
+            name="buttonClickListener"
+            type="com.linkly.payment.adapters.TransItemButtonClickListener" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        tool:layout_width="370dp"
+        tool:layout_height="160dp"
+        >
+
+        <TextView
+            android:id="@+id/row_trans_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:textAppearance="@style/uiTextFont"
+            android:gravity="start"
+            android:text="@{model.type}"
+            android:layout_toStartOf="@id/row_trans_date"
+            tool:text="Refund" />
+
+        <TextView
+            android:id="@+id/row_trans_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_alignParentEnd="true"
+            android:textAppearance="@style/uiTextFont"
+            android:gravity="center"
+            android:text="@{model.date}"
+            tool:text="29 Sep. 2022 10:47am"
+            tool:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/row_trans_result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_type"
+            android:gravity="center"
+            android:text="@{model.transResultText}"
+            android:textAppearance="@style/uiTextFont"
+            tool:text="INVALID TRANSACTION 12"
+            android:visibility="@{model.transResultTextVisible?View.VISIBLE:View.GONE}"
+            tool:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/row_trans_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_result_text"
+            android:gravity="center"
+            android:text="@{model.status}"
+            android:textAppearance="@style/uiTextFont"
+            tool:text="Declined"
+            />
+
+        <TextView
+            android:id="@+id/row_trans_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_result_text"
+            android:layout_alignParentEnd="true"
+            android:gravity="end|center_vertical"
+            android:text="@{model.amount}"
+            android:textAppearance="@style/uiTextFont"
+            tool:text="$14.00"
+            android:textStyle="bold"
+            android:visibility="@{model.amountVisible?View.VISIBLE:View.GONE}"
+            />
+
+
+        <TextView
+            android:id="@+id/row_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_status"
+            android:gravity="center"
+            android:text="@{model.cardName}"
+            android:textAppearance="@style/uiTextFont"
+            tool:text="ASB Visa"
+            android:visibility="@{model.cardDataVisible?View.VISIBLE:View.GONE}"
+            />
+
+        <TextView
+            android:id="@+id/row_trans_pan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_card_name"
+            android:gravity="center"
+            android:text="@{model.pan}"
+            android:textAppearance="@style/uiTextFont"
+            tool:text="428418******2100"
+            android:visibility="@{model.cardDataVisible?View.VISIBLE:View.GONE}"
+            />
+
+        <TextView
+            android:id="@+id/row_trans_rrn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_pan"
+            android:gravity="center"
+            android:text="@{model.rrn}"
+            android:textAppearance="@style/uiTextFont"
+            tool:text="RRN:000000000004"
+            android:visibility="@{model.rrnVisible?View.VISIBLE:View.GONE}"
+            tool:visibility="gone"
+            />
+
+        <Button
+            android:id="@+id/row_btn_print_and_delete"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/row_trans_amount"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/button_margin"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginEnd="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:background="@drawable/ui2_buttonstyle_light"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="@{() -> buttonClickListener.itemButtonClicked(model)}"
+            android:text="@{model.buttonText}"
+            tool:text="Reprint"
+            android:textAllCaps="false"
+            android:textAppearance="@style/ui2ButtonFontDark"
+            android:textSize="18sp"
+            android:visibility="@{model.buttonVisible?View.VISIBLE:View.GONE}" />
+    </RelativeLayout>
+</layout>

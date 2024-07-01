@@ -1,0 +1,10 @@
+include ':extaps:res'
+
+// main apps
+include ':payment'
+include ':launcher'
+include ':extp2pe:secapp'
+include ':keyinjection'
+
+// libraries
+include 'extlibs:libpositivesvc', ':extlibs:libengine', ':extlibs:libbins', ':extlibs:libconfig', ':extlibs:libui', ':extp2pe:libsecapp'

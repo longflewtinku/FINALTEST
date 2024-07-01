@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:paddingTop="@dimen/appbar_padding_top">
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"/>
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headlines_fragment"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="@string/SALE"
+            android:visibility="visible"
+            android:textAppearance="@style/uiHeadlineFont" />
+
+
+            <RelativeLayout
+                android:id="@+id/trans_amount_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header_title"
+                android:paddingTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount:"
+                    android:textAppearance="@style/uiTextFont"
+                    android:layout_alignParentLeft="true"/>
+
+               <!-- <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    >-->
+
+                    <TextView
+                        android:id="@+id/amount_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:text="1.00"
+                        android:maxLines="1"
+                        android:textAppearance="@style/uiTextFont" />
+
+                    <TextView
+                        android:id="@+id/amount_sym"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/amount_txt"
+                        android:maxLines="1"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="5dp"
+                        android:text=""
+                        android:textAppearance="@style/ui2SmallFont"
+                        android:fontFamily="@font/ui2font"/>
+
+               <!-- </RelativeLayout>-->
+            </RelativeLayout>
+                <TextView
+                    android:id="@+id/prompt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/trans_amount_layout"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/ENTER_PIN"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textAppearance="@style/uiTextFont" />
+                <TextView
+                    android:id="@+id/pwd_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/prompt_title"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/ui2_edittextstyle"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/PIN"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/uiEditTextFont"
+                    android:textCursorDrawable="@null"
+                    android:visibility="visible" />
+
+
+        <!--</LinearLayout>-->
+
+    </RelativeLayout>
+
+
+</layout>

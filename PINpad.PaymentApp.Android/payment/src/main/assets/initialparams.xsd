@@ -1,0 +1,92 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="numeric_0-999999999">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="999999999"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_8">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="alpha_numeric_8">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="alpha_numeric_14-15">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]{14,15}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-24">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="24"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_terminal_timezone">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Australia/ACT"><xs:annotation><xs:documentation>Australia/ACT</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Adelaide"><xs:annotation><xs:documentation>Australia/Adelaide</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Brisbane"><xs:annotation><xs:documentation>Australia/Brisbane</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Broken_Hill"><xs:annotation><xs:documentation>Australia/Broken_Hill</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Canberra"><xs:annotation><xs:documentation>Australia/Canberra</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Currie"><xs:annotation><xs:documentation>Australia/Currie</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Darwin"><xs:annotation><xs:documentation>Australia/Darwin</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Eucla"><xs:annotation><xs:documentation>Australia/Eucla</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Hobart"><xs:annotation><xs:documentation>Australia/Hobart</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/LHI"><xs:annotation><xs:documentation>Australia/LHI</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Lindeman"><xs:annotation><xs:documentation>Australia/Lindeman</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Lord_Howe"><xs:annotation><xs:documentation>Australia/Lord_Howe</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Melbourne"><xs:annotation><xs:documentation>Australia/Melbourne</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/NSW"><xs:annotation><xs:documentation>Australia/NSW</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/North"><xs:annotation><xs:documentation>Australia/North</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Perth"><xs:annotation><xs:documentation>Australia/Perth</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Queensland"><xs:annotation><xs:documentation>Australia/Queensland</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/South"><xs:annotation><xs:documentation>Australia/South</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Sydney"><xs:annotation><xs:documentation>Australia/Sydney</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Tasmania"><xs:annotation><xs:documentation>Australia/Tasmania</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Victoria"><xs:annotation><xs:documentation>Australia/Victoria</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/West"><xs:annotation><xs:documentation>Australia/West</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="Australia/Yancowinna"><xs:annotation><xs:documentation>Australia/Yancowinna</xs:documentation></xs:annotation></xs:enumeration>
+
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_Yes_No">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Y"><xs:annotation><xs:documentation>Yes</xs:documentation></xs:annotation></xs:enumeration>
+            <xs:enumeration value="N"><xs:annotation><xs:documentation>No</xs:documentation></xs:annotation></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:element name="parameter">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="stid" 					    minOccurs='1' maxOccurs='1'/>
+                <xs:element ref="mid" 					    minOccurs='1' maxOccurs='1'/>
+                <xs:element ref="terminalTimeZone" 		    minOccurs='1' maxOccurs='1'/>
+                <xs:element ref="bankTimeZone" 			    minOccurs='0'/>
+                <xs:element ref="unattendedModeAllowed" 	minOccurs='0'/>
+
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element type="alpha_numeric_8" 						name="stid">											<xs:annotation><xs:documentation>Terminal id</xs:documentation></xs:annotation></xs:element>
+    <xs:element type="alpha_numeric_14-15" 					name="mid">												<xs:annotation><xs:documentation>Merchant Id</xs:documentation></xs:annotation></xs:element>
+
+    <xs:element type="string_terminal_timezone" 			name="terminalTimeZone" default="Australia/Sydney">		<xs:annotation><xs:documentation>Terminal Time Zone</xs:documentation></xs:annotation></xs:element>
+    <xs:element type="string_0-24" 							name="bankTimeZone" default="Australia/Sydney">			<xs:annotation><xs:documentation>Bank time zone</xs:documentation></xs:annotation></xs:element>
+    <xs:element type="string_Yes_No" 					    name="unattendedModeAllowed" default="N">			    <xs:annotation><xs:documentation>Unattended Mode allowed</xs:documentation></xs:annotation></xs:element>
+</xs:schema>

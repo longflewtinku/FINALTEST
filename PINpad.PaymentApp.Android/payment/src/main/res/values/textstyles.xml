@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ui2ErrorText" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+
+    <style name="ui2HeaderFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2LargeFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2SmallFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2ExtraSmallFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2HeaderFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2LargeFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFontDarkBold">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2AmountFontDarkBold">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+    <style name="ui2HeaderFontLight">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2SmallFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2LargeFontLight">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFontLight">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2SmallFontLight">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2TinyFontLight">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+
+    <style name="ui2ButtonFontWhite">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2ButtonFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2TableFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2TableFontDarkBold">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFontBlue">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2AmountFontBlue">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumSmallFontBlue">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2LargeBtnFont">
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2LargeBtnFontBold">
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumBtnFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2SmallBtnFont">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2TinyFontBlue">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2TinyFontDark">
+        <item name="android:textColor">@color/colorTwo</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+    <style name="ui2TinyFontDarkBold">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+
+    <style name="TitleFontDark">
+        <item name="android:textColor">@color/colorHeader</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="TitleFontDarkAllcaps">
+        <item name="android:textColor">@color/colorHeader</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="SubTitleFontDark">
+        <item name="android:textColor">@color/colorHeader</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TinyFontDarkBold">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="getCardScreenBtnFont">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="getCardScreenBtnFontCancel">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="ButtonFontLight">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/ui2font</item>
+    </style>
+
+    <style name="ButtonFontDark">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/ui2font</item>
+    </style>
+
+    <style name="uiHeadlineFont">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/inter</item>
+    </style>
+
+    <style name="uiTextFont">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/interregular</item>
+        <item name="fontWeight">400</item>
+    </style>
+
+    <style name="uiEditTextFont">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/interbold</item>
+        <item name="fontWeight">700</item>
+    </style>
+
+    <style name="uiCancelBtn">
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/interregular</item>
+        <item name="android:textColor">@color/colorTextButton</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="uiCancelBtnSmallFont">
+        <item name="android:textSize">17sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/interregular</item>
+        <item name="android:textColor">@color/colorTextButton</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="uiDoneBtn">
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="uiDoneBtnSmallFont">
+        <item name="android:textSize">17sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="uiBorderBtn">
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="uiBorderBtnSmallFont">
+        <item name="android:textSize">17sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="uiTipBtn">
+        <item name="android:textSize">17sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="uiTipBtnSmallFont">
+        <item name="android:textSize">14sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="uiMenuTitleFont">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="uiMenuHeaderFont">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/intermedium</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+</resources>

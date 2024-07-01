@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/GetCardScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ui2BgLightStart"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/appbar_padding_top">
+
+        <RelativeLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/SPLASH_LOGO"
+                tools:src="@drawable/logo_linkly" />
+
+            <TextView
+                android:id="@+id/header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textAppearance="@style/uiHeadlineFont"
+                tools:text="Tip" />
+        </RelativeLayout>
+
+        <fragment
+            android:id="@+id/ctls_leds_frag"
+            android:name="com.linkly.payment.fragments.FragLed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            tools:layout="@layout/fragment_leds" />
+
+        <TextView
+            android:id="@+id/amount_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ctls_leds_frag"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:gravity="center|top"
+            tools:text="@string/_20_00"
+            android:textAppearance="@style/uiEditTextFont"
+            tools:visibility="gone"
+            />
+
+        <LinearLayout
+            android:id="@+id/pwcb_top_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/amount_txt"
+            >
+            <FrameLayout
+                android:id="@+id/amount_purch"
+                android:layout_width="280dp"
+                android:layout_marginEnd="20dp"
+                tools:visibility="visible"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/SALE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textAppearance="@style/uiTextFont"/>
+                <TextView
+                    android:id="@+id/amount_purch_text"
+                    tools:text="$20,000.00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textAppearance="@style/uiTextFont"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/amount_cash"
+                android:layout_width="280dp"
+                tools:visibility="visible"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/CASH_SHORT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textAppearance="@style/uiTextFont"/>
+                <TextView
+                    android:id="@+id/amount_cash_text"
+                    tools:text="$20,000.00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textAppearance="@style/uiTextFont"/>
+            </FrameLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/amount_total"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/pwcb_top_line"
+            tools:visibility="visible"
+            >
+            <TextView
+                android:text="@string/TOTAL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/uiTextFont"/>
+            <TextView
+                android:id="@+id/amount_total_text"
+                tools:text="$20,000.00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textAppearance="@style/uiTextFont"/>
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/amount_sym"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/amount_txt"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="bottom"
+            android:paddingLeft="8dp"
+            android:text=""
+            android:textAppearance="@style/ui2SmallFont"
+
+            />
+
+        <!-- Upper Text Area -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/payment_option_icon"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/payment_option_icon"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_below="@+id/amount_total"
+            android:scaleType="fitCenter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            tools:src="@drawable/ic_swipe_card"
+            tools:visibility="visible" />
+
+        <!-- Screen Details Area -->
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/payment_option_icon"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/prompt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/ui2font"
+                android:gravity="center"
+                android:text="@string/PLEASE_TAP_SWIPE_OR_INSERT"
+                android:textAppearance="@style/uiTextFont" />
+
+        </LinearLayout>
+
+
+        <!-- Logo Bar for Card Issuers -->
+        <LinearLayout
+            android:id="@+id/card_logos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_layout"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/ui2_buttonstyle_cancel"
+                android:text="@string/CANCEL"
+                android:textAppearance="@style/uiCancelBtn"/>
+
+            <Button
+                android:id="@+id/btn_manual"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:fontFamily="@font/ui2font"
+                android:maxLines="2"
+                android:text="@string/CARD_NOT_PRESENT"
+                android:textAppearance="@style/getCardScreenBtnFont"
+                android:visibility="gone"
+                />
+
+            <Button
+                android:id="@+id/surcharge_btn"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:fontFamily="@font/ui2font"
+                android:maxLines="2"
+                android:text="@string/SURCHARGES"
+                android:layout_marginEnd="8dp"
+                android:textAppearance="@style/getCardScreenBtnFont"/>
+
+            <Button
+                android:id="@+id/btn_access"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:fontFamily="@font/ui2font"
+                android:maxLines="2"
+                android:text="@string/ACCESS_MODE"
+                android:textAppearance="@style/getCardScreenBtnFont" />
+
+
+        </LinearLayout>
+        <!--
+                </LinearLayout> -->
+        <!--
+            </LinearLayout>
+        -->
+    </RelativeLayout>
+
+
+</layout>

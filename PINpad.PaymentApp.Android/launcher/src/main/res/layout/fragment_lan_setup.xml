@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_lan_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/LAN_SETUP"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view_separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/text_lan_setup"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:id="@+id/lan_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_separator"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_static"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:checked="false"
+            android:padding="10dp"
+            android:text="@string/CONFIGURE_DHCP"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/rndis_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:checked="true"
+            android:padding="10dp"
+            android:text="@string/RNDIS_MODE"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lan_mode"
+        tool:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout_ip_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_ip_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:alpha="0.4"
+                    android:enabled="false"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/IP_ADDRESS"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_ip_address"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:alpha="0.4"
+                    android:digits="0123456789."
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_subnet_mask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_subnet_mask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:alpha="0.4"
+                    android:enabled="false"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/SUBNET_MASK"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_subnet_mask"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:alpha="0.4"
+                    android:digits="0123456789."
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_gateway"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_gateway"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:alpha="0.4"
+                    android:enabled="false"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/GATEWAY"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_gateway"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:alpha="0.4"
+                    android:digits="0123456789."
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_dns_server"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_dns_server"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:alpha="0.4"
+                    android:enabled="false"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/DNS_SERVER"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_dns_server"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:alpha="0.4"
+                    android:digits="0123456789."
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:nextFocusDown="@id/btn_apply"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/APPLY"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_cancel_setup"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/CANCEL_SETUP"
+            android:textColor="@color/colorRed"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/NEXT"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

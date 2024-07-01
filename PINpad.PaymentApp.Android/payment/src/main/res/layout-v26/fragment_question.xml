@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:background="@color/ui2BgLightStart">
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"
+            tools:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Question Area -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="@dimen/appbar_padding_top"
+            app:layout_constraintTop_toBottomOf="@id/headlines_fragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- Header -->
+            <TextView
+                android:id="@+id/header_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:text=""
+                android:visibility="visible"
+                android:paddingTop="8dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:textAppearance="@style/uiHeadlineFont"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Question Text -->
+            <TextView
+                android:id="@+id/Question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:maxLines="6"
+                android:text=""
+                android:textAppearance="@style/uiTextFont"
+                app:layout_constraintTop_toBottomOf="@id/header_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <FrameLayout
+                android:id="@+id/extended_info_fragment_frame"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintTop_toBottomOf="@id/Question"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- Fragment Additional info -->
+                <fragment
+                    android:id="@+id/extended_info_fragment"
+                    android:name="com.linkly.payment.fragments.FragDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
+
+            <!-- Button Areas -->
+            <LinearLayout
+                android:id="@+id/ll_one_button_area_to_rule_them_all"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/extended_info_fragment_frame"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/button_area2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    app:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    app:columnCount="2"
+                    android:layout_margin="3dp"
+                    android:visibility="visible"
+                    android:paddingTop="@dimen/appbar_padding_top"/>
+
+                <Button
+                    android:id="@+id/ok_button2"
+                    android:layout_width="@dimen/question_grid_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/button_padding_top"
+                    android:background="@drawable/ui2_buttonstyle"
+                    android:paddingStart="8dp"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingEnd="10dp"
+                    android:text="@string/OK"
+                    app:layout_constraintTop_toBottomOf="@id/button_area2"
+                    app:layout_constraintBottom_toTopOf="@+id/notok_scrollview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- Button Area -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/ok_button2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <LinearLayout
+                        android:id="@+id/button_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="@dimen/appbar_padding_top">
+
+                        <Button
+                            android:id="@+id/ok_button"
+                            android:layout_width="@dimen/question_height"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/button_padding_top"
+                            android:background="@drawable/ui2_buttonstyle"
+                            android:paddingStart="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:paddingEnd="10dp"
+                            android:text="@string/OK" />
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

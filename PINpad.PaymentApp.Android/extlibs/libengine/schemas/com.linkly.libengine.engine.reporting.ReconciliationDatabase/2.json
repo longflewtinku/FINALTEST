@@ -1,0 +1,211 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "7789616832680647870d6816cb04bb60",
+    "entities": [
+      {
+        "tableName": "recs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `transID` INTEGER, `batchNumber` INTEGER, `sale` TEXT, `vas` TEXT, `refund` TEXT, `cash` TEXT, `tips` TEXT, `cashback` TEXT, `preauth` TEXT, `completion` TEXT, `deposit` TEXT, `surcharge` TEXT, `subTotalCount` INTEGER NOT NULL, `subTotalAmount` INTEGER NOT NULL, `totalCount` INTEGER NOT NULL, `totalAmount` INTEGER NOT NULL, `onlineTotalCount` INTEGER NOT NULL, `onlineTotalAmount` INTEGER NOT NULL, `offlineTotalCount` INTEGER NOT NULL, `offlineTotalAmount` INTEGER NOT NULL, `reconciliationFigures` TEXT, `prevReconciliationFigures` TEXT, `curReconciliationFigures` TEXT, `startTran` INTEGER NOT NULL, `endTran` INTEGER NOT NULL, `startReceiptTran` INTEGER NOT NULL, `endReceiptTran` INTEGER NOT NULL, `previousSchemeTotalsData` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transID",
+            "columnName": "transID",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "batchNumber",
+            "columnName": "batchNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sale",
+            "columnName": "sale",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "vas",
+            "columnName": "vas",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "refund",
+            "columnName": "refund",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cash",
+            "columnName": "cash",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tips",
+            "columnName": "tips",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cashback",
+            "columnName": "cashback",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "preauth",
+            "columnName": "preauth",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "completion",
+            "columnName": "completion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deposit",
+            "columnName": "deposit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surcharge",
+            "columnName": "surcharge",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subTotalCount",
+            "columnName": "subTotalCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subTotalAmount",
+            "columnName": "subTotalAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalCount",
+            "columnName": "totalCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalAmount",
+            "columnName": "totalAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onlineTotalCount",
+            "columnName": "onlineTotalCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onlineTotalAmount",
+            "columnName": "onlineTotalAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "offlineTotalCount",
+            "columnName": "offlineTotalCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "offlineTotalAmount",
+            "columnName": "offlineTotalAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reconciliationFigures",
+            "columnName": "reconciliationFigures",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prevReconciliationFigures",
+            "columnName": "prevReconciliationFigures",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "curReconciliationFigures",
+            "columnName": "curReconciliationFigures",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "startTran",
+            "columnName": "startTran",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endTran",
+            "columnName": "endTran",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startReceiptTran",
+            "columnName": "startReceiptTran",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endReceiptTran",
+            "columnName": "endReceiptTran",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "previousSchemeTotalsData",
+            "columnName": "previousSchemeTotalsData",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_recs_transID",
+            "unique": false,
+            "columnNames": [
+              "transID"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_recs_transID` ON `${TABLE_NAME}` (`transID`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7789616832680647870d6816cb04bb60')"
+    ]
+  }
+}

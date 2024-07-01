@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui2BgLightStart"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.linkly.launcher.fragments.MainMenu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        tools:context="com.linkly.payment.activities.ActMainMenu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context="com.linkly.payment.activities.ActMainMenu">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            tools:context="com.linkly.payment.activities.ActMainMenu">
+
+            <ListView
+                android:id="@+id/function_list"
+                style="@style/ButtonMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

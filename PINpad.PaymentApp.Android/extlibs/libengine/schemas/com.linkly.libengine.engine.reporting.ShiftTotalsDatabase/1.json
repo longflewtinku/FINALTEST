@@ -1,0 +1,148 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "57b0d949b7490fe8a7657afb808f2acc",
+    "entities": [
+      {
+        "tableName": "shiftTotals",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `saleAmount` INTEGER NOT NULL, `saleCount` INTEGER NOT NULL, `cashAmount` INTEGER NOT NULL, `cashCount` INTEGER NOT NULL, `refundAmount` INTEGER NOT NULL, `refundCount` INTEGER NOT NULL, `completionAmount` INTEGER NOT NULL, `completionCount` INTEGER NOT NULL, `tipAmount` INTEGER NOT NULL, `tipCount` INTEGER NOT NULL, `surchargeAmount` INTEGER NOT NULL, `surchargeCount` INTEGER NOT NULL, `totalAmount` INTEGER NOT NULL, `totalCount` INTEGER NOT NULL, `schemeTotals` TEXT, `totalsFrom` INTEGER NOT NULL, `totalsTo` INTEGER NOT NULL, `lastTransStan` INTEGER, `shiftAutoClosingDateTime` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saleAmount",
+            "columnName": "saleAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saleCount",
+            "columnName": "saleCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cashAmount",
+            "columnName": "cashAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cashCount",
+            "columnName": "cashCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "refundAmount",
+            "columnName": "refundAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "refundCount",
+            "columnName": "refundCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completionAmount",
+            "columnName": "completionAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completionCount",
+            "columnName": "completionCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipAmount",
+            "columnName": "tipAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipCount",
+            "columnName": "tipCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surchargeAmount",
+            "columnName": "surchargeAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surchargeCount",
+            "columnName": "surchargeCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalAmount",
+            "columnName": "totalAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalCount",
+            "columnName": "totalCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "schemeTotals",
+            "columnName": "schemeTotals",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "totalsFrom",
+            "columnName": "totalsFrom",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalsTo",
+            "columnName": "totalsTo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastTransStan",
+            "columnName": "lastTransStan",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shiftAutoClosingDateTime",
+            "columnName": "shiftAutoClosingDateTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57b0d949b7490fe8a7657afb808f2acc')"
+    ]
+  }
+}

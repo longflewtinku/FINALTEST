@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ui2MediumSmallFontBlue">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFontDark">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2MediumFontDarkAllCaps">
+        <item name="android:textColor">@color/ui2TextColour</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="ui2TinyFontLight">
+        <item name="android:textColor">@color/ui2ColorThree</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

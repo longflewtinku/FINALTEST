@@ -1,0 +1,4060 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Schema>
+    <!-- Groups Definition -->
+    <Groups>
+        <Group>
+            <ID>sys_G0</ID>
+            <Title>Merchant+TID settings</Title>
+            <Order>1</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G1</ID>
+            <Title>Processing Options</Title>
+            <Order>2</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G2</ID>
+            <Title>Acquirer</Title>
+            <Order>3</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G3</ID>
+            <Title>Issuers</Title>
+            <Order>4</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G4</ID>
+            <Title>Config Files</Title>
+            <Order>5</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G5</ID>
+            <Title>Surcharging</Title>
+            <Order>6</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G6</ID>
+            <Title>UI Timeouts</Title>
+            <Order>7</Order>
+            <Description>Timeouts for Various stages of Transaction</Description>
+        </Group>
+        <Group>
+            <ID>sys_G7</ID>
+            <Title>Offline mode settings</Title>
+            <Order>8</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G8</ID>
+            <Title>Preauth Settings</Title>
+            <Order>10</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G9</ID>
+            <Title>Branding</Title>
+            <Order>11</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G10</ID>
+            <Title>Linkly Bin Number</Title>
+            <Order>12</Order>
+            <Description></Description>
+        </Group>
+        <Group>
+            <ID>sys_G11</ID>
+            <Title>Unattended mode settings</Title>
+            <Order>9</Order>
+            <Description></Description>
+        </Group>
+    </Groups>
+    <!-- Files Definition -->
+    <Files>
+        <File>
+            <ID>sys_F1</ID>
+            <FileName>initialparams.xml</FileName>
+            <Description></Description>
+        </File>
+        <File>
+            <ID>sys_F2</ID>
+            <FileName>overrideparams.xml</FileName>
+            <Description></Description>
+        </File>
+        <File>
+            <ID>sys_HotParams1</ID>
+            <FileName>hotloadparams.xml</FileName>
+            <Description>Parameters that can be 'hot' reloaded</Description>
+        </File>
+    </Files>
+    <!-- Parameter Definition -->
+    <Parameters>
+
+        <!-- ************************************ start Merchant+TID settings ************************************* -->
+        <!-- ### TID+MID HEADER ### -->
+        <Header>
+            <Title>TID + MID</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <!-- soft TID -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>Text</InputType>
+                <DataType>String</DataType>
+                <PID>stid</PID>
+                <Title>Soft TID</Title>
+                <Length>8</Length>
+                <MinLength>8</MinLength>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{TID}</Defaultvalue>
+                <Description>Enter the Terminal ID</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+
+            <!-- Merchant ID -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>Text</InputType>
+                <DataType>String</DataType>
+                <PID>mid</PID>
+                <Length>15</Length>
+                <MinLength>14</MinLength>
+                <Title>Merchant ID</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{MID}</Defaultvalue>
+                <Description>Merchant ID</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### AMEX Merchant Details HEADER ### -->
+        <Header>
+            <Title>Amex Merchant Details</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>Text</InputType>
+                <DataType>String</DataType>
+                <PID>seller_id</PID>
+                <Length>20</Length>
+                <MinLength>0</MinLength>
+                <Title>Amex Seller ID</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SELLER_ID}</Defaultvalue>
+                <Description>Amex Seller ID</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>Text</InputType>
+                <DataType>String</DataType>
+                <PID>seller_email</PID>
+                <Length>40</Length>
+                <MinLength>0</MinLength>
+                <Title>Amex Seller Email</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SELLER_EMAIL}</Defaultvalue>
+                <Description>Amex Seller Email</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>Text</InputType>
+                <DataType>String</DataType>
+                <PID>seller_telephone</PID>
+                <Length>16</Length>
+                <MinLength>0</MinLength>
+                <Title>Amex Seller Phone No</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SELLER_TELEPHONE}</Defaultvalue>
+                <Description>Amex Seller Phone No</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>Text</InputType>
+                <DataType>String</DataType>
+                <PID>payment_facilitator</PID>
+                <Length>25</Length>
+                <MinLength>0</MinLength>
+                <Title>Amex Payment Facilitator</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Amex Payment Facilitator</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Receipt: Merchant Details HEADER ### -->
+        <Header>
+            <Title>Receipt : Merchant Address</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <Display>true</Display>
+            <DefaultStyle>open</DefaultStyle>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>terminalTimeZone</PID>
+                <Title>Terminal Time Zone</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Australia/ACT":"Australia/ACT","Australia/Adelaide":"Australia/Adelaide","Australia/Brisbane":"Australia/Brisbane","Australia/Broken_Hill":"Australia/Broken_Hill","Australia/Canberra":"Australia/Canberra","Australia/Currie":"Australia/Currie","Australia/Darwin":"Australia/Darwin","Australia/Eucla":"Australia/Eucla","Australia/Hobart":"Australia/Hobart","Australia/LHI":"Australia/LHI","Australia/Lindeman":"Australia/Lindeman","Australia/Lord_Howe":"Australia/Lord_Howe","Australia/Melbourne":"Australia/Melbourne","Australia/NSW":"Australia/NSW","Australia/North":"Australia/North","Australia/Perth":"Australia/Perth","Australia/Queensland":"Australia/Queensland","Australia/South":"Australia/South","Australia/Sydney":"Australia/Sydney","Australia/Tasmania":"Australia/Tasmania","Australia/Victoria":"Australia/Victoria","Australia/West":"Australia/West","Australia/Yancowinna":"Australia/Yancowinna"}</Select>
+                <Defaultvalue>Australia/Sydney</Defaultvalue>
+                <Description>Time Zone of the Terminal</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <!-- Merchant Receipt Lines  -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line1</PID>
+                <Title>Merchant Line 1</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line2</PID>
+                <Title>Merchant Line 2</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line3</PID>
+                <Title>Merchant Line 3</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line4</PID>
+                <Title>Business Phone</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Enter Business Phone here for receipt</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line5</PID>
+                <Title>Merchant Category Code</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Enter Merchant Category Code here</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line6</PID>
+                <Title>Merchant Line 6</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>Powered by Linkly</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter> <!-- Receipt Address -->
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>footerLine1</PID>
+                <Title>Footer Line 1</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Footer Line</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>footerLine2</PID>
+                <Title>Footer Line 2</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Footer Line</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter> <!-- Footer Lines -->
+        </Header>
+
+        <!-- ### Merchant Choice Routing HEADER ### -->
+        <Header>
+            <Title>Merchant Choice Routing</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>mcrEnabled</PID>
+                <Title>Merchant Choice Routing Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>mcrLimit</PID>
+                <Title>MCR limit</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Trans value limit above which txns will route to EFTPOS</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>mcrUpperLimit</PID>
+                <Title>MCR Upper limit</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Trans value limit below which txns will route to EFTPOS</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Manager Login Details HEADER ### -->
+        <Header>
+            <Title>Manager Login Details</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>loginManagerUserName</PID>
+                <Title>Manager User Name</Title>
+                <Length>12</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>MANAGER</Defaultvalue>
+                <Description>Manager User Name for Manager login</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>loginManagerUserId</PID>
+                <Title>4 to 6 Digit Manager User ID</Title>
+                <Length>6</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>1234</Defaultvalue>
+                <Description>Manager User ID for Manager login</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>loginManagerInitialPwd</PID>
+                <Title>6 to 12 Digit Manager Initial PIN</Title>
+                <Length>12</Length>
+                <MinLength>6</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>567890</Defaultvalue>
+                <Description>Initial PIN for Manager User ID (you will be prompted to change this at first login)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>motoRefundPassword</PID>
+                <Title>6 to 12 Digit Moto Transaction PIN</Title>
+                <Length>12</Length>
+                <MinLength>6</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>123456</Defaultvalue>
+                <Description>PIN for Moto Transactions</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>refundPassword</PID>
+                <Title>6 to 12 Digit Refund Transaction PIN</Title>
+                <Length>12</Length>
+                <MinLength>6</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>123456</Defaultvalue>
+                <Description>PIN for Refunds</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Technician Login Details HEADER ### -->
+        <Header>
+            <Title>Technician Login Details</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>loginTechnicianUserName</PID>
+                <Title>Technician User Name</Title>
+                <Length>12</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>TECHNICIAN</Defaultvalue>
+                <Description>Technician User Name for Technician login</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>loginTechnicianUserId</PID>
+                <Title>4 to 6 Digit Technician User ID</Title>
+                <Length>6</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>1357</Defaultvalue>
+                <Description>Technician User ID for Technician login</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>loginTechnicianInitialPwd</PID>
+                <Title>6 to 12 Digit Technician Initial PIN</Title>
+                <Length>12</Length>
+                <MinLength>6</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>024680</Defaultvalue>
+                <Description>Initial PIN for Technician User ID (you will be prompted to change this at first login)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Terminal Limits HEADER ### -->
+        <Header>
+            <Title>Terminal Limits</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <!-- Even though the title & description says dollars, PAXStore gives us cents amount. -->
+                <PID>saleLimitCents</PID>
+                <Title>Sale Limit (Dollars)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <!-- Enter Default value in cents -->
+                <Defaultvalue>10000</Defaultvalue>
+                <Description>Sale Amount Limit in Dollars</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <!-- Even though the title & description says dollars, PAXStore gives us cents amount. -->
+                <PID>cashoutLimitCents</PID>
+                <Title>Max Cashout Limit (Dollars)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <!-- Enter Default value in cents -->
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Cashout Amount Limit in Dollars</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>maxRefundLimit</PID>
+                <Title>Max Refund Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Terminal Max Amount For Refund Limit</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>managerRefundLimit</PID>
+                <Title>Manager's Refund Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Max Amount For Refund Limit as Manager</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>maxRefundCount</PID>
+                <Title>Max Refund Count</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Terminal Max Refunds allowed</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>maxCumulativeRefundLimit</PID>
+                <Title>Max Cumulative Refund Limit Amount</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Maximum refund amount in a day</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>maxTipPercent</PID>
+                <Title>Max Tip %</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Maximum TIP % allowed</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>maxPreAuthTrans</PID>
+                <Title>Max Pre-Auth Transaction</Title>
+                <Length>3</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>100</Defaultvalue>
+                <Description>Maximum Pre-Auth Transaction allowed</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>maxEfbTrans</PID>
+                <Title>Max EFB Transactions</Title>
+                <Length>3</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>100</Defaultvalue>
+                <Description>Maximum number of EFB Transactions allowed</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <!-- Even though the title & description says dollars, PAXStore gives us cents amount. -->
+                <PID>preAuthLimitCents</PID>
+                <Title>PreAuth Limit (Dollars)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <!-- Enter Default value in cents -->
+                <Defaultvalue>10000</Defaultvalue>
+                <Description>PreAuth Amount Limit</Description>
+                <Display>true</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <PID>overrideCtlsCvmLimitEnabled</PID>
+                <Title>Override CTLS CVM Limit Enabled</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>Flag to override CTLS CVM limit with the one below</Description>
+                <Display>false</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>overrideCtlsCvmLimit</PID>
+                <Title>Override CTLS CVM Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Override CTLS CVM limit. Value is cents, with no decimal</Description>
+                <Display>false</Display>
+                <GroupID>sys_G0</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+        </Header> <!-- end terminal limits -->
+        <!-- ************************************ end Merchant+TID settings ************************************* -->
+
+        <!-- ****************************** start Processing Options group *************************************** -->
+        <!-- ### Transaction Configuration HEADER ### -->
+        <Header>
+            <Title>Transaction Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>showReceiptPromptForAuto</PID>
+                <Title>Show Receipt Prompt</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"ALWAYS":"ALWAYS","ASK":"ASK","NEVER":"NEVER"}</Select>
+                <DataType>String</DataType>
+                <PID>printCustomerReceipt</PID>
+                <Title>Print Customer Receipt</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>ASK</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>motoPasswordPrompt</PID>
+                <Title>Moto Password Prompt</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>refundPasswordPrompt</PID>
+                <Title>Refund Password Prompt</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>motoCVVEntry</PID>
+                <Title>Moto CVV Entry</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>motoCVVEntryBypassAllowed</PID>
+                <Title>Moto CVV Entry Bypass Allowed</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>mailOrder</PID>
+                <Title>Mail Order</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>telephone</PID>
+                <Title>Telephone Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>preauth</PID>
+                <Title>PreAuth Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>preauthCreditAccountOnly</PID>
+                <Title>PreAuth only Credit Account Allowed</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>cashback</PID>
+                <Title>Cashback Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>cashout</PID>
+                <Title>Cashout/Cash advance txn Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>refund</PID>
+                <Title>Refund Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>reversal</PID>
+                <Title>Reversal/Void Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>tipAllowed</PID>
+                <Title>Tip Allowed</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Support TIP</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>custRefRequired</PID>
+                <Title>Reference Required</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"OPTIONAL":"OPTIONAL","MANDATORY":"MANDATORY", "DISABLED":"DISABLED"}</Select>
+                <Defaultvalue>DISABLED</Defaultvalue>
+                <Description>Reference Required</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>emvSupported</PID>
+                <Title>EMV Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>cardholderPresent</PID>
+                <Title>Cardholder Present</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>contactlessSupported</PID>
+                <Title>CTLS Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>loyaltySupported</PID>
+                <Title>Loyalty Supported</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>false</Display>
+                <Description>Loyalty Integration</Description>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>efbSupported</PID>
+                <Title>EFB Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>efbAcknowledgeServiceCode</PID>
+                <Title>EFB Check Service Code</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>efbPlasticCardLifeDays</PID>
+                <Title>EFB Plastic Card's Life, days</Title>
+                <Description>The time period (days) from now when card expiry date must be less than.</Description>
+                <Length>4</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>efbRefundAllowed</PID>
+                <Title>EFB Refund Allowed</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>efbCashoutAllowed</PID>
+                <Title>EFB Cashout Allowed</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>efbContinueInFallbackTimeoutMinutes</PID>
+                <Title>EFB Continue in Fallback Timer Timeout, minutes</Title>
+                <Description>The time period after the last transaction without host response when terminal enters "Continue in Fallback" mode. In this mode the terminal will attempt EFB without trying to reach the host.</Description>
+                <Length>4</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>300</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>efbAuthNumberOverFloorLimitAllowed</PID>
+                <Title>EFB Allowed Approval by AuthNumber Over Floor Limit</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accessMode</PID>
+                <Title>Accessibility/Blind Mode Enabled</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Accessibility/Blind Mode Enabled</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>emvFallback</PID>
+                <Title>EMV fallback to MSR</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Description>EMV fallback to MSR enabled Y/N</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>msrAllowed</PID>
+                <Title>Allow MSR</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Description>MSR enabled Y/N</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>refundSecure</PID>
+                <Title>Secure Refund</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Secure Refund enabled Y/N</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>signatureSupported</PID>
+                <Title>08 Approved with Signature Supported</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Description>08 Approved with Signature Supported</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+			<Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>useCustomAudioForResult</PID>
+                <Title>Custom Result Audio</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Description>Custom Audio playback for transaction results as defined by the resources in the app</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>screenLockTime</PID>
+                <Title>Screen Off Time</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Select>{"15 secs":"15 secs","30 secs":"30 secs","1 min":"1 min","2 min":"2 min","5 min":"5 min","30 min":"30 min","disabled":"disabled"}</Select>
+                <Defaultvalue>30 secs</Defaultvalue>
+                <Description>Screen off Time</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Time_hhmm</DataType>
+                <PID>pciRebootTime</PID>
+                <Title>PCI Reboot Time of the Day (HHMM)</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0235</Defaultvalue>
+                <Description>PCI Reboot Time of the Day</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>autoSettlementEnabled</PID>
+                <Title>Automatic Settlement</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Enable Automatic Settlement</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Time_hhmm</DataType>
+                <PID>autoSettlementTime</PID>
+                <Title>Automatic Settlement Time of the Day (HHMM)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0000</Defaultvalue>
+                <Description>Automatic Settlement Time of the Day</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>autoSettlementTimeWindow</PID>
+                <Title>Automatic Settlement Time Window, minutes</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Description>Automatic Settlement Time Window, minutes</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>autoSettlementRetryCount</PID>
+                <Title>Automatic Settlement - Retry Count</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Automatic Settlement: number of attempts</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>autoSettlementPrintTransactionListing</PID>
+                <Title>Automatic Settlement - Print Transaction Listing</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Automatic Settlement - Print Transaction Listing</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>autoSettlementIdlingPeriod</PID>
+                <Title>Automatic Settlement - Idling Period (minutes)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Idling before Automatic Settlement</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>maxDaysTransactionsToStore</PID>
+                <Title>Number of days trans history to keep on terminal</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>3</Defaultvalue> <!-- Till (MG) has requested 3 days of trans history by default -->
+                <Description>Number of previous days (settlement periods) transaction history to keep on terminal, not including current trading day. Completed transactions older than this will be automatically deleted from the terminals memory</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Passcode Security HEADER ### -->
+        <Header>
+            <Title>Passcode Security</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>passcodeSecuritySupported</PID>
+                <Title>Passcode Security Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <Description>Flag to disable the Passcode Security.Passcode protected functions should still prompt for the passcode</Description>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>passwordRetryLimit</PID>
+                <Title>User Passcode Retry Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"6":"6","8":"8","12":"12","16":"16","20":"20","24":"24"}</Select>
+                <Defaultvalue>6</Defaultvalue>
+                <Description>Number of Failed Passcode Attempts Before Account or Function is Locked. Capped to Max 24 attempts</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>passwordAttemptWindow</PID>
+                <Title>Bad Passcode Attempt Window (minutes)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"10":"10 min","30":"30 min","50":"50 min","70":"70 min","90":"90 min","120":"120 min"}</Select>
+                <Defaultvalue>30</Defaultvalue>
+                <Description>Time Window for Failed Passcode Attempts.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>passwordAttemptLockoutDuration</PID>
+                <Title>Bad Passcode Lockout Duration (minutes)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"10":"10 min","30":"30 min","50":"50 min","70":"70 min","90 ":"90 min","120":"120 min"}</Select>
+                <Defaultvalue>30</Defaultvalue>
+                <Description>Lockout Duration. of Time Window for Failed Passcode Attempts.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>passwordMaximumAge</PID>
+                <Title>Passcode Maximum age(days)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"30":"30 days","40":"40 days","50":"50 days","60":"60 days","70 ":"70 days","80":"80 days","90":"90 days"}</Select>
+                <Defaultvalue>30</Defaultvalue>
+                <Description>Number of Days after which Passcode must be reset.Maximum Age for Passcode</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>refundPasswordRetryLimit</PID>
+                <Title>Refund Password Retry Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"1":"1","2":"2","3":"3","4":"4","5":"5"}</Select>
+                <Defaultvalue>3</Defaultvalue>
+                <Description>Number of Failed Refund Password Attempts Before Transaction Cancel.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>motoPasswordRetryLimit</PID>
+                <Title>Moto Password Retry Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"1":"1","2":"2","3":"3","4":"4","5":"5"}</Select>
+                <Defaultvalue>3</Defaultvalue>
+                <Description>Number of Failed MOTO Password Attempts Before Transaction Cancel.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>rrnRetryLimit</PID>
+                <Title>RRN Entry Retry Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"1":"1","2":"2","3":"3","4":"4","5":"5"}</Select>
+                <Defaultvalue>3</Defaultvalue>
+                <Description>Number of Failed RRN Attempts Before Transaction Cancel.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>authcodeRetryLimit</PID>
+                <Title>Auth Code Entry Retry Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"1":"1","2":"2","3":"3","4":"4","5":"5"}</Select>
+                <Defaultvalue>3</Defaultvalue>
+                <Description>Number of Failed Authcode Attempts Before Transaction Cancel.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G1</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** end Processing Options group *************************************** -->
+
+
+        <!-- ****************************** start Acquirer group *************************************** -->
+        <!-- ### Localisation HEADER ### -->
+        <Header>
+            <Title>Localisation</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <!-- Currency Code -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>currencyCode</PID>
+                <Title>Currency Code</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"AUD":"AUD","ZAR":"ZAR","USD":"USD","GBP":"GBP"}</Select>
+                <Defaultvalue>AUD</Defaultvalue>
+                <Description>Currency Code</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <!-- Currency Number -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>currencyNum</PID>
+                <Title>Currency Num</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>036</Defaultvalue>
+                <Description>Currency Number</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <!-- Country Number -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>countryNum</PID>
+                <Title>Country Number</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>036</Defaultvalue>
+                <Description>Country Number</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>language</PID>
+                <Title>Language Selection</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"en_AU":"en_AU"}</Select>
+                <Defaultvalue>en_AU</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bankTimeZone</PID>
+                <Title>Bank Time Zone</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>Australia/Sydney</Defaultvalue>
+                <Description>Time Zone of the Bank</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+
+        </Header> <!--Region -  Currency Config -->
+
+        <!-- ### Payment Switch Settings HEADER ### -->
+        <Header>
+            <Title>Payment Switch Settings</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>paymentSwitch_commsType</PID>
+                <Title>Comms type</Title>
+                <Length>64</Length>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Select>{"POS_ROUTED":"Route via POS","TWO_BYTE_LENGTH_FIVE_BYTE_TPDU_HEADER_TCP_DIRECT":"TCP Direct TPDU Header","TWO_BYTE_LENGTH_TCP_DIRECT":"TCP Direct No TPDU","IP_GATEWAY_PROXY_APP":"IP Gateway Proxy"}</Select>
+                <Defaultvalue>TWO_BYTE_LENGTH_FIVE_BYTE_TPDU_HEADER_TCP_DIRECT</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>posCommsEnabled</PID>
+                <Title>Route Bank msgs through POS</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>posCommsHostId</PID>
+                <Title>POS comms Host ID</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Host ID for routing transactions via EFT Server</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>posCommsInterfaceType</PID>
+                <Title>POS Comms Interface Type</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>2</Defaultvalue>
+                <Description>2 for AS2805 messages</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <!-- Host IP -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>paymentSwitch_useSsl</PID>
+                <Title>SSL Enabled</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Description>Use SSL Comms</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_ip_host</PID>
+                <Title>Host Primary</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>testssl.tnsi.com.au:47650</Defaultvalue>
+                <Description>Primary Host URL</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_ip_host2nd</PID>
+                <Title>Host Secondary</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>testssl.tnsi.com.au:47650</Defaultvalue>
+                <Description>Secondary Host URL</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>paymentSwitch_certificateFile</PID>
+                <Title>Root CA Certificate File (PEM format)</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>stca.crt</Defaultvalue>
+                <Description>SSL Root CA Certificate File (PEM format)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>paymentSwitch_privateKeyFile</PID>
+                <Title>Private Key File</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>SSL Client Private Key</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_privateKeyPassword</PID>
+                <Title>Private Key Password</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>SSL Client Private Key Password</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>paymentSwitch_privateKeyCertificate</PID>
+                <Title>SSL Client Private Key Certificate File</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>SSL Client Private Key Cert</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_aiic</PID>
+                <Title>Acquirer identification code AIIC</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>00062800000</Defaultvalue>
+                <Description>Acquirer identification code AIIC</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_nii</PID>
+                <Title>Acquirer Network Identifier (NII)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>001</Defaultvalue>
+                <Description>Acquirer Network Identifier (NII)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_receiveTimeout</PID>
+                <Title>Acquirer host response timeout (sec)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>20</Defaultvalue>
+                <Description>Acquirer host response timeout (sec)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_dialTimeout</PID>
+                <Title>Acquirer host request timeout (sec)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>10</Defaultvalue>
+                <Description>Acquirer host request timeout (sec)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_reversalAdviceTimeout</PID>
+                <Title>Acquirer host response timeout for Reversal &amp; Advice (sec)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>20</Defaultvalue>
+                <Description>Acquirer host response timeout for reversal/advice (sec)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>customerName</PID>
+                <Title>Customer</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Length>64</Length>
+                <MinLength>0</MinLength>
+                <Defaultvalue></Defaultvalue>
+                <Description>>Customer</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bankDescription</PID>
+                <Title>Description of the Bank</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Length>64</Length>
+                <MinLength>0</MinLength>
+                <Defaultvalue></Defaultvalue>
+                <Description>>Description of the Bank</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>retailerName</PID>
+                <Title>Retailer Name</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Length>64</Length>
+                <MinLength>0</MinLength>
+                <Defaultvalue></Defaultvalue>
+                <Description>Retailer Name</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header> <!--Region -  Payment Switch -->
+
+        <Header>
+            <Title>Comms Fallback Settings</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>commsFallbackEnabled</PID>
+                <Title>Comms fallback enabled</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Description>Fallback to secondary comms method (e.g. 4G) if primary internet connection (e.g. WiFi, Ethernet) is down</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>commsFallbackHost</PID>
+                <Title>Comms Fallback Test Host:Port</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Length>64</Length>
+                <MinLength>0</MinLength>
+                <Defaultvalue>www.google.com:80</Defaultvalue>
+                <Description>Internet test host + port to use when checking health of primary internet connection. Only used when in 'fallback' mode</Description>
+                <Display>true</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header> <!--Region -  Payment Switch -->
+
+
+        <!-- ### GoInsight Server Configuration HEADER  Display false### -->
+        <Header>
+            <Title>GoInsight Server Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>false</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>paxstoreUpload</PID>
+                <Title>GoInsight Upload Transactions</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Upload transaction data to Paxstore and GoInsight</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Email Server Configuration HEADER  Display false### -->
+        <Header>
+            <Title>Email Server Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>false</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>mailMerchant</PID>
+                <Title>EMail Merchant</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Email Merchant</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailStoreName</PID>
+                <Title>Merchant Store Name</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Merchant store name for the receipt</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailMerchantAddress</PID>
+                <Title>Merchant Address</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>positiveterminals@gmail.com</Defaultvalue>
+                <Description>Merchant email address</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailHost</PID>
+                <Title>Email Host (Server)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>smtp.gmail.com</Defaultvalue>
+                <Description>Email server to use for receipts</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailPort</PID>
+                <Title>Email Server port to use</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>465</Defaultvalue>
+                <Description>Port on the email server</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailUser</PID>
+                <Title>Email Server User</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>positiveterminals@gmail.com</Defaultvalue>
+                <Description>User on the email server</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailPassword</PID>
+                <Title>Email Server Password</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>3ftsolution5</Defaultvalue>
+                <Description>Password on the email server</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailSender</PID>
+                <Title>Email Sender</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>positiveterminals@gmail.com</Defaultvalue>
+                <Description>Email "from" address</Description>
+                <Display>false</Display>
+                <GroupID>sys_G2</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header>
+        <!-- ****************************** end Acquirer group *************************************** -->
+
+        <!-- ****************************** start Issuers group *************************************** -->
+        <Header>
+            <Title>Issuer 1</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer1Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>VISA</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer1Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer1DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Issuer 2</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer2Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>MASTERCARD</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer2Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer2DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Issuer 3</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer3Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>EFTPOS</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer3Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer3DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Issuer 4</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer4Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>AMEX</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer4Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer4DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Issuer 5</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer5Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>DINERS</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer5Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer5DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Issuer 6</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer6Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>JCB</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer6Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer6DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Issuer 7</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>issuer7Name</PID>
+                <Title>Issuer Name</Title>
+                <Length>16</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>UPI</Defaultvalue>
+                <Description>Issuer Name</Description>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer7Enabled</PID>
+                <Title>Issuer Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>issuer7DeferredAuthEnabled</PID>
+                <Title>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G3</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** end Issuers group *************************************** -->
+
+        <!-- ****************************** start Config Files group *************************************** -->
+        <Header>
+            <Title>Config Files</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <!-- cardproducts file -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>cardProductFile</PID>
+                <Title>Card product or CPAT file (e.g. cardproduct.json or CPAT.txt)</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Description>Card product or CPAT file (e.g. cardproduct.json or CPAT.txt)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <!-- emv config -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>cfgEmvFile</PID>
+                <Title>EMV config defaults file (cfg_emv.json)</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Description>EMV config defaults file (cfg_emv.json)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <!-- contactless config -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>cfgCtlsFile</PID>
+                <Title>Contactless config defaults file (cfg_ctls_emv.json)</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Description>Contactless config defaults file (cfg_ctls_emv.json)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <!-- Blacklisted bin range file-->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>blacklistFile</PID>
+                <Title>Blacklisted BIN ranges file (blacklist.json)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>Blacklisted BIN ranges file (blacklist.json)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <!-- woolworths-specific files -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>epatFile</PID>
+                <Title>EPAT file (optional, EMV/CTLS parameter file)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>EPAT file (optional, EMV/CTLS parameter file)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>pktFile</PID>
+                <Title>PKT file (optional, EMV/CTLS public key file)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>PKT file (optional, EMV/CTLS public key file)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>cardsFile</PID>
+                <Title>default cards mapping file, e.g. cards.xml</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>default cards mapping file, e.g. cards.xml</Description>
+                <Display>true</Display>
+                <GroupID>sys_G4</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header>
+        <!-- ****************************** start Config Files group *************************************** -->
+
+        <!-- ****************************** start Surcharging group *************************************** -->
+        <Header>
+            <Title>EFTPOS</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_eftpos_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_eftpos_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_eftpos_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Parameter>
+            <Type>single</Type>
+            <InputType>select</InputType>
+            <DataType>String</DataType>
+            <PID>surchargeSupported</PID>
+            <Title>Surcharge Supported</Title>
+            <Length>1</Length>
+            <Required>false</Required>
+            <Readonly>false</Readonly>
+            <Select>{"Y":"Y","N":"N"}</Select>
+            <Defaultvalue>N</Defaultvalue>
+            <Display>true</Display>
+            <GroupID>sys_G5</GroupID>
+            <FileID>sys_HotParams1</FileID>
+        </Parameter>
+
+        <Header>
+            <Title>Mastercard Credit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_mastercard_credit_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_mastercard_credit_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_mastercard_credit_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Mastercard Debit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_mastercard_debit_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_mastercard_debit_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_mastercard_debit_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Visa Credit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_visa_credit_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_visa_credit_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_visa_credit_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Visa Debit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_visa_debit_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_visa_debit_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_visa_debit_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Amex</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_amex_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_amex_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_amex_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Diners</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_diners_club_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_diners_club_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_diners_club_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>JCB</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_jcb_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_jcb_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_jcb_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Unionpay Credit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_unionpay_credit_on</PID>
+                <Title>Enabled</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>sc_unionpay_credit_type</PID>
+                <Title>Type</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"%":"Percent (e.g. 1.95%)","$":"Fixed Amount (e.g. $1.95)"}</Select>
+                <Defaultvalue>$</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>sc_unionpay_credit_amount</PID>
+                <Title>Amount/Percentage</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Amount (percentage or amount)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G5</GroupID>
+                <FileID>sys_HotParams1</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** end Surcharging group *************************************** -->
+
+        <!-- ****************************** start UI Timeouts group****************************** -->
+        <Header>
+            <Title>UI Timeout</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>amountEntryTimeoutSecs</PID>
+                <Title>Amount Entry</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>presentCardTimeoutSecs</PID>
+                <Title>Present Card Timeout Entry</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accountSelectionTimeoutSecs</PID>
+                <Title>Account Selection Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>30</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>appSelectionTimeoutSecs</PID>
+                <Title>Application Selection Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>30</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>cardPinEntryTimeoutSecs</PID>
+                <Title>Card PIN Entry Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>confirmSignatureTimeoutSecs</PID>
+                <Title>Confirm Signature Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>customerReceiptPrintPromptTimeoutSecs</PID>
+                <Title>Customer Print Confirmation Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>15</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>receiptRemovePromptTimeoutSecs</PID>
+                <Title>Remove Receipt Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>cardRemovePromptTimeoutSecs</PID>
+                <Title>Remove Card Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>60</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>paperOutTimeoutSecs</PID>
+                <Title>Paper out Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>120</Defaultvalue>
+                <Select>{"15":"15 secs","30":"30 secs","60":"1 min","120":"2 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>decisionScreenTimeoutSecs</PID>
+                <Title>Decision Screen Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>2</Defaultvalue>
+                <Select>{"2":"2 secs","3":"3 secs","5":"5 secs"}</Select>
+                <Description>Decision Screen Timeout (Approved, Cancelled, Declined)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <!-- Access Mode Timeouts -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accessModePresentCardTimeoutSecs</PID>
+                <Title>Access Mode Present Card Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>240</Defaultvalue>
+                <Select>{"120":"2 min","180":"3 min","240":"4 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accessModeAccountSelectionTimeoutSecs</PID>
+                <Title>Access Mode Account Selection Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>240</Defaultvalue>
+                <Select>{"120":"2 min","180":"3 min","240":"4 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accessModeAppSelectionTimeoutSecs</PID>
+                <Title>Access Mode Application Selection Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>240</Defaultvalue>
+                <Select>{"120":"2 min","180":"3 min","240":"4 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accessModePinEntryTimeoutSecs</PID>
+                <Title>Access Mode Pin Entry Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>240</Defaultvalue>
+                <Select>{"120":"2 min","180":"3 min","240":"4 min","300":"5 min"}</Select>
+                <Description>Timeout in Secs</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>accessModeDecisionScreenTimeoutSecs</PID>
+                <Title>Access Mode Decision Screen Timeout</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>5</Defaultvalue>
+                <Select>{"3":"3 secs","5":"5 secs","10":"10 secs"}</Select>
+                <Description>Access Mode Decision Screen Timeout (Approved, Cancelled, Declined)</Description>
+                <Display>true</Display>
+                <GroupID>sys_G6</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** End UI Timeouts group****************************** -->
+
+        <!-- ****************************** start Offline Setting group *************************************** -->
+        <!-- ### Offline Mode Configuration Parameters HEADER ### -->
+        <Header>
+            <Title>Offline Mode Configuration Parameters</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>offlineFlightModeAllowed</PID>
+                <Title>Flight Offline Mode Allowed</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>True if system flight mode should be used to determine if transactions are to be performed offline. Note offline transactions may still be allowed if this is set to N, according to rules below</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>offlineTransactionCeilingLimitCentsContact</PID>
+                <Title>Offline Max Transaction Amount Limit - Contact</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Maximum allowed transaction value in offline mode for Contact/Insert transactions</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>offlineTransactionCeilingLimitCentsContactless</PID>
+                <Title>Offline Max Transaction Amount Limit - Contactless</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Maximum allowed transaction value in offline mode for Contactless/Tap transactions</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>offlineSoftLimitAmountCents</PID>
+                <Title>Offline Stored Transaction Soft Limit Amount (Dollars)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>A warning will be displayed to the user if stored trans amount will exceed this $ limit. Transaction will still be allowed</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>offlineSoftLimitCount</PID>
+                <Title>Offline Stored Transaction Soft Limit Count</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>A warning will be displayed to the user if stored trans count will exceed this limit. Transaction will still be allowed</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Amount</DataType>
+                <PID>offlineUpperLimitAmountCents</PID>
+                <Title>Offline Stored Transaction Upper Limit Amount (Dollars)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Transaction will not be allowed if $ total of stored offline transactions exceeds this limit</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>offlineUpperLimitCount</PID>
+                <Title>Offline Stored Transaction Upper Limit Count</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Transaction will not be allowed if count of offline transactions exceeds this limit</Description>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header> <!--End offline settings-->
+
+        <!-- ****************************** start Unattended Mode Setting group *************************************** -->
+        <!-- ### Unattended Mode Configuration Parameters HEADER ### -->
+        <Header>
+            <Title>Unattended Mode Configuration Parameters</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <DataType>String</DataType>
+                <PID>unattendedModeAllowed</PID>
+                <Title>Unattended Mode Allowed</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>True if system unattended mode should be used to determine if transactions are to be performed in petrol payment scenarios.</Description>
+                <Display>true</Display>
+                <GroupID>sys_G11</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+        </Header> <!--End offline settings-->
+
+        <!-- ### CDO Settings HEADER ### -->
+        <Header>
+            <Title>Chip Decision Override Settings</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedEftpos</PID>
+                <Title>CDO allowed for EFTPOS</Title>
+                <Description>CDO allowed for EFTPOS</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedMastercardCredit</PID>
+                <Title>CDO allowed for Mastercard Credit</Title>
+                <Description>CDO allowed for Mastercard Credit</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedMastercardDebit</PID>
+                <Title>CDO allowed for Mastercard Debit</Title>
+                <Description>CDO allowed for Mastercard Debit</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedVisaCredit</PID>
+                <Title>CDO allowed for Visa Credit</Title>
+                <Description>CDO allowed for Visa Credit</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedVisaDebit</PID>
+                <Title>CDO allowed for Visa Debit</Title>
+                <Description>CDO allowed for Visa Debit</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedAmex</PID>
+                <Title>CDO allowed for Amex</Title>
+                <Description>CDO allowed for Amex</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedDinersClub</PID>
+                <Title>CDO allowed for Diners Club</Title>
+                <Description>CDO allowed for Diners Club</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedJcb</PID>
+                <Title>CDO allowed for JCB</Title>
+                <Description>CDO allowed for JCB</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>cdoAllowedUnionpayCredit</PID>
+                <Title>CDO allowed for UnionPay Credit</Title>
+                <Description>CDO allowed for UnionPay Credit</Description>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>sys_G7</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** end Offline Settings group *************************************** -->
+
+        <!-- ****************************** start Preauth Settings group *************************************** -->
+        <Header>
+            <Title>Preauth Settings</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_default</PID>
+                <Title>Default Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Default Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_eftpos</PID>
+                <Title>Eftpos Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Eftpos Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_mastercard_credit</PID>
+                <Title>Mastercard Credit Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Mastercard Credit Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_mastercard_debit</PID>
+                <Title>Mastercard Debit Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Mastercard Debit Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_visa_credit</PID>
+                <Title>Visa Credit Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Visa Credit Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_visa_debit</PID>
+                <Title>Visa Debit Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Visa Debit Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_amex</PID>
+                <Title>Amex Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Amex Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_diners_club</PID>
+                <Title>Diners Club Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Diners Club Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_jcb</PID>
+                <Title>JCB Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>JCB Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number</DataType>
+                <PID>preauthExpiry_unionpay_credit</PID>
+                <Title>Unionpay Credit Pre-auth Expiry, days</Title>
+                <Length>2</Length>
+                <MinLength>0</MinLength>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>7</Defaultvalue>
+                <Description>Unionpay Credit Pre-authorisation validity period</Description>
+                <Display>true</Display>
+                <GroupID>sys_G8</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** end Preauth Settings group *************************************** -->
+
+        <!-- ****************************** start Branding group *************************************** -->
+        <!-- ### Display Branding HEADER ### -->
+        <Header>
+            <Title>Display Branding</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>brandDisplayLogoHeader</PID>
+                <Title>Logo Header</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>Brand Display Logo Header</Description>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>brandDisplayLogoIdle</PID>
+                <Title>Logo Idle Screen</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>Brand Display Logo Idle</Description>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>brandDisplayLogoSplash</PID>
+                <Title>Logo Splash</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>Brand Display Logo Splash</Description>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>brandDisplayStatusBarColour</PID>
+                <Title>Status Bar Colour Code (RGB HEX)</Title>
+                <Length>6</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>brandDisplayButtonColour</PID>
+                <Title>Button Colour Code (RGB HEX)</Title>
+                <Length>6</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>brandDisplayButtonTextColour</PID>
+                <Title>Button Text Colour Code (RGB HEX)</Title>
+                <Length>6</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>Number_String</DataType>
+                <PID>brandDisplayPrimaryColour</PID>
+                <Title>Primary Colour Code (RGB HEX)</Title>
+                <Length>6</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ### Receipt Branding HEADER ### -->
+        <Header>
+            <Title>Receipt Branding</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>upload</InputType>
+                <DataType>File</DataType>
+                <PID>brandReceiptLogoHeader</PID>
+                <Title>Logo Header</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Description>Brand Receipt Logo Header</Description>
+                <Display>true</Display>
+                <GroupID>sys_G9</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <!-- ****************************** end Branding group *************************************** -->
+
+        <!-- ****************************** start Linkly Bin Number group *************************************** -->
+        <Header>
+            <Title>EFTPOS</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_eftpos</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>01</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Mastercard Credit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_mastercard_credit</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>03</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Mastercard Debit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_mastercard_debit</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>29</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Visa Credit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_visa_credit</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>04</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Visa Debit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_visa_debit</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>28</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Amex</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_amex</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>05</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Diners</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_diners_club</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>06</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>JCB</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_jcb</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>09</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+        <Header>
+            <Title>Unionpay Credit</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bin_unionpay_credit</PID>
+                <Title>Linkly Bin No</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>30</Defaultvalue>
+                <Description>Linkly Scheme Index/Bin</Description>
+                <Display>true</Display>
+                <GroupID>sys_G10</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <!-- ****************************** end Linkly Bin Number group *************************************** -->
+
+    </Parameters>
+</Schema>
+
+

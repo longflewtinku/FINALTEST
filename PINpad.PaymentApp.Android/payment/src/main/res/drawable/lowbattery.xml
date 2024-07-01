@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <corners android:radius="5dp"/>
+    <solid android:color="@color/colorRed"/>
+    <padding
+        android:bottom="0dp"
+        android:left="4dp"
+        android:right="4dp"
+        android:top="0dp"/>
+
+    <stroke
+        android:width="2px"
+        android:color="@color/ui2MenuButtonBorder"/>
+</shape>

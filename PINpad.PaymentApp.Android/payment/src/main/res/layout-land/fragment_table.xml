@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+        <LinearLayout android:background="@color/ui2BgLightStart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/appbar_padding_top">
+            <!-- Branding Header -->
+            <fragment
+                android:id="@+id/headlines_fragment"
+                android:name="com.linkly.payment.fragments.FragHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_brand_header"/>
+
+            <TextView
+                android:id="@+id/header_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text='@{fragStandardViewModel.title}'
+                android:textAppearance="@style/ui2HeaderFontDark"
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/tblView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+                </TableLayout>
+            </ScrollView>
+        </LinearLayout>
+</layout>

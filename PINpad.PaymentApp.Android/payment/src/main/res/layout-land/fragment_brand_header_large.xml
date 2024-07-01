@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.linkly.payment.fragments.FragHeader">
+
+    <LinearLayout
+        android:id="@+id/batch_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="0dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ui2batchindi">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/database" />
+
+            <TextView
+                android:id="@+id/batch_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:textAppearance="@style/ui2TinyFontLight" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <!-- Branding Image -->
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="@dimen/header_logo_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="0.5"
+            android:contentDescription="@string/CUSTOMER_LOGO"
+            android:src="@drawable/logo_linkly"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/uiHeadlineFont"
+            android:text="@string/WELCOME"
+            app:layout_constraintStart_toEndOf="@+id/header"
+            app:layout_constraintEnd_toStartOf="@id/menu_but"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/uiTextFont"
+            tools:text="Tuesday, December 31"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/menu_but"
+            app:layout_constraintStart_toEndOf="@id/header" />
+
+        <ImageButton
+            android:id="@+id/menu_but"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="0.5"
+            android:background="@null"
+            android:contentDescription="@string/MENU_BUTTON"
+            android:src="@drawable/btn_hamburger"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <LinearLayout
+            android:id="@+id/battery_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingStart="1dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="1dp"
+            app:layout_constraintBaseline_toBaselineOf="parent"
+            app:layout_constraintStart_toEndOf="@id/header"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ui2_lowbattery">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="0dp"
+                    android:src="@mipmap/battery" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
+                    android:text="@string/BATTERY_LOW"
+                    android:textAppearance="@style/ui2TinyFontLight" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

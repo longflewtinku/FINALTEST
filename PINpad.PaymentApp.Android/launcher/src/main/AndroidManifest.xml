@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.pax.permission.ICC"/>
+    <uses-permission android:name="com.pax.permission.PICC"/>
+    <uses-permission android:name="com.pax.permission.MAGCARD"/>
+    <uses-permission android:name="com.pax.permission.PRINTER"/>
+    <uses-permission android:name="com.pax.permission.PED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!--    Permission to start the connect app-->
+    <uses-permission android:name="com.linkly.connect.permission.START_APP" />
+    
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        tools:replace="android:allowBackup"
+        android:name="com.linkly.launcher.LauncherApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="false"
+        android:launchMode="singleTask"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.linkly.launcher.SplashActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.linkly.launcher.LockedDownActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name="com.linkly.launcher.InputActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name="com.linkly.launcher.ServiceFrontEnd"
+                  android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.linkly.launcher.FakeLauncherActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.linkly.launcher.Activate"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name="com.linkly.launcher.WifiBaseActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
+        <receiver
+            android:name="com.linkly.launcher.service.LauncherController"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000" >
+                <category android:name="com.linkly.launcher"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.linkly.TRANSACTION_RESULT"/>
+                <action android:name="com.linkly.REBOOT_WARNING"/>
+                <action android:name="com.linkly.REBOOT_SUSPEND"/>
+                <action android:name="com.linkly.SVC_START"/>
+                <action android:name="com.linkly.CFG_REQUEST"/>
+                <action android:name="com.linkly.APP_DOWNLOAD"/>
+                <action android:name="com.linkly.APP_SEND_EFT_FILES"/>
+                <action android:name="com.linkly.INSTALL_COMPLETE"/>
+                <action android:name="com.linkly.SCHEDULED_EVENT"/>
+                <action android:name="com.linkly.REC_PERFORMED"/>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="com.linkly.POS_NAV_BAR_EVENT"/>
+                <action android:name="com.linkly.APP_STATUS_INFO_REQUEST_EVENT" />
+                <action android:name="com.linkly.CONNECT_CONFIG" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.linkly.launcher.service.AppListener">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.linkly.launcher.service.Rebooter">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:enabled="true"
+            android:authorities="${applicationId}">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths"/>
+
+        </provider>
+
+
+        <service
+            android:name="com.linkly.launcher.service.Launcher"
+            android:exported="true"
+            android:label="EFT Service">
+        </service>
+        <service android:name="com.linkly.libpositivesvc.paxstore.DownloadParamService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.sdk.service.ACTION_TO_DOWNLOAD_PARAMS"/>
+                <category android:name="${applicationId}"/>
+            </intent-filter>
+        </service>
+
+
+
+    </application>
+
+</manifest>

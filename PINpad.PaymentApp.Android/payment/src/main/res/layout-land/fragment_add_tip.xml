@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <include layout="@layout/logo_title_view" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:textAppearance="@style/uiTextFont"
+                tools:text="Do you want to add a tip?" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp">
+
+            <Button
+                android:id="@+id/no_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ui2_buttonstyle"
+                android:text="@string/OK"
+                android:textAppearance="@style/uiBorderBtn" />
+
+            <Button
+                android:id="@+id/yes_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:layout_marginTop="@dimen/button_padding_top"
+                android:layout_toEndOf="@id/no_button"
+                android:background="@drawable/ui2_buttonstyle"
+                android:text="@string/OK"
+                android:textAppearance="@style/uiDoneBtn" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/no_button"
+                android:layout_alignStart="@id/no_button"
+                android:layout_alignEnd="@id/yes_button"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/button_padding_top"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ui2_buttonstyle_cancel"
+                android:text="@string/OK"
+                android:textAppearance="@style/uiCancelBtn" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

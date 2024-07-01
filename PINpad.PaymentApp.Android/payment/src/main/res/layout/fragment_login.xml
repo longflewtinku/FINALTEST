@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="fragKeyboardViewModel"
+            type="com.linkly.payment.viewmodel.FragKeyboardViewModel" />
+    </data>
+
+<!--    Using 640dp as the height this layout should only extend halfway through the screen
+        as the rest of the screen will be used by the keyboard -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="640dp"
+        android:layout_gravity="top"
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:gravity="top|center"
+            android:text="@string/WELCOME"
+            android:layout_marginTop="20dp"
+            android:textAppearance="@style/uiHeadlineFont" />
+
+
+        <TextView
+            android:id="@+id/prompt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/ENTER_USER_CREDENTIALS"
+            android:textAlignment="center"
+            android:textAppearance="@style/uiTextFont"
+             />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="20dp">
+
+            <com.linkly.libui.views.CustomEditText
+                android:id="@+id/userid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_edittextstyle"
+                android:ems="10"
+                android:gravity="start"
+                android:inputType="text"
+                android:maxLines="1"
+                android:nextFocusForward="@+id/password"
+                android:paddingTop="10dp"
+                android:textSize="25sp"
+                android:textAppearance="@style/uiEditTextFont"
+                android:textCursorDrawable="@null" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="20dp">
+
+            <com.linkly.libui.views.CustomEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_edittextstyle"
+                android:ems="10"
+                android:textSize="25sp"
+                android:gravity="start"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingTop="10dp"
+                android:textCursorDrawable="@null"
+                android:textAppearance="@style/uiEditTextFont"
+                android:textStyle="normal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/saveCred"
+            android:layout_width="170dp"
+            android:layout_height="56dp"
+            android:layout_weight="0.03"
+            android:buttonTint="@color/colorBlack"
+            android:textAppearance="@style/uiTextFont"
+            android:gravity="center"
+            android:text="@string/SAVE_CREDS" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</layout>

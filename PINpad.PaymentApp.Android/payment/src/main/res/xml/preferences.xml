@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!-- TODO: Mode the android:keys to Strings.xml file -->
+
+    <!--<android.support.v7.preference.SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="udpDebug"
+        android:summary="Enable or Disable UDP Logging"
+        android:title="UDP Debug Enabled"/>-->
+
+    <androidx.preference.SeekBarPreference
+        android:key="screenSaverTimer"
+        app:min="1"
+        android:max="120"
+        android:defaultValue="@integer/defaultScreenSaverTimer"
+        app:showSeekBarValue="true"
+        android:summary="@string/SCREEN_SAVER_SUMMARY"
+        android:title="@string/SCREEN_SAVER_TITLE"/>
+
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultMerchantReceiptFirst"
+        android:key="merchantReceiptFirst"
+        android:summary="@string/MER_RECEIPT_SUMMARY"
+        android:title="@string/MER_RECEIPT_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultPrintMerchantReceipt"
+        android:key="printMerchantReceipt"
+        android:summary="@string/PRINT_MERCH_RECEIPT_SUMMARY"
+        android:title="@string/PRINT_MERCH_RECEIPT_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultPrintContactlessReceipts"
+        android:key="printContactlessReceipts"
+        android:summary="@string/PRINT_CTLS_RECEIPT_SUMMARY"
+        android:title="@string/PRINT_CTLS_RECEIPT_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultPrintToScreen"
+        android:key="printToScreen"
+        android:summary="@string/PRINT_SCREEN_RECEIPT_SUMMARY"
+        android:title="@string/PRINT_SCREEN_RECEIPT_TITLE"/>
+
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultAutologin"
+        android:key="autologin"
+        android:summary="@string/AUTO_LOGIN_SUMMARY"
+        android:title="@string/AUTO_LOGIN_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultAutoLogoff"
+        android:key="autoLogoff"
+        android:summary="@string/AUTO_LOGOFF_SUMMARY"
+        android:title="@string/AUTO_LOGOFF_TITLE"/>
+
+    <androidx.preference.SeekBarPreference
+        android:defaultValue="@integer/defaultAutoLogoffTimeout"
+        android:key="autoLogoffTimeout"
+        app:min="1"
+        android:max="60"
+        app:showSeekBarValue="true"
+        android:dependency="autoLogoff"
+        android:summary="@string/AUTO_LOGOFF_TIMEOUT_SUMMARY"
+        android:title="@string/AUTO_LOGOFF_TIMEOUT_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultDateMenuPanel"
+        android:key="DateMenuPanel"
+        android:summary="@string/DATE_MENU_PANEL_SUMMARY"
+        android:title="@string/DATE_MENU_PANEL_TITLE"/>
+
+    <!--
+        MW: IAAS-1450. Needs to be enabled for POC.
+        NEEDS TO BE UNDONE AFTER POC.
+    -->
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultDisplayDevMenu"
+        android:key="DisplayDevMenu"
+        android:summary="@string/DISPLAY_DEV_SUMMARY"
+        android:title="@string/DISPLAY_DEV_TITLE"/>
+
+    <!--
+     MW: Currently this is a drop down preference. Depending on the requirement, this could change.
+     It currently lists all of the usb modes
+     -->
+    <DropDownPreference
+        android:summary="@string/USB_OPERATION_MODE"
+        android:title="@string/USB_SETTINGS"
+        android:key="usb_mode"
+        android:entries="@array/usb_modes"
+        android:entryValues="@array/usb_modes"
+        app:isPreferenceVisible="false"
+        app:defaultValue="@string/defaultUsbMode"
+        />
+
+    <androidx.preference.Preference
+        android:key="resetToDefault"
+        android:title="Reset to default" />
+</PreferenceScreen>

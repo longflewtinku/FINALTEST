@@ -1,0 +1,11 @@
+<parameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='../../../payment/src/main/assets/initialparams.xsd'>
+    <!-- TID & MID Settings -->
+    <!-- WC's internal host emulator TID - use your own please! -->
+    <stid>47000002</stid>
+    <mid>00002547000002</mid>
+    <!-- Terminal Location   -->
+    <terminalTimeZone>Australia/Sydney</terminalTimeZone>
+    <!--  Non-TMS Params  -->
+    <bankTimeZone>Australia/Sydney</bankTimeZone>
+</parameter>

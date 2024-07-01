@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ui2MenuButton">@color/ui2ColorThree</color>
+    <color name="ui2MenuButtonBorder">@color/ui2ColorOne</color>
+
+    <color name="ui2LedOn">@color/color_linkly_primary</color>
+    <color name="ui2LedOff">@color/ui2ColorThree</color>
+
+    <color name="ui2ColorOne">#ff0090D8</color>
+    <color name="ui2ColorThree">#FFFFFF</color>
+    <color name="ui2ColorEight">#126B27</color>
+    <color name="colorButton">#EEEEEF</color>
+    <color name="color_linkly_primary">#FF591F</color>
+
+</resources>

@@ -1,0 +1,173 @@
+{
+  "apns": [
+    {
+      "apn": "mobile.o2.co.uk",
+      "name": "O2",
+      "pwd": "",
+      "user": ""
+    }
+  ],
+  "brandName": "Payment",
+  "customerName": "Woolworths",
+  "unattendedModeAllowed": false,
+  "kioskMode": false,
+  "kioskScreenText": "",
+  "unattendedLockedDownMessage": {
+    "portrait": "Out of Service",
+    "landscape": "Out of\nService"
+  },
+  "menus": [
+    {
+      "autoStart": false,
+      "displayName": "Payments",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.payment"
+
+    },
+    {
+      "autoStart": false,
+      "displayName": "Payment Demo",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.positivelauncher"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Register",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.smartvg.tcr.demo"
+    },
+    {
+      "autoStart": false,
+      "displayName": "CCTech",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.cctech.payapp"
+    },
+    {
+      "autoStart": true,
+      "displayName": "POS Connect",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.connect.linkly",
+      "priority": 1
+    },
+    {
+      "autoStart": true,
+      "displayName": "POS Connect Demo",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.connect.demo"
+    },
+    {
+      "autoStart": true,
+      "displayName": "POS Connect LREST",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.connect.linkly.rest"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Local Loyalty",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.idl.merchant"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Local Loyalty",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.localvalu.merchant"
+    },
+    {
+      "autoStart": false,
+      "displayName": "EPAY",
+      "enableNavBar": true,
+      "imageName": "",
+      "packageName": "de.epay.epaypos"
+    },
+    {
+      "autoStart": true,
+      "displayName": "Key Injection",
+      "enableNavBar": true,
+      "imageName": "",
+      "packageName": "com.linkly.keyinjection",
+      "priority": 2,
+      "autoStartDelay": 2
+    },
+    {
+      "autoStart": false,
+      "displayName": "CLOUD POS",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.cloudtestpos"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Mobile POS",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "au.com.woolworths.mobilecheckout.uat"
+    },
+    {
+      "autoStart": true,
+      "displayName": "MPOS",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.mpos"
+    }
+  ],
+  "settingsMenus": {
+    "showSettingsMenu": "false",
+    "showSetupWifiBaseMenu": "true",
+    "showBluetoothSettingsMenu":  "true",
+    "showWifiSettingsMenu": "true",
+    "showSoundSettingsMenu": "true",
+    "showEthernetSettingsMenu":  "true",
+    "showApnSettingsMenu": "true",
+    "showCellularSettingsMenu":  "true",
+    "showAirplaneModeMenu": "false",
+    "showInputSettingsMenu":  "false",
+    "showInjectKeysSettingsMenu": "false",
+    "showDisplaySettingsMenu":  "true"
+  },
+  "paxstorePaymentKey": "U5ONXKYWAQQU346A8CF1",
+  "paxstorePaymentSecret": "JP98LVCS8T6A3RU5RROSIOM0W4VHBLE3QUWXTPQ7",
+  "paxstoreServiceKey": "SR8Q66SU4Q0RVNTA042P",
+  "paxstoreServiceSecret": "CE2OS8J2JWCEY34AV3TZT8XPF1EKUQI3GMOPYTMZ",
+  "paymentMenus": {
+    "userMenuLists": [
+      {
+        "adminMenu": "Logon,Initiate RKI,RSA Logon,Exit,System Info,About App",
+        "level": "USER",
+        "mainMenu": "Sale,Cash,Sale+Cash,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,User Manager,View and Clear SAF,Pre-Auth Search and View,Logon,MOTO Sale,MOTO Refund,Reprint Manager"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Transaction History,Daily Batch,Reprint Rec,RSA Logon,Logon,User Manager",
+        "level": "SUPERVISOR",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,Reprint Manager,View and Clear SAF,Pre-Auth Search and View,MOTO Sale,MOTO Refund,Reprint Manager"
+      },
+      {
+        "adminMenu": "Logon,Initiate RKI,RSA Logon,Reconciliation,Transaction History,Exit,System Info,About App",
+        "level": "MANAGER",
+        "mainMenu": "Sale,Cash,Sale+Cash,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,User Manager,View and Clear SAF,Pre-Auth Search and View,MOTO Sale,MOTO Refund,Reprint Manager"
+      },
+      {
+        "adminMenu": "",
+        "level": "TECHNICIAN",
+        "mainMenu": "Logon,Initiate RKI,RSA Logon,System Info,Exit"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Transaction History,Daily Batch,Reprint Rec,Reversal,RSA Logon,Logon,User Manager",
+        "level": "DEFAULT",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,Reprint Manager,View and Clear SAF,Pre-Auth Search and View,MOTO Sale,MOTO Refund,Reprint Manager"
+      }
+    ]
+  },
+  "paymentName": "LinklyPA",
+  "serviceName": "Launcher",
+  "version": "0.00.00"
+}

@@ -1,0 +1,185 @@
+<parameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='../../../payment/src/main/assets/overrideparams.xsd'>
+    <!-- Amex parameters -->
+    <seller_id>123456789</seller_id>
+    <seller_email>myemail@google.com</seller_email>
+    <seller_telephone>61419403298</seller_telephone>
+    <payment_facilitator>Till</payment_facilitator>
+
+    <!--Manager Login Details-->
+    <loginManagerUserName>MANAGER</loginManagerUserName>
+    <loginManagerUserId>1234</loginManagerUserId>
+    <loginManagerInitialPwd>567890</loginManagerInitialPwd>
+    <motoRefundPassword>666666</motoRefundPassword>
+    <refundPassword>555555</refundPassword>
+
+    <!--Technician Login Details-->
+    <loginTechnicianUserName>TECHNICIAN</loginTechnicianUserName>
+    <loginTechnicianUserId>1357</loginTechnicianUserId>
+    <loginTechnicianInitialPwd>024680</loginTechnicianInitialPwd>
+
+    <screenLockTime>30 secs</screenLockTime>
+    <pciRebootTime>0235</pciRebootTime>
+    <autoSettlementEnabled>N</autoSettlementEnabled>
+    <autoSettlementTime>0000</autoSettlementTime>
+    <autoSettlementTimeWindow>60</autoSettlementTimeWindow>
+    <autoSettlementRetryCount>3</autoSettlementRetryCount>
+    <autoSettlementPrintTransactionListing>Y</autoSettlementPrintTransactionListing>
+    <autoSettlementIdlingPeriod>30</autoSettlementIdlingPeriod>
+    <maxDaysTransactionsToStore>7</maxDaysTransactionsToStore>
+
+    <!-- Passcode Security -->
+    <passcodeSecuritySupported>Y</passcodeSecuritySupported>
+    <passwordRetryLimit>6</passwordRetryLimit>
+    <passwordAttemptWindow>30</passwordAttemptWindow>
+    <passwordAttemptLockoutDuration>30</passwordAttemptLockoutDuration>
+    <passwordMaximumAge>30</passwordMaximumAge>
+    <refundPasswordRetryLimit>3</refundPasswordRetryLimit>
+    <motoPasswordRetryLimit>3</motoPasswordRetryLimit>
+    <rrnRetryLimit>3</rrnRetryLimit>
+    <authcodeRetryLimit>3</authcodeRetryLimit>
+
+    <!--  Localisation  -->
+    <currencyCode>AUD</currencyCode>
+    <currencyNum>036</currencyNum>
+    <countryNum>036</countryNum>
+    <language>en_AU</language>
+
+    <!-- Payment Switch Settings -->
+    <paymentSwitch_commsType>TWO_BYTE_LENGTH_FIVE_BYTE_TPDU_HEADER_TCP_DIRECT</paymentSwitch_commsType>
+            <!-- **EFTEX local host emulator** -->
+    <posCommsEnabled>N</posCommsEnabled>
+    <posCommsHostId></posCommsHostId>
+    <posCommsInterfaceType>2</posCommsInterfaceType>
+
+        <!-- **option (a) route bank host msgs via eft client/server - either on premises or cloud** -->
+    <!--    <paymentSwitch_commsType>POS_ROUTED</paymentSwitch_commsType>-->
+    <!--    <posCommsEnabled>Y</posCommsEnabled>-->
+    <!--    <posCommsHostId>WW_HOST2</posCommsHostId>-->
+    <!--    <posCommsInterfaceType>2</posCommsInterfaceType>-->
+
+        <!-- **Till test host via TNS SIG (internet) access URL** -->
+<!--        <paymentSwitch_useSsl>Y</paymentSwitch_useSsl>-->
+<!--        <paymentSwitch_ip_host>ssltest.tnsi.com.au:47650</paymentSwitch_ip_host>-->
+<!--        <paymentSwitch_ip_host2nd>ssltest.tnsi.com.au:47650</paymentSwitch_ip_host2nd>-->
+<!--        <paymentSwitch_certificateFile>stca.crt</paymentSwitch_certificateFile>-->
+
+
+        <!-- ** in-house till host emulator** -->
+    <paymentSwitch_useSsl>N</paymentSwitch_useSsl>
+    <paymentSwitch_ip_host>20.92.92.59:2009</paymentSwitch_ip_host>
+    <paymentSwitch_ip_host2nd>20.92.92.59:2009</paymentSwitch_ip_host2nd>
+
+    <paymentSwitch_aiic>00000407642</paymentSwitch_aiic>
+    <paymentSwitch_nii>001</paymentSwitch_nii>
+    <paymentSwitch_receiveTimeout>20</paymentSwitch_receiveTimeout>
+    <paymentSwitch_dialTimeout>10</paymentSwitch_dialTimeout>
+    <paymentSwitch_reversalAdviceTimeout>0</paymentSwitch_reversalAdviceTimeout>
+    <paymentSwitch_disableSecurity>Y</paymentSwitch_disableSecurity>
+
+
+        <!--**Non-TMS Config**-->
+    <customerName>Till</customerName>
+    <bankDescription>TILL EFTPOS</bankDescription>
+    <retailerName>TILL RETAILER</retailerName>
+    <commsFallbackEnabled>Y</commsFallbackEnabled>
+    <commsFallbackHost>www.google.com:80</commsFallbackHost>
+    <paxstoreUpload>N</paxstoreUpload>
+
+    <!-- Issuers - defaults for scheme enabled flags -->
+    <issuer1Name>VISA</issuer1Name>
+    <issuer1Enabled>Y</issuer1Enabled>
+    <issuer2Name>MASTERCARD</issuer2Name>
+    <issuer2Enabled>Y</issuer2Enabled>
+    <issuer3Name>EFTPOS</issuer3Name>
+    <issuer3Enabled>Y</issuer3Enabled>
+    <issuer4Name>AMEX</issuer4Name>
+    <issuer4Enabled>Y</issuer4Enabled>
+    <issuer5Name>DINERS</issuer5Name>
+    <issuer5Enabled>N</issuer5Enabled>
+    <issuer6Name>JCB</issuer6Name>
+    <issuer6Enabled>N</issuer6Enabled>
+    <issuer7Name>UPI</issuer7Name>
+    <issuer7Enabled>N</issuer7Enabled>
+
+    <!--- Config Files -->
+    <cardProductFile>cardproduct.json</cardProductFile>
+    <cfgEmvFile>cfg_emv.json</cfgEmvFile>
+    <cfgCtlsFile>cfg_ctls_emv.json</cfgCtlsFile>
+    <blacklistFile><!--blacklist.json--></blacklistFile>
+
+
+    <!--  UI Timeouts  -->
+    <amountEntryTimeoutSecs>60</amountEntryTimeoutSecs>
+    <presentCardTimeoutSecs>60</presentCardTimeoutSecs>
+    <accountSelectionTimeoutSecs>30</accountSelectionTimeoutSecs>
+    <appSelectionTimeoutSecs>30</appSelectionTimeoutSecs>
+    <cardPinEntryTimeoutSecs>60</cardPinEntryTimeoutSecs>
+    <confirmSignatureTimeoutSecs>60</confirmSignatureTimeoutSecs>
+    <customerReceiptPrintPromptTimeoutSecs>15</customerReceiptPrintPromptTimeoutSecs>
+    <receiptRemovePromptTimeoutSecs>15</receiptRemovePromptTimeoutSecs>
+    <cardRemovePromptTimeoutSecs>60</cardRemovePromptTimeoutSecs>
+    <paperOutTimeoutSecs>120</paperOutTimeoutSecs>
+    <decisionScreenTimeoutSecs>2</decisionScreenTimeoutSecs>
+    <!--  Accessibility mode Timeouts  -->
+    <accessModePresentCardTimeoutSecs>240</accessModePresentCardTimeoutSecs>
+    <accessModeAccountSelectionTimeoutSecs>240</accessModeAccountSelectionTimeoutSecs>
+    <accessModeAppSelectionTimeoutSecs>240</accessModeAppSelectionTimeoutSecs>
+    <accessModePinEntryTimeoutSecs>240</accessModePinEntryTimeoutSecs>
+    <accessModeDecisionScreenTimeoutSecs>5</accessModeDecisionScreenTimeoutSecs>
+
+    <!--  Offline mode configurations  -->
+    <offlineFlightModeAllowed>N</offlineFlightModeAllowed>
+    <offlineTransactionCeilingLimitCentsContact>10000</offlineTransactionCeilingLimitCentsContact>
+    <offlineTransactionCeilingLimitCentsContactless>5000</offlineTransactionCeilingLimitCentsContactless>
+    <offlineSoftLimitAmountCents>80000</offlineSoftLimitAmountCents>
+    <offlineSoftLimitCount>16</offlineSoftLimitCount>
+    <offlineUpperLimitAmountCents>100000</offlineUpperLimitAmountCents>
+    <offlineUpperLimitCount>20</offlineUpperLimitCount>
+    <!--  Unattended mode configurations  -->
+    <unattendedModeAllowed>N</unattendedModeAllowed>
+    <!-- CDO Settings -->
+    <cdoAllowedEftpos>Y</cdoAllowedEftpos>
+    <cdoAllowedMastercardCredit>Y</cdoAllowedMastercardCredit>
+    <cdoAllowedMastercardDebit>Y</cdoAllowedMastercardDebit>
+    <cdoAllowedVisaCredit>Y</cdoAllowedVisaCredit>
+    <cdoAllowedVisaDebit>Y</cdoAllowedVisaDebit>
+    <cdoAllowedAmex>Y</cdoAllowedAmex>
+    <cdoAllowedDinersClub>N</cdoAllowedDinersClub>
+    <cdoAllowedJcb>N</cdoAllowedJcb>
+    <cdoAllowedUnionpayCredit>N</cdoAllowedUnionpayCredit>
+
+    <!-- Preauth Settings -->
+    <preauthExpiry_default>7</preauthExpiry_default>
+    <preauthExpiry_eftpos>7</preauthExpiry_eftpos>
+    <preauthExpiry_mastercard_credit>7</preauthExpiry_mastercard_credit>
+    <preauthExpiry_mastercard_debit>7</preauthExpiry_mastercard_debit>
+    <preauthExpiry_visa_credit>7</preauthExpiry_visa_credit>
+    <preauthExpiry_visa_debit>7</preauthExpiry_visa_debit>
+    <preauthExpiry_amex>7</preauthExpiry_amex>
+    <preauthExpiry_diners_club>7</preauthExpiry_diners_club>
+    <preauthExpiry_jcb>7</preauthExpiry_jcb>
+    <preauthExpiry_unionpay_credit>7</preauthExpiry_unionpay_credit>
+
+    <!-- Branding - defaults are empty. Logo Files: filenames; Colors: RGB triplets (like "AACC55") -->
+    <brandDisplayLogoHeader></brandDisplayLogoHeader>
+    <brandDisplayLogoIdle></brandDisplayLogoIdle>
+    <brandDisplayLogoSplash></brandDisplayLogoSplash>
+    <brandDisplayStatusBarColour>000000</brandDisplayStatusBarColour>
+    <brandDisplayButtonColour>00BCB4</brandDisplayButtonColour>
+    <brandDisplayButtonTextColour></brandDisplayButtonTextColour>
+    <brandDisplayPrimaryColour>FF591F</brandDisplayPrimaryColour>
+    <brandReceiptLogoHeader></brandReceiptLogoHeader>
+
+    <!-- Linkly Bin Number -->
+    <bin_eftpos>01</bin_eftpos>
+    <bin_mastercard_credit>03</bin_mastercard_credit>
+    <bin_mastercard_debit>29</bin_mastercard_debit>
+    <bin_visa_credit>04</bin_visa_credit>
+    <bin_visa_debit>28</bin_visa_debit>
+    <bin_amex>05</bin_amex>
+    <bin_diners_club>06</bin_diners_club>
+    <bin_jcb>09</bin_jcb>
+    <bin_unionpay_credit>30</bin_unionpay_credit>
+
+</parameter>

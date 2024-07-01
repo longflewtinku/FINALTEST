@@ -1,0 +1,171 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+apply from: "$project.rootDir/jacoco.gradle"
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.google.com'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/'
+    }
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
+        maven {
+            url "https://maven.java.net/content/groups/public/"
+        }
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+    }
+}
+
+
+android {
+    namespace 'com.linkly.libengine'
+    compileSdkVersion compileSdkVer
+
+    // Load version info from version.properties file
+    def versionPropsFile = file("../../version.properties")
+    def verFull
+    def verMajor
+    def verMinor
+    def verRevision
+
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        // Extract version components from version properties file
+        verMajor    = versionProps.getProperty('MAJOR') ?: '0'
+        verMinor    = versionProps.getProperty('MINOR') ?: '00'
+        verRevision = versionProps.getProperty('REVISION') ?: '01'
+        def verBuild = versionProps.getProperty('BUILD') ?: '0001'
+        def verSuffix   = versionProps.getProperty('SUFFIX') ?: ''
+
+        // If not built on the build server, set the suffix to 'SNAPSHOT'
+        def buildServer = System.getenv("BUILD_SERVER")
+        if(buildServer == null) {
+            verSuffix = 'SNAPSHOT'
+            verBuild = '0001'
+        }
+
+        // Assemble the full version string
+        verFull = verMajor + '.' + verMinor + '.' + verRevision + '.' + verBuild
+        if(verSuffix.length() > 0)
+            verFull = verFull + '-' + verSuffix
+    } else {
+        throw new GradleException("Could not read version.properties.")
+    }
+
+    defaultConfig {
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionName = verFull
+        archivesBaseName = project.name + "-$versionName"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        buildConfigField 'boolean', 'BUILD_TYPE_PRODUCTION', buildTypeProduction
+        buildConfigField 'int', 'versionMajor', "${verMajor}"
+        buildConfigField 'int', 'versionMinor', "${verMinor}"
+        buildConfigField 'String', 'versionRevision', "\"${verRevision}\""
+        logger.lifecycle(project.name + ' versionName = ' + versionName)
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"false",
+                        "room.expandProjection":"true"]
+            }
+        }
+    }
+    packagingOptions {
+        resources {
+            pickFirsts += ['META-INF/LICENSE.txt']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // Suppress processing (rooms DB stuff) everything else can be forced.
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:all,-processing" << "-Werror" //TODO: Fix all unchecked/deprecation warnings
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlin.stdlib
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.appcompat
+    implementation libs.preference
+    testImplementation libs.junit
+    testImplementation libs.mockito.inline
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    api libs.sun.android.mail
+    api libs.sun.android.activation
+
+    implementation project(':extlibs:libui')
+    implementation project(':extlibs:libconfig')
+    implementation project(':extlibs:libbins')
+    implementation(libs.linkly.mal) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation project(':extp2pe:libsecapp')
+    implementation project(':extlibs:libpositivesvc')
+    implementation(libs.linkly.logger)
+    implementation(libs.linkly.libpositive)
+
+    implementation libs.ksoap
+    implementation (libs.paxstore, {
+        exclude group:'xpp3',module :'xpp3'
+    })
+    debugImplementation libs.leakcanary.android
+    implementation files('libs/CardEaseXMLClient.jar')
+
+    implementation libs.room.runtime
+    annotationProcessor libs.room.compiler // For Kotlin use kapt instead of annotationProcessor
+
+    // Test helpers
+    testImplementation libs.room.testing
+    implementation libs.gson
+    implementation libs.annotation
+    implementation libs.localbroadcastmanager
+    implementation(libs.stanfy.gson.xml.java) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation libs.bcrypt
+    implementation libs.paging.runtime
+    implementation libs.room.paging
+    // ANNOYING ISSUES HERE. NEED TO MAKE THIS COMPILE ONLY TO MAKE SURE THIS BUILDS. THE APPS THAT WILL BE CALLING THIS WILL BE REQUIRED TO CALL implementation files('libs/NeptuneLiteApi_V3.33.00_20230419.jar')
+    compileOnly files(libs.versions.neptune.get())
+}
+

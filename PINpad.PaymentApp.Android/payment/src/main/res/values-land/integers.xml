@@ -1,0 +1,11 @@
+<resources>
+    <integer name="columns">5</integer>
+    <integer name="question_button_green_start">8</integer>
+    <integer name="question_button_green_top">8</integer>
+    <integer name="question_button_green_end">18</integer>
+    <integer name="question_button_green_bottom">8</integer>
+    <integer name="question_button_red_start">18</integer>
+    <integer name="question_button_red_end">8</integer>
+    <integer name="question_button_red_top">8</integer>
+    <integer name="question_button_red_bottom">8</integer>
+</resources>

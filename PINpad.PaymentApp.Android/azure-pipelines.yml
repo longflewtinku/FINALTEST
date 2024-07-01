@@ -1,0 +1,1248 @@
+# Android
+# Build your Android project with Gradle.
+# Add steps that test, sign, and distribute the APK, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/android
+
+parameters:
+- name: FORCE_RELEASE_BUILD
+  type: boolean
+  default: false
+- name: FORCE_PRODUCTION_BUILD
+  type: boolean
+  default: false
+
+variables:
+  - group: android_keystore_cred
+  - name: BUILD_SERVER
+    value: '1'
+  - name: OUTPUT_FOLDER
+    value: '**/outputs/**'
+  - name: OUTPUT_RES_BASE
+    value: 'extaps/res/build/outputs/apk'
+  - name: LAUNCHER_FOLDER
+    value: 'launcher/$(OUTPUT_FOLDER)'
+  - name: PAYMENT_FOLDER
+    value: 'payment/$(OUTPUT_FOLDER)'
+  - name: P2PE_SET1_FOLDER
+    value: 'extp2pe/$(OUTPUT_FOLDER)/libs_set_1*/'
+  - name: P2PE_SET2_FOLDER
+    value: 'extp2pe/$(OUTPUT_FOLDER)/libs_set_2*/'
+  - name: LIBPOSITIVE_FOLDER
+    value: 'extlibs/libpositive/$(OUTPUT_FOLDER)'
+  - name: LIVEGROUP_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/livegroup/**'
+  - name: WOOLWORTHS_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/woolworths/**'
+  - name: VIRGIN_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/virgin/**'
+  - name: NETCABS_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/netcabs/**'
+  - name: TILL_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/till/**'
+  - name: DEMO_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/demo/**'
+  - name: TTFUEL_RES_FOLDER
+    value: '$(OUTPUT_RES_BASE)/ttfuel/**'
+  - name: CONFIG_FOLDER
+    value: 'devtools/configs'
+  - name: PA_XML_TEMPLATE
+    value: '$(CONFIG_FOLDER)/LinklyPA_template.xml'
+  - name: LIVEGROUP_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/livegroup/initialparams.xml'
+  - name: LIVEGROUP_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/livegroup/overrideparams.xml'
+  - name: LIVEGROUP_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/livegroup/hotloadparams.xml'
+  - name: LIVEGROUP_README
+    value: '$(CONFIG_FOLDER)/livegroup/readme.md'
+  - name: WOOLWORTHS_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/woolworths/initialparams.xml'
+  - name: WOOLWORTHS_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/woolworths/overrideparams.xml'
+  - name: WOOLWORTHS_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/woolworths/hotloadparams.xml'
+  - name: WOOLWORTHS_KEYSETS
+    value: '$(CONFIG_FOLDER)/woolworths/keysets.json'
+  - name: WOOLWORTHS_PKT
+    value: '$(CONFIG_FOLDER)/woolworths/100140.pkt'
+  - name: WOOLWORTHS_EPAT_100004
+    value: '$(CONFIG_FOLDER)/woolworths/epat_100004.xml'
+  - name: WOOLWORTHS_CPAT_WP10_32011_APCA
+    value: '$(CONFIG_FOLDER)/woolworths/CPAT_WP10_32011_APCA.txt'
+  - name: WOOLWORTHS_CARDS
+    value: '$(CONFIG_FOLDER)/woolworths/CARDS.XML'
+  - name: WOOLWORTHS_CFG_CTLS_EMV
+    value: '$(CONFIG_FOLDER)/woolworths/cfg_ctls_emv.json'
+  - name: WOOLWORTHS_CFG_EMV
+    value: '$(CONFIG_FOLDER)/woolworths/cfg_emv.json'
+  - name: WOOLWORTHS_CFG_CONNECT
+    value: '$(CONFIG_FOLDER)/woolworths/cfg_connect.xml'
+  - name: VIRGIN_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/virgin/initialparams.xml'
+  - name: VIRGIN_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/virgin/overrideparams.xml'
+  - name: VIRGIN_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/virgin/hotloadparams.xml'
+  - name: VIRGIN_README
+    value: '$(CONFIG_FOLDER)/virgin/readme.md'
+  - name: NETCABS_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/netcabs/initialparams.xml'
+  - name: NETCABS_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/netcabs/overrideparams.xml'
+  - name: NETCABS_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/netcabs/hotloadparams.xml'
+  - name: NETCABS_README
+    value: '$(CONFIG_FOLDER)/netcabs/readme.md'
+  - name: TILL_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/till/initialparams.xml'
+  - name: TILL_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/till/overrideparams.xml'
+  - name: TILL_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/till/hotloadparams.xml'
+  - name: TILL_README
+    value: '$(CONFIG_FOLDER)/till/readme.md'
+  - name: DEMO_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/demo/initialparams.xml'
+  - name: DEMO_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/demo/overrideparams.xml'
+  - name: DEMO_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/demo/hotloadparams.xml'
+  - name: DEMO_README
+    value: '$(CONFIG_FOLDER)/demo/readme.md'
+  - name: TTFUEL_XML_INITIAL
+    value: '$(CONFIG_FOLDER)/ttfuel/initialparams.xml'
+  - name: TTFUEL_XML_OVERRIDE
+    value: '$(CONFIG_FOLDER)/ttfuel/overrideparams.xml'
+  - name: TTFUEL_XML_HOTLOAD
+    value: '$(CONFIG_FOLDER)/ttfuel/hotloadparams.xml'
+  - name: TTFUEL_README
+    value: '$(CONFIG_FOLDER)/ttfuel/readme.md'
+  - name: PAXSTORE_TEMPLATE_CONNECT
+    value: 'connect/src/paxstore_template/connect_template.xml'
+  - name: POSTMAN_FILE
+    value: 'connect/LinklyLocalRestAPI.postman_collection.json'
+  - name: KEY_INJECTION_FOLDER
+    value: 'keyinjection/$(OUTPUT_FOLDER)'
+  - name: LIVEGROUP_CARDPRODUCT_FILE
+    value: '$(CONFIG_FOLDER)/livegroup/cardproduct.json'
+  - name: LIVEGROUP_CONFIG_EMV_FILE
+    value: '$(CONFIG_FOLDER)/livegroup/cfg_emv.json'
+  - name: LIVEGROUP_CONFIG_CTLS_FILE
+    value: '$(CONFIG_FOLDER)/livegroup/cfg_ctls_emv.json'
+  - name: LIVEGROUP_CONFIG_CONNECT_FILE
+    value: '$(CONFIG_FOLDER)/livegroup/cfg_connect.xml'
+  - name: LIVEGROUP_SSL_CERTIFICATE_FILE
+    value: '$(CONFIG_FOLDER)/livegroup/stca.crt'
+  - name: VIRGIN_CARDPRODUCT_FILE
+    value: '$(CONFIG_FOLDER)/virgin/cardproduct.json'
+  - name: VIRGIN_CONFIG_EMV_FILE
+    value: '$(CONFIG_FOLDER)/virgin/cfg_emv.json'
+  - name: VIRGIN_CONFIG_CTLS_FILE
+    value: '$(CONFIG_FOLDER)/virgin/cfg_ctls_emv.json'
+  - name: VIRGIN_CONFIG_CONNECT_FILE
+    value: '$(CONFIG_FOLDER)/virgin/cfg_connect.xml'
+  - name: VIRGIN_BLACKLIST_FILE
+    value: '$(CONFIG_FOLDER)/virgin/blacklist.json'
+  - name: VIRGIN_SSL_CERTIFICATE_FILE
+    value: '$(CONFIG_FOLDER)/virgin/stca.crt'
+  - name: NETCABS_CARDPRODUCT_FILE
+    value: '$(CONFIG_FOLDER)/netcabs/cardproduct.json'
+  - name: NETCABS_CONFIG_EMV_FILE
+    value: '$(CONFIG_FOLDER)/netcabs/cfg_emv.json'
+  - name: NETCABS_CONFIG_CTLS_FILE
+    value: '$(CONFIG_FOLDER)/netcabs/cfg_ctls_emv.json'
+  - name: NETCABS_CONFIG_CONNECT_FILE
+    value: '$(CONFIG_FOLDER)/netcabs/cfg_connect.xml'
+  - name: NETCABS_BLACKLIST_FILE
+    value: '$(CONFIG_FOLDER)/netcabs/blacklist.json'
+  - name: NETCABS_SSL_CERTIFICATE_FILE
+    value: '$(CONFIG_FOLDER)/netcabs/stca.crt'
+  - name: TILL_CARDPRODUCT_FILE
+    value: '$(CONFIG_FOLDER)/till/cardproduct.json'
+  - name: TILL_CONFIG_EMV_FILE
+    value: '$(CONFIG_FOLDER)/till/cfg_emv.json'
+  - name: TILL_CONFIG_CTLS_FILE
+    value: '$(CONFIG_FOLDER)/till/cfg_ctls_emv.json'
+  - name: TILL_CONFIG_CONNECT_FILE
+    value: '$(CONFIG_FOLDER)/till/cfg_connect.xml'
+  - name: TILL_BLACKLIST_FILE
+    value: '$(CONFIG_FOLDER)/till/blacklist.json'
+  - name: TILL_SSL_CERTIFICATE_FILE
+    value: '$(CONFIG_FOLDER)/till/stca.crt'
+  - name: TILL_KEYSETS
+    value: '$(CONFIG_FOLDER)/till/keysets.json'
+  - name: DEMO_CARDPRODUCT_FILE
+    value: '$(CONFIG_FOLDER)/demo/cardproduct.json'
+  - name: DEMO_CONFIG_EMV_FILE
+    value: '$(CONFIG_FOLDER)/demo/cfg_emv.json'
+  - name: DEMO_CONFIG_CTLS_FILE
+    value: '$(CONFIG_FOLDER)/demo/cfg_ctls_emv.json'
+  - name: DEMO_CONFIG_CONNECT_FILE
+    value: '$(CONFIG_FOLDER)/demo/cfg_connect.xml'
+  - name: TTFUEL_CARDPRODUCT_FILE
+    value: '$(CONFIG_FOLDER)/ttfuel/cardproduct.json'
+  - name: TTFUEL_CONFIG_EMV_FILE
+    value: '$(CONFIG_FOLDER)/ttfuel/cfg_emv.json'
+  - name: TTFUEL_CONFIG_CTLS_FILE
+    value: '$(CONFIG_FOLDER)/ttfuel/cfg_ctls_emv.json'
+  - name: TTFUEL_CONFIG_CONNECT_FILE
+    value: '$(CONFIG_FOLDER)/ttfuel/cfg_connect.xml'
+  - name: TTFUEL_SSL_CERTIFICATE_FILE
+    value: '$(CONFIG_FOLDER)/ttfuel/stca.crt'
+  - name: PAYMENT_ASSET_FOLDER
+    value: 'payment/main/assets'
+  - name: PA_XSD_INITIAL
+    value: '$(PAYMENT_ASSET_FOLDER)/initialparams.xsd'
+  - name: PA_XSD_OVERRIDE
+    value: '$(PAYMENT_ASSET_FOLDER)/overrideparams.xsd'
+  - name: System.Debug
+    value: false
+  - name: VM_POOL
+    value: 'default'
+  - name: JVM_HEAP_MEMORY
+    value: '-Xmx5120m'
+
+  ## All production variables
+  - name: HOST_TYPE
+    value: prod
+  - name: BUILD_TYPE_PRODUCTION
+    value: 'true'
+  - name: SLAVE_ANSWER
+    value: '2'
+  - name: SLAVE_SEED
+    value: 'Zva8WTdvEi73uNsKiJ2SEBbuGgEuq76u'
+  - name: CLOUD_CERT_NAME
+    value: 'pceftpos-root-ca-v1.pem'
+  - name: CLOUD_IP_ADDRESS
+    value: 'pp.cloud.pceftpos.com'
+  - name: PROD_RKI_URL
+    value: 'rki.paxengine.com'
+  - name: PROD_RKI_PORT
+    value: '35419'
+  # (branch_linkly || tags)
+  - name: RELEASE_BUILD
+    value: $[or(startsWith(variables['Build.SourceBranch'], 'refs/tags/v'),eq(variables['Build.SourceBranch'], 'refs/heads/linkly'))]
+  # (branch_master || tag)
+  - name: PRODUCTION_BUILD
+    value: $[or(startsWith(variables['Build.SourceBranch'], 'refs/tags/v'),eq(variables['Build.SourceBranch'], 'refs/heads/master'))]
+
+trigger:
+  tags:
+    include:
+    - 'refs/tags/*'
+  branches:
+    include:
+    - linkly
+    - master
+
+pr:
+  - linkly
+  - master
+
+pool: $(VM_POOL)
+
+jobs:
+- job: ExternalApplications
+  pool: $(VM_POOL)
+  steps:
+  - script: echo Obtaining externals
+
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: 'echo ANDROID_HOME=''$ANDROID_HOME'''
+
+  - task: DownloadPipelineArtifact@2
+    inputs:
+      buildType: 'specific'
+      project: '9a9315b8-abe6-4d25-9543-a320546011ef'
+      definition: '253'
+      buildVersionToDownload: 'latestFromBranch'
+      branchName: 'refs/heads/linkly'
+      targetPath: '$(System.DefaultWorkingDirectory)'
+      
+  - task: CopyFiles@2
+    displayName: Merge OutOfBox Package debug
+    name: create_outofbox_package_debug
+    inputs:
+      Contents: |
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(System.DefaultWorkingDirectory)/drop/Debug/*.apk
+        $(System.DefaultWorkingDirectory)/drop/Debug/*.bat
+      TargetFolder: '$(Build.artifactStagingDirectory)/OutOfBox/Debug'
+      CleanTargetFolder: false
+      flattenFolders: true
+      
+  - task: CopyFiles@2
+    displayName: Merge OutOfBox Package Release
+    name: create_outofbox_package_release
+    inputs:
+      Contents: |
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(System.DefaultWorkingDirectory)/drop/Release/*.apk
+        $(System.DefaultWorkingDirectory)/drop/Release/*.bat
+      TargetFolder: '$(Build.artifactStagingDirectory)/OutOfBox/Release'
+      flattenFolders: true
+           
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)/drop'
+      Contents: 'drop'
+      RemoveSourceFolder: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish build artifacts
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+
+
+
+- job: Debug
+  pool: $(VM_POOL)
+  steps:
+  - checkout: self
+    submodules: true
+    persistCredentials: true
+
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: 'echo ANDROID_HOME=''$ANDROID_HOME'''
+  
+  - task: Gradle@2
+    displayName: Gradle - Code Coverage Analysis
+    name: gradle_coverAllVariants
+    inputs:
+      gradleWrapperFile: 'gradlew'
+      tasks: 'coverAllVariants'
+      javaHomeOption: 'JDKVersion'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+
+  - task: Gradle@3
+    inputs:
+      gradleWrapperFile: 'gradlew'
+      tasks: 'build'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      sonarQubeRunAnalysis: true
+      sqGradlePluginVersionChoice: 'build'
+
+  - task: Gradle@2
+    displayName: Gradle - Generate Code Coverage Files
+    name: gradle_allDebugCoverage
+    inputs:
+      gradleWrapperFile: 'gradlew'
+      tasks: 'allDebugCoverage'
+      javaHomeOption: 'JDKVersion'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud - Linkly'
+      organization: 'linkly'
+      scannerMode: 'Other'
+      extraProperties: |
+        # Additional properties that will be passed to the scanner, 
+        # Put one key=value per line, example:
+        # sonar.exclusions=**/*.bin
+        sonar.coverage.jacoco.xmlReportPaths=$(System.DefaultWorkingDirectory)/build/reports/jacoco/allDebugCoverage/allDebugCoverage.xml
+  - task: Bash@3
+    displayName: Update Versions
+    name: bash_update_all_versions
+    inputs:
+      filePath: build_scripts/update_all_versions.sh
+      arguments: 0
+    env:
+      BUILD_SERVER: $(BUILD_SERVER)
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        pip install jproperties |
+        pip install gitpython
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: 'JaCoCo'
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/allDebugCoverage/allDebugCoverage.xml'
+      reportDirectory: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/allDebugCoverage/html'
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'filePath'
+      scriptPath: 'build_scripts/GetVersion.py'
+      arguments: 'D'
+      workingDirectory: 'build_scripts'
+      failOnStderr: true
+  - task: Gradle@2
+    displayName: Gradle - Update versions (Debug)
+    name: gradle_updateVersionDebug
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: '-Xmx5120m'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'updateVersion -PbuildType=D'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: Gradle@2
+    displayName: Gradle - Build (Debug)
+    name: gradle_assembleDebug
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: $(JVM_HEAP_MEMORY)
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'assembleDebug -PbuildType=D'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: Gradle@2
+    displayName: Gradle - Run Unit Tests (Debug)
+    name: gradle_test_debug_unit_test
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: $(JVM_HEAP_MEMORY)
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'testDebugUnitTest'
+      sonarQubeRunAnalysis: true
+      sqGradlePluginVersionChoice: 'specify'
+      sonarQubeGradlePluginVersion: '3.3'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: SonarCloudPublish@1
+    displayName: Publish Sonar Cloud Results
+    inputs:
+      pollingTimeoutSec: '300'
+  - task: AndroidSigning@3
+    inputs:
+      apkFiles: '**/$(OUTPUT_FOLDER)/**/*.apk'
+      apksignerKeystoreFile: '$(keystoreFile)'
+      apksignerKeystorePassword: '$(keystorePassword)'
+      apksignerKeystoreAlias: '$(keystoreAlias)'
+      apksignerKeyPassword: '$(keyPassword)'
+      zipalign: false
+  
+
+  # add more customers by copying the last two copies & replacing the customer names
+  # add release notes copy here once we have jira -> devops integration
+  - task: CopyFiles@2
+    displayName: Create Live Group Debug Package
+    name: generate_livegroup_debug_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/debug/*.apk
+        $(P2PE_SET1_FOLDER)/debug/*.apk
+        $(LIVEGROUP_RES_FOLDER)/debug/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(LIVEGROUP_XML_INITIAL)
+        $(LIVEGROUP_XML_OVERRIDE)
+        $(LIVEGROUP_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(LIVEGROUP_CONFIG_EMV_FILE)
+        $(LIVEGROUP_CONFIG_CTLS_FILE)
+        $(LIVEGROUP_CONFIG_CONNECT_FILE)
+        $(LIVEGROUP_CARDPRODUCT_FILE)
+        $(LIVEGROUP_SSL_CERTIFICATE_FILE)
+        $(LIVEGROUP_README)
+        $(KEY_INJECTION_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/LiveGroup/Debug'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Woolworths Debug Package
+    name: generate_woolworths_debug_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/debug/*.apk
+        $(P2PE_SET1_FOLDER)/debug/*.apk
+        $(WOOLWORTHS_RES_FOLDER)/debug/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(PA_XML_TEMPLATE)
+        $(WOOLWORTHS_XML_INITIAL)
+        $(WOOLWORTHS_XML_OVERRIDE)
+        $(WOOLWORTHS_XML_HOTLOAD)
+        $(WOOLWORTHS_KEYSETS)
+        $(WOOLWORTHS_PKT)
+        $(WOOLWORTHS_EPAT_100004)
+        $(WOOLWORTHS_CPAT_WP10_32011_APCA)
+        $(WOOLWORTHS_CARDS)
+        $(WOOLWORTHS_CFG_CTLS_EMV)
+        $(WOOLWORTHS_CFG_EMV)
+        $(WOOLWORTHS_CFG_CONNECT)
+        $(KEY_INJECTION_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Woolworths/Debug'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Virgin Debug Package
+    name: generate_virgin_debug_package
+    inputs:
+        contents: |
+          $(LAUNCHER_FOLDER)/debug/*.apk
+          $(PAYMENT_FOLDER)/debug/*.apk
+          $(P2PE_SET1_FOLDER)/debug/*.apk
+          $(VIRGIN_RES_FOLDER)/debug/*.apk
+          devtools/cable_load_files/Install All Apps.bat
+          devtools/cable_load_files/Install Config.bat
+          devtools/cable_load_files/Uninstall_all.bat
+          devtools/adb.exe
+          devtools/*.dll
+          devtools/capture_log.bat
+          $(VIRGIN_XML_INITIAL)
+          $(VIRGIN_XML_OVERRIDE)
+          $(VIRGIN_XML_HOTLOAD)
+          $(PA_XML_TEMPLATE)
+          $(VIRGIN_CONFIG_EMV_FILE)
+          $(VIRGIN_CONFIG_CTLS_FILE)
+          $(VIRGIN_CONFIG_CONNECT_FILE)
+          $(VIRGIN_CARDPRODUCT_FILE)
+          $(VIRGIN_BLACKLIST_FILE)
+          $(VIRGIN_SSL_CERTIFICATE_FILE)
+          $(VIRGIN_README)
+          $(KEY_INJECTION_FOLDER)/debug/*.apk
+        targetFolder: '$(build.artifactStagingDirectory)/Virgin/Debug'
+        flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Netcabs Debug Package
+    name: generate_netcabs_debug_package
+    inputs:
+        contents: |
+          $(LAUNCHER_FOLDER)/debug/*.apk
+          $(PAYMENT_FOLDER)/debug/*.apk
+          $(P2PE_SET1_FOLDER)/debug/*.apk
+          $(NETCABS_RES_FOLDER)/debug/*.apk
+          devtools/cable_load_files/Install All Apps.bat
+          devtools/cable_load_files/Install Config.bat
+          devtools/cable_load_files/Uninstall_all.bat
+          devtools/adb.exe
+          devtools/*.dll
+          devtools/capture_log.bat
+          $(NETCABS_XML_INITIAL)
+          $(NETCABS_XML_OVERRIDE)
+          $(NETCABS_XML_HOTLOAD)
+          $(PA_XML_TEMPLATE)
+          $(NETCABS_CONFIG_EMV_FILE)
+          $(NETCABS_CONFIG_CTLS_FILE)
+          $(NETCABS_CONFIG_CONNECT_FILE)
+          $(NETCABS_CARDPRODUCT_FILE)
+          $(NETCABS_BLACKLIST_FILE)
+          $(NETCABS_SSL_CERTIFICATE_FILE)
+          $(NETCABS_README)
+          $(KEY_INJECTION_FOLDER)/debug/*.apk
+        targetFolder: '$(build.artifactStagingDirectory)/Netcabs/Debug'
+        flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Till Debug Package
+    name: generate_till_debug_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/debug/*.apk
+        $(P2PE_SET1_FOLDER)/debug/*.apk
+        $(TILL_RES_FOLDER)/debug/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(TILL_XML_INITIAL)
+        $(TILL_XML_OVERRIDE)
+        $(TILL_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(TILL_CONFIG_EMV_FILE)
+        $(TILL_CONFIG_CTLS_FILE)
+        $(TILL_CONFIG_CONNECT_FILE)
+        $(TILL_CARDPRODUCT_FILE)
+        $(TILL_SSL_CERTIFICATE_FILE)
+        $(TILL_KEYSETS)
+        $(TILL_README)
+        $(KEY_INJECTION_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Till/Debug'
+      flattenFolders: true
+  - task: CopyFiles@2
+    displayName: Create Demo Debug Package
+    name: generate_demo_debug_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/debug/*.apk
+        $(P2PE_SET1_FOLDER)/debug/*.apk
+        $(DEMO_RES_FOLDER)/debug/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(DEMO_XML_INITIAL)
+        $(DEMO_XML_OVERRIDE)
+        $(DEMO_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(DEMO_CONFIG_EMV_FILE)
+        $(DEMO_CONFIG_CTLS_FILE)
+        $(DEMO_CONFIG_CONNECT_FILE)
+        $(DEMO_CARDPRODUCT_FILE)
+        $(DEMO_README)
+        $(KEY_INJECTION_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Demo/Debug'
+      flattenFolders: true
+  - task: CopyFiles@2
+    displayName: Create TTFuel Debug Package
+    name: generate_ttfuel_debug_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/debug/*.apk
+        $(P2PE_SET1_FOLDER)/debug/*.apk
+        $(TTFUEL_RES_FOLDER)/debug/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        devtools/capture_log.bat
+        $(TTFUEL_XML_INITIAL)
+        $(TTFUEL_XML_OVERRIDE)
+        $(TTFUEL_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(TTFUEL_CONFIG_EMV_FILE)
+        $(TTFUEL_CONFIG_CTLS_FILE)
+        $(TTFUEL_CONFIG_CONNECT_FILE)
+        $(TTFUEL_CARDPRODUCT_FILE)
+        $(TTFUEL_SSL_CERTIFICATE_FILE)
+        $(TTFUEL_README)
+        $(KEY_INJECTION_FOLDER)/debug/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/TTFuel/Debug'
+      flattenFolders: true
+    
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Build Artifacts
+    name: publish_artifacts
+  
+- job: Release
+  pool: $(VM_POOL)
+  condition: or( eq('${{parameters.FORCE_RELEASE_BUILD}}',true), eq(variables.RELEASE_BUILD,true) )
+  steps:
+  - checkout: self
+    submodules: true
+    persistCredentials: true
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud - Linkly'
+      organization: 'linkly'
+      scannerMode: 'Other'
+  - task: Bash@3
+    displayName: Update Versions
+    name: bash_update_all_versions
+    inputs:
+      filePath: build_scripts/update_all_versions.sh
+      arguments: 0
+    env:
+      BUILD_SERVER: $(BUILD_SERVER)
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        pip install jproperties |
+        pip install gitpython
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'filePath'
+      scriptPath: 'build_scripts/GetVersion.py'
+      arguments: 'R'
+      workingDirectory: 'build_scripts'
+      failOnStderr: true
+  - task: Gradle@2
+    displayName: Gradle - Update versions (Release)
+    name: gradle_updateVersionRelease
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: '-Xmx5120m'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'updateVersion -PbuildType=R'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: Gradle@2
+    displayName: Gradle - Build (Release)
+    name: gradle_assembleRelease
+    condition: succeeded()
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: $(JVM_HEAP_MEMORY)
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'assembleRelease -PbuildType=R'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: Gradle@2
+    displayName: Gradle - Run Unit Tests (Release)
+    name: gradle_test_release_unit_test
+    condition: succeeded()
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: $(JVM_HEAP_MEMORY)
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'testReleaseUnitTest'
+      sonarQubeRunAnalysis: true
+      sqGradlePluginVersionChoice: 'specify'
+      sonarQubeGradlePluginVersion: '3.3'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: SonarCloudPublish@1
+    displayName: Publish Sonar Cloud Results
+    inputs:
+      pollingTimeoutSec: '300'
+  - task: AndroidSigning@3
+    inputs:
+      apkFiles: '**/$(OUTPUT_FOLDER)/**/*.apk'
+      apksignerKeystoreFile: '$(keystoreFile)'
+      apksignerKeystorePassword: '$(keystorePassword)'
+      apksignerKeystoreAlias: '$(keystoreAlias)'
+      apksignerKeyPassword: '$(keyPassword)'
+      zipalign: false
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'filePath'
+      scriptPath: 'build_scripts/GetMapFiles.py'
+      workingDirectory: 'build_scripts'
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: 'build_scripts/MapFiles'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: 'build_scripts/MapFiles.zip'
+      replaceExistingArchive: true
+      verbose: true
+  - task: CopyFiles@2
+    displayName: Copy Release Mapping files
+    name: copy_release_mapping_files
+    inputs:
+      contents: |
+        build_scripts/MapFiles.zip
+      targetFolder: '$(build.artifactStagingDirectory)/MapFiles/Release'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Live Group Release Package
+    name: generate_livegroup_release_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(LIVEGROUP_RES_FOLDER)/release/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        $(LIVEGROUP_XML_INITIAL)
+        $(LIVEGROUP_XML_OVERRIDE)
+        $(LIVEGROUP_XML_HOTLOAD)
+        $(POSTMAN_FILE)
+        $(PA_XML_TEMPLATE)
+        $(LIVEGROUP_CONFIG_EMV_FILE)
+        $(LIVEGROUP_CONFIG_CTLS_FILE)
+        $(LIVEGROUP_CONFIG_CONNECT_FILE)
+        $(LIVEGROUP_CARDPRODUCT_FILE)
+        $(LIVEGROUP_SSL_CERTIFICATE_FILE)
+        $(LIVEGROUP_README)
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/LiveGroup/Release'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Woolworths Release Package
+    name: generate_woolworths_release_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(WOOLWORTHS_RES_FOLDER)/release/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        $(POSTMAN_FILE)
+        $(PA_XML_TEMPLATE)
+        $(WOOLWORTHS_XML_INITIAL)
+        $(WOOLWORTHS_XML_OVERRIDE)
+        $(WOOLWORTHS_XML_HOTLOAD)
+        $(WOOLWORTHS_KEYSETS)
+        $(WOOLWORTHS_PKT)
+        $(WOOLWORTHS_EPAT_100004)
+        $(WOOLWORTHS_CPAT_WP10_32011_APCA)
+        $(WOOLWORTHS_CARDS)
+        $(WOOLWORTHS_CFG_CTLS_EMV)
+        $(WOOLWORTHS_CFG_EMV)
+        $(WOOLWORTHS_CFG_CONNECT)
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Woolworths/Release'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Virgin Release Package
+    name: generate_virgin_release_package
+    inputs:
+        contents: |
+          $(LAUNCHER_FOLDER)/release/*.apk
+          $(PAYMENT_FOLDER)/release/*.apk
+          $(P2PE_SET1_FOLDER)/release/*.apk
+          $(VIRGIN_RES_FOLDER)/release/*.apk
+          devtools/cable_load_files/Install All Apps.bat
+          devtools/cable_load_files/Install Config.bat
+          devtools/cable_load_files/Uninstall_all.bat
+          devtools/adb.exe
+          devtools/*.dll
+          devtools/capture_log.bat
+          $(VIRGIN_XML_INITIAL)
+          $(VIRGIN_XML_OVERRIDE)
+          $(VIRGIN_XML_HOTLOAD)
+          $(PA_XML_TEMPLATE)
+          $(VIRGIN_CONFIG_EMV_FILE)
+          $(VIRGIN_CONFIG_CTLS_FILE)
+          $(VIRGIN_CONFIG_CONNECT_FILE)
+          $(VIRGIN_SSL_CERTIFICATE_FILE)
+          $(VIRGIN_CARDPRODUCT_FILE)
+          $(VIRGIN_BLACKLIST_FILE)
+          $(VIRGIN_README)
+          $(KEY_INJECTION_FOLDER)/release/*.apk
+        targetFolder: '$(build.artifactStagingDirectory)/Virgin/Release'
+        flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Netcabs Release Package
+    name: generate_netcabs_release_package
+    inputs:
+        contents: |
+          $(LAUNCHER_FOLDER)/release/*.apk
+          $(PAYMENT_FOLDER)/release/*.apk
+          $(P2PE_SET1_FOLDER)/release/*.apk
+          $(NETCABS_RES_FOLDER)/release/*.apk
+          devtools/cable_load_files/Install All Apps.bat
+          devtools/cable_load_files/Install Config.bat
+          devtools/cable_load_files/Uninstall_all.bat
+          devtools/adb.exe
+          devtools/*.dll
+          devtools/capture_log.bat
+          $(NETCABS_XML_INITIAL)
+          $(NETCABS_XML_OVERRIDE)
+          $(NETCABS_XML_HOTLOAD)
+          $(PA_XML_TEMPLATE)
+          $(NETCABS_CONFIG_EMV_FILE)
+          $(NETCABS_CONFIG_CTLS_FILE)
+          $(NETCABS_CONFIG_CONNECT_FILE)
+          $(NETCABS_SSL_CERTIFICATE_FILE)
+          $(NETCABS_CARDPRODUCT_FILE)
+          $(NETCABS_BLACKLIST_FILE)
+          $(NETCABS_README)
+          $(KEY_INJECTION_FOLDER)/release/*.apk
+        targetFolder: '$(build.artifactStagingDirectory)/Netcabs/Release'
+        flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Till Release Package
+    name: generate_till_release_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(TILL_RES_FOLDER)/release/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        $(TILL_XML_INITIAL)
+        $(TILL_XML_OVERRIDE)
+        $(TILL_XML_HOTLOAD)
+        $(POSTMAN_FILE)
+        $(PA_XML_TEMPLATE)
+        $(TILL_CONFIG_EMV_FILE)
+        $(TILL_CONFIG_CTLS_FILE)
+        $(TILL_CONFIG_CONNECT_FILE)
+        $(TILL_CARDPRODUCT_FILE)
+        $(TILL_SSL_CERTIFICATE_FILE)
+        $(TILL_KEYSETS)
+        $(TILL_README)
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Till/Release'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Demo Release Package
+    name: generate_demo_release_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(DEMO_RES_FOLDER)/release/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        $(DEMO_XML_INITIAL)
+        $(DEMO_XML_OVERRIDE)
+        $(DEMO_XML_HOTLOAD)
+        $(POSTMAN_FILE)
+        $(PA_XML_TEMPLATE)
+        $(DEMO_CONFIG_EMV_FILE)
+        $(DEMO_CONFIG_CTLS_FILE)
+        $(DEMO_CONFIG_CONNECT_FILE)
+        $(DEMO_CARDPRODUCT_FILE)
+        $(DEMO_README)
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Demo/Release'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create TTFuel Release Package
+    name: generate_ttfuel_release_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(TTFUEL_RES_FOLDER)/release/*.apk
+        devtools/cable_load_files/Install All Apps.bat
+        devtools/cable_load_files/Install Config.bat
+        devtools/cable_load_files/Uninstall_all.bat
+        devtools/adb.exe
+        devtools/*.dll
+        $(TTFUEL_XML_INITIAL)
+        $(TTFUEL_XML_OVERRIDE)
+        $(TTFUEL_XML_HOTLOAD)
+        $(POSTMAN_FILE)
+        $(PA_XML_TEMPLATE)
+        $(TTFUEL_CONFIG_EMV_FILE)
+        $(TTFUEL_CONFIG_CTLS_FILE)
+        $(TTFUEL_CONFIG_CONNECT_FILE)
+        $(TTFUEL_CARDPRODUCT_FILE)
+        $(TTFUEL_SSL_CERTIFICATE_FILE)
+        $(TTFUEL_README)
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/TTFuel/Release'
+      flattenFolders: true
+
+    # add more customers by copying the last two copies & replacing the customer names
+  # add release notes copy here once we have jira -> devops integration
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Build Artifacts
+    name: publish_artifacts
+- job: Production
+  pool: $(VM_POOL)
+  condition: or(eq('${{parameters.FORCE_PRODUCTION_BUILD}}',true), eq(variables.PRODUCTION_BUILD,true))
+  steps:
+  - checkout: self
+    submodules: true
+    persistCredentials: true
+  - task: Bash@3
+    displayName: Update Versions
+    name: bash_update_all_versions
+    inputs:
+      filePath: build_scripts/update_all_versions.sh
+      arguments: 0
+    env:
+      BUILD_SERVER: $(BUILD_SERVER)
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        pip install jproperties |
+        pip install gitpython
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'filePath'
+      scriptPath: 'build_scripts/GetVersion.py'
+      arguments: 'P'
+      workingDirectory: 'build_scripts'
+      failOnStderr: true
+  - task: Gradle@2
+    displayName: Gradle - Update versions (Production)
+    name: gradle_updateVersionProduction
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: '-Xmx5120m'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'updateVersion -PbuildType=P'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: Gradle@2
+    displayName: Gradle - Build (Release)
+    name: gradle_assembleRelease
+    condition: succeeded()
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      gradleOptions: $(JVM_HEAP_MEMORY)
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      options: '-PhostType="\"$(HOST_TYPE)\"" -PslaveSeed="\"$(SLAVE_SEED)\"" -PslaveAnswer="\"$(SLAVE_ANSWER)\"" -PcloudCertName="\"$(CLOUD_CERT_NAME)\"" -PcloudIPAddress="\"$(CLOUD_IP_ADDRESS)\"" -PrkiHost="\"$(PROD_RKI_URL)\"" -PrkiPort="\"$(PROD_RKI_PORT)\"" -PbuildTypeProduction="$(BUILD_TYPE_PRODUCTION)'
+      tasks: 'assembleRelease -PbuildType=P'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: AndroidSigning@3
+    inputs:
+      apkFiles: '**/$(OUTPUT_FOLDER)/**/*.apk'
+      apksignerKeystoreFile: '$(keystoreFile)'
+      apksignerKeystorePassword: '$(keystorePassword)'
+      apksignerKeystoreAlias: '$(keystoreAlias)'
+      apksignerKeyPassword: '$(keyPassword)'
+      zipalign: false
+
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'filePath'
+      scriptPath: 'build_scripts/GetMapFiles.py'
+      workingDirectory: 'build_scripts'
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: 'build_scripts/MapFiles'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: 'build_scripts/MapFiles.zip'
+      replaceExistingArchive: true
+      verbose: true
+  - task: CopyFiles@2
+    displayName: Copy Production Mapping files
+    name: copy_production_mapping_files
+    inputs:
+      contents: |
+        build_scripts/MapFiles.zip
+      targetFolder: '$(build.artifactStagingDirectory)/MapFiles/Production'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Live Group Production Package
+    name: generate_livegroup_production_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(LIVEGROUP_RES_FOLDER)/release/*.apk
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(LIVEGROUP_XML_INITIAL)
+        $(LIVEGROUP_XML_OVERRIDE)
+        $(LIVEGROUP_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(LIVEGROUP_CONFIG_EMV_FILE)
+        $(LIVEGROUP_CONFIG_CTLS_FILE)
+        $(LIVEGROUP_CONFIG_CONNECT_FILE)
+        $(LIVEGROUP_SSL_CERTIFICATE_FILE)
+        $(LIVEGROUP_CARDPRODUCT_FILE)
+        $(LIVEGROUP_README)
+      targetFolder: '$(build.artifactStagingDirectory)/LiveGroup/Production'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Virgin Production Package
+    name: generate_virgin_production_package
+    inputs:
+        contents: |
+          $(LAUNCHER_FOLDER)/release/*.apk
+          $(PAYMENT_FOLDER)/release/*.apk
+          $(P2PE_SET1_FOLDER)/release/*.apk
+          $(VIRGIN_RES_FOLDER)/release/*.apk
+          $(KEY_INJECTION_FOLDER)/release/*.apk
+          $(VIRGIN_XML_INITIAL)
+          $(VIRGIN_XML_OVERRIDE)
+          $(VIRGIN_XML_HOTLOAD)
+          $(PA_XML_TEMPLATE)
+          $(VIRGIN_CONFIG_EMV_FILE)
+          $(VIRGIN_CONFIG_CTLS_FILE)
+          $(VIRGIN_CONFIG_CONNECT_FILE)
+          $(VIRGIN_SSL_CERTIFICATE_FILE)
+          $(VIRGIN_CARDPRODUCT_FILE)
+          $(VIRGIN_README)
+        targetFolder: '$(build.artifactStagingDirectory)/Virgin/Production'
+        flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Netcabs Production Package
+    name: generate_netcabs_production_package
+    inputs:
+        contents: |
+          $(LAUNCHER_FOLDER)/release/*.apk
+          $(PAYMENT_FOLDER)/release/*.apk
+          $(P2PE_SET1_FOLDER)/release/*.apk
+          $(NETCABS_RES_FOLDER)/release/*.apk
+          $(KEY_INJECTION_FOLDER)/release/*.apk
+          $(NETCABS_XML_INITIAL)
+          $(NETCABS_XML_OVERRIDE)
+          $(NETCABS_XML_HOTLOAD)
+          $(PA_XML_TEMPLATE)
+          $(NETCABS_CONFIG_EMV_FILE)
+          $(NETCABS_CONFIG_CTLS_FILE)
+          $(NETCABS_CONFIG_CONNECT_FILE)
+          $(NETCABS_SSL_CERTIFICATE_FILE)
+          $(NETCABS_CARDPRODUCT_FILE)
+          $(NETCABS_README)
+        targetFolder: '$(build.artifactStagingDirectory)/Netcabs/Production'
+        flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Till Production Package
+    name: generate_till_production_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(TILL_RES_FOLDER)/release/*.apk
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(TILL_XML_INITIAL)
+        $(TILL_XML_OVERRIDE)
+        $(TILL_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(TILL_CONFIG_EMV_FILE)
+        $(TILL_CONFIG_CTLS_FILE)
+        $(TILL_CONFIG_CONNECT_FILE)
+        $(TILL_SSL_CERTIFICATE_FILE)
+        $(TILL_CARDPRODUCT_FILE)
+        $(TILL_README)
+      targetFolder: '$(build.artifactStagingDirectory)/Till/Production'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create TTFuel Production Package
+    name: generate_ttfuel_production_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(TTFUEL_RES_FOLDER)/release/*.apk
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(TTFUEL_XML_INITIAL)
+        $(TTFUEL_XML_OVERRIDE)
+        $(TTFUEL_XML_HOTLOAD)
+        $(PA_XML_TEMPLATE)
+        $(TTFUEL_CONFIG_EMV_FILE)
+        $(TTFUEL_CONFIG_CTLS_FILE)
+        $(TTFUEL_CONFIG_CONNECT_FILE)
+        $(TTFUEL_SSL_CERTIFICATE_FILE)
+        $(TTFUEL_CARDPRODUCT_FILE)
+        $(TTFUEL_README)
+      targetFolder: '$(build.artifactStagingDirectory)/TTFuel/Production'
+      flattenFolders: true
+
+  - task: CopyFiles@2
+    displayName: Create Woolworths Production Package
+    name: generate_woolworths_production_package
+    inputs:
+      contents: |
+        $(LAUNCHER_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/release/*.apk
+        $(P2PE_SET1_FOLDER)/release/*.apk
+        $(WOOLWORTHS_RES_FOLDER)/release/*.apk
+        $(PA_XML_TEMPLATE)
+        $(WOOLWORTHS_XML_INITIAL)
+        $(WOOLWORTHS_XML_OVERRIDE)
+        $(WOOLWORTHS_XML_HOTLOAD)
+        $(WOOLWORTHS_KEYSETS)
+        $(WOOLWORTHS_PKT)
+        $(WOOLWORTHS_EPAT_100004)
+        $(WOOLWORTHS_CPAT_WP10_32011_APCA)
+        $(WOOLWORTHS_CARDS)
+        $(WOOLWORTHS_CFG_CTLS_EMV)
+        $(WOOLWORTHS_CFG_EMV)
+        $(WOOLWORTHS_CFG_CONNECT)
+        $(KEY_INJECTION_FOLDER)/release/*.apk
+        $(PAYMENT_FOLDER)/*.html
+      targetFolder: '$(build.artifactStagingDirectory)/Woolworths/Production'
+      flattenFolders: true
+
+    # add more customers by copying the last two copies & replacing the customer names
+  # add release notes copy here once we have jira -> devops integration
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Build Artifacts
+    name: publish_artifacts
+- job: Documentation
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+  - script: echo Generating Documentation
+
+  - task: PowerShell@2
+    displayName: Generating docs for config files
+    inputs:
+      targetType: 'inline'
+      script: |
+        cd $(System.DefaultWorkingDirectory)\devtools
+        .\document.bat
+  - task: CopyFiles@2
+    displayName: 'Copy generated documents into Documentation Folder'
+    inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)\documentation'
+        Contents: '**'
+        TargetFolder: '$(build.artifactStagingDirectory)\Documentation'
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish build artifacts
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+
+

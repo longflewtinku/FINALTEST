@@ -1,0 +1,86 @@
+{
+  "apns": [
+    {
+      "apn": "demo",
+      "name": "Demo",
+      "pwd": "",
+      "user": ""
+    }
+  ],
+  "brandName": "Payment",
+  "customerName": "Demo",
+  "unattendedModeAllowed": false,
+  "kioskMode": false,
+  "kioskScreenText": "",
+  "unattendedLockedDownMessage": {
+    "portrait": "Out of Service",
+    "landscape": "Out of\nService"
+  },
+  "useBlackListMenuMethod" : true,
+  "blacklistMenu": [
+    {"packageName": "com.android.launcher3"},
+    {"packageName": "com.cyanogenmod.filemanager"},
+    {"packageName": "org.codeaurora.gallery"},
+    {"packageName": "org.codeaurora.snapcam"},
+    {"packageName": "com.linkly.launcher"},
+    {"packageName": "com.linkly.secapp"},
+    {"packageName": "com.android.calculator2"},
+    {"packageName": "com.linkly.res"},
+    {"packageName": "com.linkly.reslivegroup"},
+    {"packageName": "com.pax.googlevas"},
+    {"packageName": "com.pax.market.android.app"},
+    {"packageName": "com.pax.posviewer"}
+  ],
+  "menus": [
+  ],
+  "settingsMenus": {
+    "showSettingsMenu": "false",
+    "showSetupWifiBaseMenu": "true",
+    "showBluetoothSettingsMenu":  "true",
+    "showWifiSettingsMenu": "true",
+    "showSoundSettingsMenu": "true",
+    "showEthernetSettingsMenu":  "true",
+    "showApnSettingsMenu": "true",
+    "showCellularSettingsMenu":  "true",
+    "showAirplaneModeMenu": "false",
+    "showInputSettingsMenu":  "false",
+    "showInjectKeysSettingsMenu": "false",
+    "showDisplaySettingsMenu":  "true"
+  },
+  "paxstorePaymentKey": "I00FXR4IMSMCJ8AYTB3O",
+  "paxstorePaymentSecret": "3MAAM3B8DM2KZLJ0LWHHZ06LBIZK82VMYUYNQT0Z",
+  "paxstoreServiceKey": "SR8Q66SU4Q0RVNTA042P",
+  "paxstoreServiceSecret": "CE2OS8J2JWCEY34AV3TZT8XPF1EKUQI3GMOPYTMZ",
+  "paymentMenus": {
+    "userMenuLists": [
+      {
+        "adminMenu": "User Manager",
+        "level": "USER",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,MOTO Sale,MOTO Refund,MOTO Pre-Auth,Reprint Manager,Pre-Auth Search and View"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Reprint Rec,RSA Logon,Logon,User Manager,Clear Transactions",
+        "level": "SUPERVISOR",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,MOTO Sale,MOTO Refund,MOTO Pre-Auth,Reprint Manager,Pre-Auth Search and View"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Reprint Rec,RSA Logon,Logon,User Manager,View and Clear SAF,Clear Transactions",
+        "level": "MANAGER",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,MOTO Sale,MOTO Refund,MOTO Pre-Auth,Reprint Manager,Pre-Auth Search and View,"
+      },
+      {
+        "adminMenu": "",
+        "level": "TECHNICIAN",
+        "mainMenu": "Logon,Initiate RKI,RSA Logon,System Info,Exit"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Reprint Rec,Reversal,RSA Logon,Logon,User Manager",
+        "level": "DEFAULT",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Cancel,Pre-Auth Completion,Reconciliation,MOTO Sale,MOTO Refund,MOTO Pre-Auth,Reprint Manager,Pre-Auth Search and View"
+      }
+    ]
+  },
+  "paymentName": "LinklyPA",
+  "serviceName": "Launcher",
+  "version": "0.00.00"
+}

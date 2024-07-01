@@ -1,0 +1,199 @@
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: Pull Request - Build and Test
+          image: java:8
+          script:
+            #Update environment
+            - export BUILD_SERVER=1
+            - source ./build_scripts/init_git.sh
+            - source ./build_scripts/update_android.sh
+            #Update versions
+            - source ./build_scripts/update_all_versions.sh 0
+            #Only build/upload if there's been any source changes
+            - if [ "$NO_SOURCE_CHANGED" = 1 ]; then echo No changes, exiting here; exit 0; fi
+            #Build and test debug
+            - ./gradlew assembleDebug
+            - ./gradlew testDebugUnitTest
+          artifacts:
+            - payment/build/outputs/apk/**
+            - payment/build/outputs/mapping/**
+            - extaps/launcher/build/outputs/apk/**
+            - extaps/launcher/build/outputs/mapping/**
+            - extp2pe/secapp/build/outputs/apk/**
+            - extp2pe/secapp/build/outputs/mapping/**
+            - "**/build/**.apk"
+            - "**/build/**.aar"
+            - "**/build/reports/**"
+            - "**/ver_**.tmp"
+      - step:
+          name: Pull Request - Upload Output
+          trigger: manual
+          script:
+            #Upload output to Bitbucket Downloads
+            - source ./build_scripts/init_git.sh
+            - ./build_scripts/upload_output.sh
+          artifacts:
+            - upload/**
+  custom:
+    run-analysis:
+      - step:
+          name: Custom - Run Analysis
+          image: java:8
+          script:
+            #Update environment
+            - export BUILD_SERVER=1
+            - source ./build_scripts/init_git.sh
+            - source ./build_scripts/update_android.sh
+            #Build and test debug
+            - ./gradlew assembleDebug
+            #- ./gradlew findbugs pmd checkstyle #Cannot run findbugs until the missing classes exception is fixed
+            - ./gradlew pmd checkstyle
+          artifacts:
+            - payment/build/outputs/apk/**
+            - payment/build/outputs/mapping/**
+            - extaps/launcher/build/outputs/apk/**
+            - extaps/launcher/build/outputs/mapping/**
+            - extp2pe/secapp/build/outputs/apk/**
+            - extp2pe/secapp/build/outputs/mapping/**
+            - "**/build/**.apk"
+            - "**/build/**.aar"
+            - "**/build/reports/**"
+            - "**/ver_**.tmp"
+  branches:
+    dev_paxuk:
+      - step:
+          name: Dev_paxuk - Build and Test
+          image: java:8
+          deployment: test
+          script:
+            #Update environment
+            - export BUILD_SERVER=1
+            - export BUILD_DEV=1
+            - source ./build_scripts/init_git.sh
+            - source ./build_scripts/update_android.sh
+            #Update versions
+            - source ./build_scripts/update_all_versions.sh 0
+            #Only build/upload if there's been any source changes
+            - if [ "$NO_SOURCE_CHANGED" = 1 ]; then echo No changes, exiting here; exit 0; fi
+            #Build and test debug
+            - ./gradlew assembleDebug
+            - ./gradlew testDebugUnitTest
+          artifacts:
+            - payment/build/outputs/apk/**
+            - payment/build/outputs/mapping/**
+            - extaps/launcher/build/outputs/apk/**
+            - extaps/launcher/build/outputs/mapping/**
+            - extp2pe/secapp/build/outputs/apk/**
+            - extp2pe/secapp/build/outputs/mapping/**
+            - "**/build/**.apk"
+            - "**/build/**.aar"
+            - "**/build/reports/**"
+            - "**/ver_**.tmp"
+      - step:
+          name: Dev_paxuk - Upload Output
+          trigger: manual
+          script:
+            #Upload output to Bitbucket Downloads
+            - source ./build_scripts/init_git.sh
+            - ./build_scripts/upload_output.sh
+          artifacts:
+            - upload/**
+    dev_paxuk_release:
+      - step:
+          name: Dev_paxuk - Build and Test (in Release)
+          image: java:8
+          deployment: test
+          script:
+            #Update environment
+            - export BUILD_SERVER=1
+            - export BUILD_DEV=1
+            - export BUILD_DEV_RELEASE=1
+            - source ./build_scripts/init_git.sh
+            - source ./build_scripts/update_android.sh
+            #Update versions
+            - source ./build_scripts/update_all_versions.sh 0
+            #Only build/upload if there's been any source changes
+            - if [ "$NO_SOURCE_CHANGED" = 1 ]; then echo No changes, exiting here; exit 0; fi
+            #Build and test debug
+            - ./gradlew assembleDebug
+            - ./gradlew testDebugUnitTest
+            #Build and test release
+            - ./gradlew assembleRelease
+            - ./gradlew testReleaseUnitTest
+            #Upload output to Bitbucket Downloads
+            - ./build_scripts/upload_output.sh
+          artifacts:
+            - payment/build/outputs/apk/**
+            - payment/build/outputs/mapping/**
+            - extaps/launcher/build/outputs/apk/**
+            - extaps/launcher/build/outputs/mapping/**
+            - extp2pe/secapp/build/outputs/apk/**
+            - extp2pe/secapp/build/outputs/mapping/**
+            - upload/**
+            - "**/build/**.apk"
+            - "**/build/**.aar"
+            - "**/build/reports/**"
+            - "**/ver_**.tmp"
+      - step:
+          name: Dev_paxuk - Upload Output
+          trigger: manual
+          script:
+            #Upload output to Bitbucket Downloads
+            - source ./build_scripts/init_git.sh
+            - ./build_scripts/upload_output.sh
+          artifacts:
+            - upload/**
+    master:
+      - step:
+          name: Master - Build and Upload
+          image: java:8
+          deployment: staging
+          script:
+            #Update environment
+            - export BUILD_SERVER=1
+            - export MASTER_BUILD=1
+            - source ./build_scripts/init_git.sh
+            - source ./build_scripts/update_android.sh
+            #Update versions
+            - source ./build_scripts/update_all_versions.sh 0
+            #Only build/upload if there's been any source changes
+            - if [ "$NO_SOURCE_CHANGED" = 1 ]; then echo No changes, exiting here; exit 0; fi
+            #Build and test debug
+            - ./gradlew assembleDebug
+            - ./gradlew testDebugUnitTest
+            #Build and test release
+            - ./gradlew assembleRelease
+            - ./gradlew testReleaseUnitTest
+            #Upload output to Bitbucket Downloads
+            - ./build_scripts/upload_output.sh
+          artifacts:
+            - payment/build/outputs/apk/**
+            - payment/build/outputs/mapping/**
+            - extaps/launcher/build/outputs/apk/**
+            - extaps/launcher/build/outputs/mapping/**
+            - extp2pe/secapp/build/outputs/apk/**
+            - extp2pe/secapp/build/outputs/mapping/**
+            - upload/**
+            - "**/build/**.apk"
+            - "**/build/**.aar"
+            - "**/build/reports/**"
+            - "**/ver_**.tmp"
+      - step:
+          name: Master - Tag and Increment Revision
+          deployment: production
+          trigger: manual
+          script:
+            #Update environment
+            - export BUILD_SERVER=1
+            - export MASTER_BUILD=1
+            - source ./build_scripts/init_git.sh
+            #Create tag and upload the output to Bitbucket Downloads
+            - source ./build_scripts/tag_and_push.sh
+            - ./build_scripts/upload_output.sh tag
+            - source ./build_scripts/update_all_versions.sh 1
+          artifacts:
+            - upload/**
+clone:
+  depth: full

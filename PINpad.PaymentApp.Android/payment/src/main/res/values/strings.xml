@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Linkly Payment</string>
+    <string name="_20_00">20.00</string>
+    <string name="_0">0</string>
+    <string-array name="usb_modes" >
+        <item>Disable ADB and MTP</item>
+        <item>Default Mode</item>
+        <item>File Transfer Mode</item>
+        <item>Virtual Card Reader</item>
+        <item>POS Virtual COM Of Pax</item>
+        <item>USB Tethering</item>
+        <item>USB - PC Internet Share</item>
+    </string-array>
+
+    <string name="menu_developer">Dev Menu</string>
+    <string name="menu_adminitration">Admin Menu</string>
+    <string name="menu_main">Main Menu</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--layer-list xmlns:android="http://schemas.android.com/apk/res/android" -->
+    <!--item android:drawable="@mipmap/barclayslogo"/-->
+    <item>
+
+        <shape>
+            <stroke android:width="2dp"
+                    android:color="@color/ui2MenuButtonBorder"/>
+
+
+            <gradient
+                android:angle="180"
+                android:centerColor="@color/ui2BgLightCenter"
+                android:endColor="@color/ui2BgLightEnd"
+                android:startColor="@color/ui2BgLightStart"
+                android:type="linear"/>
+
+            <padding android:bottom="5dp"
+                     android:left="5dp"
+                     android:right="5dp"
+                     android:top="5dp"/>
+            <corners android:bottomLeftRadius="@dimen/button_radius"
+                     android:bottomRightRadius="@dimen/button_radius"
+                     android:topLeftRadius="@dimen/button_radius"
+                     android:topRightRadius="@dimen/button_radius"/>
+
+        </shape>
+    </item>
+    <!--/layer-list-->
+</selector>

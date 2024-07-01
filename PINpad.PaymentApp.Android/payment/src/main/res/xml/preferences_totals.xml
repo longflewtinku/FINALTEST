@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultShiftTotalsEnabled"
+        android:key="shiftTotalsEnabled"
+        android:summary="@string/SHIFT_TOTALS_ENABLE_SUMMARY"
+        android:title="@string/SHIFT_TOTALS_ENABLE_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultSettlementEnabled"
+        android:key="settlementEnabled"
+        android:summary="@string/SETTLEMENT_ENABLE_SUMMARY"
+        android:title="@string/SETTLEMENT_ENABLE_TITLE"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:defaultValue="@bool/defaultAutomaticShiftTotalsEnabled"
+        android:key="automaticShiftTotalsEnabled"
+        android:summary="@string/AUTOMATIC_SHIFT_TOTALS_ENABLE_SUMMARY"
+        android:title="@string/AUTOMATIC_SHIFT_TOTALS_ENABLE_TITLE"/>
+
+    <androidx.preference.EditTextPreference
+        android:defaultValue="@string/defaultAutomaticShiftTotalsTimeOfDay"
+        android:key="automaticShiftTotalsTimeOfDay"
+        app:useSimpleSummaryProvider="true"
+        android:title="@string/AUTOMATIC_SHIFT_TOTALS_TIME_OF_DAY_TITLE"
+        />
+
+    <androidx.preference.Preference
+        android:key="totalsResetToDefault"
+        android:title="Reset to default" />
+</PreferenceScreen>

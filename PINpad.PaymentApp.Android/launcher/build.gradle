@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply from: "$project.rootDir/jacoco.gradle"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/'
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+}
+
+
+android {
+    namespace 'com.linkly.launcher'
+    compileSdkVersion compileSdkVer
+
+    defaultConfig {
+        applicationId 'com.linkly.' + project.name
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionCode buildVersionCode() as Integer
+        versionName buildVersionName()
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        archivesBaseName = project.name + "-$versionName"
+        multiDexEnabled true
+        signingConfig signingConfigs.debug
+
+        logger.lifecycle(project.name + ' versionName = ' + versionName)
+
+        ndk {
+            // Tells Gradle to build outputs for the following ABIs and package
+            // them into your APK.
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+        }
+    }
+    productFlavors {
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+        disable 'UnsafeImplicitIntentLaunch'
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:all,-processing" << "-Werror" //TODO: Fix all unchecked/deprecation warnings
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlin.stdlib
+
+    implementation project(':extp2pe:libsecapp')
+    // The following line is needed because of inclusion of libsecapp; this NeptuneLite jar dependency is 'compile-only' there.
+    implementation files(libs.versions.neptune.get())
+
+    implementation(libs.linkly.mal) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation project(path: ':extlibs:libpositivesvc') // api to eftservice
+    implementation(libs.linkly.libpositive)
+
+    androidTestImplementation(libs.espresso.core, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    implementation (libs.paxstore) {
+        exclude group:'xpp3',module :'xpp3'
+    }
+    implementation libs.fragment
+    implementation libs.appcompat
+    implementation libs.multidex
+    implementation libs.constraintlayout
+    implementation libs.material
+    implementation libs.legacy.support.v4
+    implementation libs.work.runtime
+    testImplementation libs.junit
+    implementation libs.lifecycle.extensions
+    annotationProcessor(libs.lifecycle.common.java8)
+    implementation libs.gson
+    implementation(libs.stanfy.gson.xml.java) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+
+    implementation project(':extlibs:libui')
+    implementation project(':extlibs:libconfig')
+    implementation project(':extlibs:libengine')
+    implementation libs.linkly.logger
+    implementation libs.linkly.libkotlinandroidtoolkit
+
+    implementation files('libs/PosApi_V1.32_20210705.jar')
+
+    debugImplementation libs.leakcanary.android
+}

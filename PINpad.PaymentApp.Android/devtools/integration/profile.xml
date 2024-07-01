@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config type="Payment">
+    <version>0.00.00</version>
+    <customerName>PaymentSense</customerName>
+    <brandName>Payment</brandName>
+    <paymentName>Payment</paymentName>
+    <serviceName>Launcher</serviceName>
+    <menuItemList>
+        <menuItem>
+            <packageName>com.linkly.payment</packageName>
+            <displayName>Payment</displayName>
+        </menuItem>
+        <menuItem>
+            <packageName>com.linkly.positivelauncher</packageName>
+            <displayName>Test Launcher</displayName>
+        </menuItem>
+    </menuItemList>
+    <apnList>
+        <apnItem>
+            <name>O2</name>
+            <apn>mobile.o2.co.uk</apn>
+            <user></user>
+            <pwd></pwd>
+        </apnItem>
+    </apnList>
+
+  </config>

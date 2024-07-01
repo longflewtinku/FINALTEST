@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "schemes": [
+    {
+      "rid" : "A000000025",
+      "aids": [
+        {
+          "aid": "A00000002501",
+          "appName": "American Exp.",
+          "defaultAccount": "CRD",
+          "binNumber": 5
+        }
+      ]
+    },
+    {
+      "rid" : "A000000003",
+      "aids": [
+        {
+          "aid": "A0000000031010",
+          "appName": "Visa",
+          "defaultAccount": "CRD",
+          "binNumber": 4
+        },
+        {
+          "aid": "A0000000031020",
+          "appName": "Visa",
+          "defaultAccount": "CRD",
+          "binNumber": 4
+        }
+      ]
+    },
+    {
+      "rid" : "A000000004",
+      "aids": [
+        {
+          "aid": "A0000000041010",
+          "appName": "MasterCard",
+          "defaultAccount": "CRD",
+          "binNumber": 3
+        }
+      ]
+    },
+    {
+      "rid" : "A000000384",
+      "aids": [
+        {
+          "aid": "A00000038410",
+          "appName": "EFTPOS Saving",
+          "defaultAccount": "SAV",
+          "binNumber": 1
+        },
+        {
+          "aid": "A00000038420",
+          "appName": "EFTPOS Cheque",
+          "defaultAccount": "CHQ",
+          "binNumber": 1
+        },
+        {
+          "aid": "A0000000651010",
+          "appName": "JCB",
+          "defaultAccount": "CRD",
+          "binNumber": 9
+        }
+      ]
+    }
+  ]
+}

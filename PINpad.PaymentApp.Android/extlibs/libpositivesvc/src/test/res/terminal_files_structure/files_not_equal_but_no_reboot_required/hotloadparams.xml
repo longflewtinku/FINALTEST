@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<parameter>
+    <receipt_merchant_line1>random stuff here</receipt_merchant_line1>
+    <receipt_merchant_line2>t2</receipt_merchant_line2>
+    <receipt_merchant_line3>line</receipt_merchant_line3>
+    <receipt_merchant_line4></receipt_merchant_line4>
+    <receipt_merchant_line5></receipt_merchant_line5>
+    <receipt_merchant_line6>differentfile</receipt_merchant_line6>
+    <footerLine1></footerLine1>
+    <footerLine2></footerLine2>
+</parameter>

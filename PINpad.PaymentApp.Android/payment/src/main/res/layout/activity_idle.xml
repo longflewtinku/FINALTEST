@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:paddingTop="@dimen/appbar_padding_top"
+              android:background="@color/ui2BgLightStart"
+              tools:context="com.linkly.payment.activities.ActIdle">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:background="@android:color/white"
+        android:id="@+id/container">
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"/>
+
+        <TextView
+            android:id="@+id/infoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="110dp"
+            android:gravity="center"
+            android:text=""
+            android:visibility="visible"
+            android:textAppearance="@style/ui2LargeFontDark"
+            android:fontFamily="@font/ui2fontbold"
+            />
+
+        <TextView
+            android:id="@+id/infoPrompt"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/infoTitle"
+            android:layout_above="@+id/bottomHalf"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:gravity="center"
+            android:text="@string/PLEASE_WAIT_BR"
+            android:visibility="visible"
+            android:textAppearance="@style/ui2MediumSmallFontBlue"
+            android:fontFamily="@font/ui2font"/>
+
+        <LinearLayout
+            android:id="@+id/bottomHalf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/bg_color"
+                android:layout_width="245dp"
+                android:layout_height="245dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="50dp"
+                android:background="@color/colorWhite"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/imageProcessing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_processing"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/paddingPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/ui2font"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text=""
+                android:textAppearance="@style/ui2MediumFontDark"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

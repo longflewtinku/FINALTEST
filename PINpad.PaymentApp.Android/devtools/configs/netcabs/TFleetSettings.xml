@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Schema>
+    <!-- Groups Definition -->
+    <Groups>
+        <Group>
+            <ID>Override_Config</ID>
+            <Title>Fleet-wide settings</Title>
+            <Order>1</Order>
+            <Description></Description>
+        </Group>
+    </Groups>
+    <!-- Files Definition -->
+    <Files>
+        <File>
+            <ID>sys_F2</ID>
+            <FileName>overrideparams.xml</FileName>
+            <Description></Description>
+        </File>
+    </Files>
+    <!-- Parameter Definition -->
+    <Parameters>
+        <Header>
+            <Title>Currency Config</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+
+            <!-- Currency Code -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>currencyCode</PID>
+                <Title>Currency Code</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"AUD":"AUD","ZAR":"ZAR","USD":"USD","GBP":"GBP"}</Select>
+                <Defaultvalue>AUD</Defaultvalue>
+                <Description>Currency Code</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <!-- Currency Number -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>currencyNum</PID>
+                <Title>Currency Num</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>036</Defaultvalue>
+                <Description>Currency Number</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <!-- Country Number -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>countryNum</PID>
+                <Title>Country Number</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>036</Defaultvalue>
+                <Description>Country Number</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>language</PID>
+                <Title>Language Selection</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"en_AU":"en_AU"}</Select>
+                <Defaultvalue>en_AU</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header> <!--Region -  Currency Config -->
+        <Header>
+            <Title>Transaction Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>mailOrder</PID>
+                <Title>Mail Order</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SUPPORTED_MAIL_ORDER}</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>telephone</PID>
+                <Title>Telephone Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SUPPORTED_TELEPHONE_ORDER}</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>preauth</PID>
+                <Title>PreAuth Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SUPPORTED_PREAUTH}</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>cashback</PID>
+                <Title>Cashback Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SUPPORTED_CASHBACK}</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>cashout</PID>
+                <Title>Cashout/Cash advance txn Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SUPPORTED_CASHOUT}</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>refund</PID>
+                <Title>Refund Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{SUPPORTED_REFUND}</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>tipAllowed</PID>
+                <Title>Tip Allowed</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>#{SUPPORTED_TIPPING}</Defaultvalue>
+                <Description>Support TIP</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>custRefRequired</PID>
+                <Title>Reference Required</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"OPTIONAL":"OPTIONAL","MANDATORY":"MANDATORY", "DISABLED":"DISABLED"}</Select>
+                <Defaultvalue>DISABLED</Defaultvalue>
+                <Description>Reference Required</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>emvSupported</PID>
+                <Title>EMV Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>cardholderPresent</PID>
+                <Title>Cardholder Present</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>contactlessSupported</PID>
+                <Title>CTLS Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>Y</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>loyaltySupported</PID>
+                <Title>Loyalty Supported</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>false</Display>
+                <Description>Loyalty Integration</Description>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>binRangeTableVer</PID>
+                <Title>BIN table ID</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"1":"All Cards","2":"No Mastercard"}</Select>
+                <Defaultvalue>1</Defaultvalue>
+                <Display>true</Display>
+                <Description>BIN table ID</Description>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+			<Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>efbSupported</PID>
+                <Title>EFB Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>surchargeSupported</PID>
+                <Title>Surcharge Supported</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header> <!--Region -  Currency Config -->
+        <Header>
+            <Title>Payment Switch Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+
+            <!-- Host IP -->
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>paymentSwitch_useSsl</PID>
+                <Title>SSL Enabled</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Use SSL Comms</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_ip_host</PID>
+                <Title>Host Primary</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>192.168.0.9:202</Defaultvalue>
+                <Description>Primary Host URL</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_ip_host2nd</PID>
+                <Title>Host Secondary</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>192.168.0.9:202</Defaultvalue>
+                <Description>Secondary Host URL</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_certificateFile</PID>
+                <Title>Certificate File</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>ps.pem</Defaultvalue>
+                <Description>SSL Certificate File</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_privateKeyFile</PID>
+                <Title>Private Key File</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>SSL Client Private Key</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_privateKeyPassword</PID>
+                <Title>Private Key Password</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>SSL Client Private Key Password</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_privateKeyCertificate</PID>
+                <Title>SSL Client Private Key Certificate File</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>SSL Client Private Key Cert</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_aiic</PID>
+                <Title>Acquirer identification code AIIC</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>579942</Defaultvalue>
+                <Description>Acquirer identification code AIIC</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_nii</PID>
+                <Title>Acquirer Network Identifier (NII)</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>001</Defaultvalue>
+                <Description>Acquirer Network Identifier (NII)</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>paymentSwitch_receiveTimeout</PID>
+                <Title>Acquirer host response timeout (sec)</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>30</Defaultvalue>
+                <Description>>Acquirer host response timeout (sec)</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>customerName</PID>
+                <Title>Customer</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Select>{"Woolworths":"Woolworths"}</Select>
+                <Defaultvalue>Woolworths</Defaultvalue>
+                <Description>>Customer</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>bankDescription</PID>
+                <Title>Customer</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Select>{"WOOLWORTHS":"WOOLWORTHS"}</Select>
+                <Defaultvalue>WOOLWORTHS</Defaultvalue>
+                <Description>>Customer</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header> <!--Region -  Payment Switch -->
+
+        <Header>
+            <Title>GoInsight Server Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>false</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>paxstoreUpload</PID>
+                <Title>GoInsight Upload Transactions</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Upload transaction data to Paxstore and GoInsight</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Email Server Configuration</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>false</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <PID>mailMerchant</PID>
+                <Title>EMail Merchant</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Description>Email Merchant</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailStoreName</PID>
+                <Title>Merchant Store Name</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Merchant store name for the receipt</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailMerchantAddress</PID>
+                <Title>Merchant Address</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>positiveterminals@gmail.com</Defaultvalue>
+                <Description>Merchant email address</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailHost</PID>
+                <Title>Email Host (Server)</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>smtp.gmail.com</Defaultvalue>
+                <Description>Email server to use for receipts</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailPort</PID>
+                <Title>Email Server port to use</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>465</Defaultvalue>
+                <Description>Port on the email server</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailUser</PID>
+                <Title>Email Server User</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>positiveterminals@gmail.com</Defaultvalue>
+                <Description>User on the email server</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailPassword</PID>
+                <Title>Email Server Password</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>3ftsolution5</Defaultvalue>
+                <Description>Password on the email server</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mailSender</PID>
+                <Title>Email Sender</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>positiveterminals@gmail.com</Defaultvalue>
+                <Description>Email "from" address</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header>
+
+        <Header>
+            <Title>Terminal Limits</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>standInCreditCardLimit</PID>
+                <Title>Stand In Credit Card Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>000000</Defaultvalue>
+                <Description>Stand In Credit Card Limit</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>standInCreditCardLimit</PID>
+                <Title>Stand In Debit Card Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>000000</Defaultvalue>
+                <Description>Stand In Debit Card Limit</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>standInMaxNumberStandInTrans</PID>
+                <Title>Stand In Max Number Stand In Trans</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Stand In Max Number Stand In Trans</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+			
+			<Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>maxCashoutLimit</PID>
+                <Title>Max Cashout Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Termianl Max Amount For Cashout Limit</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>maxRefundLimit</PID>
+                <Title>Max Refund Limit</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>0</Defaultvalue>
+                <Description>Terminal Max Amount For Refund Limit</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header>
+        <Header>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>bankDescription</PID>
+                <Title>Description of the Bank</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Description of the Bank</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+
+        </Header>
+        <Header>
+            <Title>EFT Server Comms Routing</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>open</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>select</InputType>
+                <DataType>String</DataType>
+                <PID>posCommsEnabled</PID>
+                <Title>Route Bank msgs through POS</Title>
+                <Length>1</Length>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Select>{"Y":"Y","N":"N"}</Select>
+                <Defaultvalue>N</Defaultvalue>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>posCommsHostId</PID>
+                <Title>POS comms Host ID</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue></Defaultvalue>
+                <Description>Host ID for routing transactions via EFT Server</Description>
+                <Display>true</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>posCommsInterfaceType</PID>
+                <Title>POS Comms Interface Type</Title>
+                <Required>false</Required>
+                <Readonly>true</Readonly>
+                <Defaultvalue>2</Defaultvalue>
+                <Description>2 for AS2805 messages</Description>
+                <Display>false</Display>
+                <GroupID>Override_Config</GroupID>
+                <FileID>sys_F2</FileID>
+            </Parameter>
+        </Header>
+
+    </Parameters>
+</Schema>
+
+

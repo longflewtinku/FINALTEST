@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<parameter>
+    <!-- for info purposes only - defines where the config came from/customer name etc -->
+    <configSource>Live Group</configSource>
+
+    <!-- UI operating mode of Linkly Connect App. BACKGROUND_ONLY, BACKGROUND_CAPABLE, FOREGROUND_ONLY, or FOREGROUND_CAPABLE -->
+    <operatingMode>FOREGROUND_CAPABLE</operatingMode>
+
+    <!-- Local REST enabled flag. true = listens on localRestPort for mPOS app transaction requests -->
+    <localRestEnabled>false</localRestEnabled>
+
+    <!-- if Local Rest Enabled = true, internal listening tcp port. Listens on 127.0.0.1 loopback on this port -->
+    <localRestPort>8000</localRestPort>
+
+    <!-- EFT client connection flag. true = connects to EFT client, false = no EFT client connection  -->
+    <eftClientEnabled>true</eftClientEnabled>
+
+    <!-- if Router Type == ROUTER_TYPE_POS, boolean indicating EFT client connection type. true = local on-premises EFT client POS, false = Cloud EFT client POS -->
+    <posOnPremConnection>false</posOnPremConnection>
+
+    <!-- if Router Type == ROUTER_TYPE_POS, if local/on prem then holds POS IP address -->
+    <posIpAddress></posIpAddress>
+
+    <!-- if Router Type == ROUTER_TYPE_POS, if local/on prem then holds POS tcp port no -->
+    <posPort>2012</posPort>
+    
+    <!-- linklyTrace enabled -->
+    <linklyTraceEnabled>false</linklyTraceEnabled>
+
+    <!-- linklyTrace type (Currently Pax or NONE)-->
+    <linklyTraceType>NONE</linklyTraceType>
+
+    <!-- linklyTrace Backoff time -->
+    <linklyTraceBackOffTimeMS>20000</linklyTraceBackOffTimeMS>
+
+    <!-- linklyTrace Backoff type, linear or exponential -->
+    <linklyTraceBackOffType>LINEAR</linklyTraceBackOffType>
+
+</parameter>

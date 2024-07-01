@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<parameter>
+    <currencyCode>AUD</currencyCode>
+    <currencyNum>036</currencyNum>
+    <countryNum>036</countryNum>
+    <version>1.00.00</version>
+    <mailOrder>Y</mailOrder>
+    <telephone>Y</telephone>
+    <preauth>Y</preauth>
+    <cashback>Y</cashback>
+    <tipAllowed>Y</tipAllowed>
+    <emvSupported>Y</emvSupported>
+    <refund>Y</refund>
+    <cardholderPresent>Y</cardholderPresent>
+    <contactlessSupported>Y</contactlessSupported>
+    <paymentSwitch_useSsl>N</paymentSwitch_useSsl>
+    <custRefRequired>false</custRefRequired>
+    <accessMode>N</accessMode>
+    <loyaltySupported>N</loyaltySupported>
+    <refundSecure>N</refundSecure>
+    <!--regular (cleartext) gateway-->
+    <paymentSwitch_ip_host>https://test.cardeasexml.com/generic.cex</paymentSwitch_ip_host>
+    <paymentSwitch_ip_host2nd>https://test.cardeasexml.com/operation.cex</paymentSwitch_ip_host2nd>
+
+    <!--p2pe encryption enabled gateway-->
+    <!--<paymentSwitch.ip.host>35.190.51.137:443</paymentSwitch.ip.host>-->
+    <!--<paymentSwitch.ip.host2nd>35.190.51.137:443</paymentSwitch.ip.host2nd>-->
+
+    <paymentSwitch_certificateFile>ps.pem</paymentSwitch_certificateFile>
+    <customerName>Demo</customerName>
+
+
+    <paxstoreUpload>N</paxstoreUpload>
+    <!--
+    <mailMerchant>Y</mailMerchant>
+    <mailMerchantAddress>philip@eft-solutions.co.uk</mailMerchantAddress>
+    <mailHost>smtp.gmail.com</mailHost>
+    <mailPort>465</mailPort>
+    <mailUser>philip@eft-solutions.co.uk</mailUser>
+    <mailPassword>AndreaSp66</mailPassword>
+    <mailSender>philip@eft-solutions.co.uk</mailSender>
+    -->
+
+</parameter>

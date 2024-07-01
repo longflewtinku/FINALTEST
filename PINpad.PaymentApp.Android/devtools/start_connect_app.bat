@@ -1,0 +1,1 @@
+adb shell am start -n com.linkly.connect.linkly/com.linkly.connect.activities.SplashActivity

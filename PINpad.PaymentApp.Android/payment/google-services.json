@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "908184554255",
+    "project_id": "linkly-android-app-suite",
+    "storage_bucket": "linkly-android-app-suite.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908184554255:android:7d97d59442de314c38cc7a",
+        "android_client_info": {
+          "package_name": "com.linkly.payment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908184554255-o3rdmvbrlh1s35514s6mn4e978a0gr8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuZ2QjjLKqREFw3qSJt9j7Y1FcBiqqw-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908184554255-o3rdmvbrlh1s35514s6mn4e978a0gr8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

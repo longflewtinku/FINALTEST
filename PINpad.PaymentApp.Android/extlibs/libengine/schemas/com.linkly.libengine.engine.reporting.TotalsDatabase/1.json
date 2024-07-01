@@ -1,0 +1,110 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8d4e13d80c2913da2f04e9cd274eb892",
+    "entities": [
+      {
+        "tableName": "totals",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cardName` TEXT, `netAmount` INTEGER NOT NULL, `netCount` INTEGER NOT NULL, `transType` INTEGER, `isGroupTotal` INTEGER NOT NULL, `debitAmount` INTEGER NOT NULL, `debitCount` INTEGER NOT NULL, `creditAmount` INTEGER NOT NULL, `creditCount` INTEGER NOT NULL, `firstTranID` INTEGER NOT NULL, `lastTranID` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cardName",
+            "columnName": "cardName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "netAmount",
+            "columnName": "netAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "netCount",
+            "columnName": "netCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transType",
+            "columnName": "transType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isGroupTotal",
+            "columnName": "isGroupTotal",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "debitAmount",
+            "columnName": "debitAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "debitCount",
+            "columnName": "debitCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creditAmount",
+            "columnName": "creditAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creditCount",
+            "columnName": "creditCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstTranID",
+            "columnName": "firstTranID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastTranID",
+            "columnName": "lastTranID",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_totals_transType_cardName",
+            "unique": false,
+            "columnNames": [
+              "transType",
+              "cardName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_totals_transType_cardName` ON `${TABLE_NAME}` (`transType`, `cardName`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8d4e13d80c2913da2f04e9cd274eb892')"
+    ]
+  }
+}

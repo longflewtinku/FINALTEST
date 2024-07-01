@@ -1,0 +1,140 @@
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="viewModel"
+            type="com.linkly.launcher.viewmodels.BrandHeaderViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context="com.linkly.launcher.fragments.BrandHeader">
+
+        <RelativeLayout
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/ui2ColorThree"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/button_for_symmetry"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:contentDescription="Menu"
+                android:src="@drawable/btn_hamburger"
+                android:visibility="invisible" />
+
+            <!-- Branding Image -->
+            <ImageView
+                android:id="@+id/header"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/menu_but"
+                android:layout_toEndOf="@+id/button_for_symmetry"
+                bind:imageBitmap="@{viewModel.brandDisplayLogoHeader}"
+                android:scaleType="centerInside"
+            />
+
+        <ImageButton
+            android:id="@+id/menu_but"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:contentDescription="Menu"
+            android:src="@drawable/btn_hamburger" />
+
+
+    </RelativeLayout>
+
+    <!--This is a Bar that spaces the header from the Content  -->
+        <!--<View
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:background="@color/logoDividor"/>-->
+
+        <LinearLayout
+            android:id="@+id/headerBar"
+            android:layout_width="match_parent"
+            android:layout_height="103dp"
+            android:layout_below="@+id/logo"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:text="@string/WELCOME"
+                android:textAppearance="@style/uiHeadlineFont" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/uiTextFont"
+                tools:text="Tuesday, December 31" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/battery_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/logo"
+            android:paddingTop="1px"
+            android:paddingRight="10px"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lowbattery">
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="12dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="2dp"
+                    android:src="@mipmap/battery" />
+
+                <TextView
+                    android:id="@+id/bat_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="@string/battery_low"
+                    android:textColor="@color/ui2ColorThree" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

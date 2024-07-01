@@ -1,0 +1,182 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-android'
+apply plugin: "kotlin-kapt"
+
+apply from: "$project.rootDir/jacoco.gradle"
+
+repositories {
+    mavenLocal()
+    maven { url 'https://maven.google.com' }
+    maven { url "https://jitpack.io" }
+    maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/' }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+    }
+}
+
+android {
+    namespace 'com.linkly.payment'
+    compileSdkVersion compileSdkVer
+
+    defaultConfig {
+        applicationId 'com.linkly.' + project.name
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionCode buildVersionCode() as Integer
+        versionName buildVersionName()
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        archivesBaseName = project.name + "-$versionName"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+
+        logger.lifecycle(project.name + ' versionName = ' + versionName)
+
+        ndk {
+            // Tells Gradle to build outputs for the following ABIs and package
+            // them into your APK.
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+        signingConfig signingConfigs.debug
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        debug {
+            }
+    }
+
+    useLibrary 'org.apache.http.legacy'
+    productFlavors {
+    }
+
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs =
+                [
+                    'src/main/res/layouts/ui2',
+                    'src/main/res/layouts',
+                    'src/main/res'
+                ]
+        }
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds true
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:all,-processing" << "-Werror" //TODO: Fix all unchecked/deprecation warnings
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlin.stdlib
+
+    implementation libs.android.multidex
+    implementation libs.android.support.design
+    implementation libs.zigzagView
+
+    androidTestImplementation(libs.espresso.core, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    implementation project(':extp2pe:libsecapp')
+
+    implementation(libs.linkly.mal) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation(libs.linkly.libpositive)
+
+    implementation project(':extlibs:libpositivesvc')
+    implementation project(':extlibs:libengine')
+    implementation project(':extlibs:libui')
+    implementation project(':extlibs:libconfig')
+    implementation project(':extlibs:libbins')
+
+    implementation libs.linkly.logger
+    implementation libs.linkly.libkotlinandroidtoolkit
+
+    // ANNOYING ISSUES HERE. NEED TO MAKE THIS COMPILE ONLY TO MAKE SURE THIS BUILDS. THE APPS THAT WILL BE CALLING THIS WILL BE REQUIRED TO CALL implementation files('libs/NeptuneLiteApi_V3.33.00_20230419.jar')
+    compileOnly files(libs.versions.neptune.get())
+
+    implementation libs.preference
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.legacy.support.v4
+    implementation libs.constraintlayout
+    implementation libs.vectordrawable
+    implementation libs.multidex
+    implementation libs.annotation
+    implementation libs.gridlayout
+    implementation libs.gson
+
+    implementation (libs.paxstore) {
+        exclude group:'xpp3',module :'xpp3'
+    }
+
+    implementation libs.room.runtime
+    annotationProcessor libs.room.compiler // For Kotlin use kapt instead of annotationProcessor
+    implementation libs.room.paging
+
+    // Firebase Tooling Releases: https://firebase.google.com/support/release-notes/android
+    implementation libs.firebase.crashlytics.runtime
+
+    testImplementation libs.junit
+    testImplementation libs.mockito.inline
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.rules
+    androidTestImplementation libs.hamcrest.library
+    androidTestImplementation libs.uiautomator
+    // Updated and required for gradle unit tests.
+    androidTestImplementation libs.androidx.monitor
+    androidTestImplementation libs.runner
+
+    implementation libs.work.runtime
+
+    debugImplementation libs.leakcanary.android
+
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.design
+    implementation supportDependencies.gridLayout
+    implementation supportDependencies.annotations
+    implementation architectureComponentDependencies.viewModelAndLiveData
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.liveDataTestHelper
+
+    implementation libs.paging.runtime
+
+    // alternatively - without Android dependencies for tests
+    testImplementation libs.paging.common
+}

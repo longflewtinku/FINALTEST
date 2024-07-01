@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:background="@color/ui2BgLightStart">
+
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/infoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:text=""
+                android:textAppearance="@style/ui2MediumFontDark"
+                android:fontFamily="@font/ui2fontbold"
+                />
+
+            <TextView
+                android:id="@+id/infoPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/PLEASE_WAIT_BR"
+                android:textAppearance="@style/ui2MediumSmallFontBlue"
+                android:fontFamily="@font/ui2fontbold"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1.1"
+                android:layout_gravity="bottom">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:gravity="bottom|center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true">
+
+                        <ImageView
+                            android:id="@+id/inProgressView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:layout_gravity="center_horizontal"
+                            app:srcCompat="@drawable/ic_processing" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

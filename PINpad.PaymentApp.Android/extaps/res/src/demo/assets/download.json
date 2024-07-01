@@ -1,0 +1,27 @@
+{
+  "gprs": {
+    "primary": {
+      "apn": "Demo",
+      "apnName": "demo",
+      "dialup": "",
+      "password": "",
+      "user": ""
+    },
+    "secondary": {
+      "apn": "Demo",
+      "apnName": "demo",
+      "dialup": "",
+      "password": "",
+      "user": ""
+    }
+  },
+  "heartbeat": {
+    "day": "*",
+    "endTime": "04:30",
+    "startTime": "00:00"
+  },
+  "autoRecon": {
+    "time": "05:00"
+  },
+  "timeZone": "UTC+00:00"
+}

@@ -1,0 +1,11 @@
+<parameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='../../../payment/src/main/assets/initialparams.xsd'>
+    <!-- TID & MID Settings -->
+    <!-- Make sure to use your own config please! -->
+    <stid>TI530003</stid>
+    <mid>800000050000101</mid>
+    <!-- Terminal Location   -->
+    <terminalTimeZone>Australia/Sydney</terminalTimeZone>
+    <!--  Non-TMS Params  -->
+    <bankTimeZone>Australia/Sydney</bankTimeZone>
+</parameter>

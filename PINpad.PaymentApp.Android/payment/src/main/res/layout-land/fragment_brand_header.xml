@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                tools:context="com.linkly.payment.fragments.FragHeader">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_logo_height"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/ui2ColorThree"
+        android:orientation="horizontal">
+
+        <!-- Branding Image -->
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="@dimen/header_logo_width"
+            android:layout_height="@dimen/header_logo_height"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="-1dp"
+            android:contentDescription="@string/CUSTOMER_LOGO"
+            android:src="@drawable/logo_linkly" />
+
+        <LinearLayout
+            android:id="@+id/battery_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/header"
+            android:layout_alignParentTop="true"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="14dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:paddingEnd="0dp"
+                android:paddingStart="2dp"
+                android:src="@mipmap/battery"/>
+
+            <TextView
+                android:id="@+id/text_battery_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:text="@string/BATTERY_LOW"
+                android:textColor="@color/colorBlack"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/menu_but"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginStart="550dp"
+            android:layout_marginEnd="26dp"
+            android:layout_toEndOf="@id/header"
+            android:contentDescription="@string/MENU_BUTTON"
+            android:src="@drawable/btn_hamburger" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/batch_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:paddingStart="0dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/batchindi"
+        android:paddingTop="14dp"
+        android:layout_marginBottom="10dp">
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/database"/>
+
+            <TextView
+                android:id="@+id/batch_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

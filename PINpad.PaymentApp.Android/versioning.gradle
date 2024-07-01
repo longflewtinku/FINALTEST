@@ -1,0 +1,49 @@
+ext {
+    getVersionProperties = {
+        def versionPropsFile = file("version.properties")
+        if( versionPropsFile.canRead() ){
+            Properties versionProps = new Properties()
+            versionProps.load( new FileInputStream( versionPropsFile ) )
+
+            return versionProps
+        } else {
+            throw new GradleException("Could not read version.properties.")
+        }
+    }
+
+    buildVersionCode = {
+        def versionProps = getVersionProperties()
+
+        if( versionProps != null ){
+            return versionProps.getProperty('BUILD') ?: '001'
+        }
+
+        return '001'
+    }
+
+    buildVersionName = {
+        def versionProps = getVersionProperties()
+
+        if( versionProps != null ){
+            def verMajor    = versionProps.getProperty('MAJOR') ?: '0'
+            def verMinor    = versionProps.getProperty('MINOR') ?: '00'
+            def verRevision = versionProps.getProperty('REVISION') ?: '01'
+            def verBuildId  = System.getenv("BUILD_BUILDID") ?: '0'
+            def suffix      = versionProps.getProperty('SUFFIX')?: 'SNAPSHOT'
+
+            return verMajor + '.' + verMinor + '.' + verRevision + '.' + verBuildId + '-' + suffix
+        }
+
+        return '0.0.0.0'
+    }
+
+    buildSlaveVersion = {
+        def versionProps = getVersionProperties()
+
+        if( versionProps != null ){
+            return versionProps.getProperty('SLAVE_LIB_VERSION') ?: '0000'
+        }
+
+        return '0000'
+    }
+}

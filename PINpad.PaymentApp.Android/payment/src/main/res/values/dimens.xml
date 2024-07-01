@@ -1,0 +1,25 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="spacer_margin">18dp</dimen>
+    <dimen name="appbar_padding_top">2dp</dimen>
+    <dimen name="button_padding_top">5dp</dimen>
+    <dimen name="question_height">300dp</dimen>
+    <dimen name="question_grid_width">145dp</dimen>
+    <dimen name="question_skip_width">100dp</dimen>
+    <dimen name="screen_width_left">0.0</dimen>
+    <dimen name="screen_width_middle">1.0</dimen>
+    <dimen name="screen_width_right">0.0</dimen>
+    <dimen name="kbd_margin_right">0dp</dimen>
+    <dimen name="kbd_margin_left">0dp</dimen>
+    <dimen name="button_radius">8dp</dimen>
+    <dimen name="button_margin">4dp</dimen>
+    <dimen name="button_menu_border_width">1dp</dimen>
+    <dimen name="button_border_width">2dp</dimen>
+    <dimen name="button_edittext_width">2dp</dimen>
+    <dimen name="checkbox_text_size">18sp</dimen>
+    <dimen name="access_button_text_size">34sp</dimen>
+    <dimen name="header_logo_width">88dp</dimen>
+    <dimen name="header_logo_height">53dp</dimen>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:paddingTop="@dimen/appbar_padding_top">
+
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headlines_fragment"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Title"
+                android:text="System\nRebooting\nIn"
+                android:textAppearance="@style/ui2LargeFontDark"
+                android:fontFamily="@font/ui2font"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Counter"
+                android:text="10"
+                android:textAppearance="@style/ui2LargeFontDark"
+                android:fontFamily="@font/ui2font"
+                android:textAlignment="center"
+                android:paddingBottom="50dp"/>
+
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="@dimen/question_height"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/appbar_padding_top"
+                android:background="@drawable/ui2_buttonstyle"
+                android:paddingStart="10dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingEnd="10dp"
+                android:text="Delay for 5 Minutes"
+                android:fontFamily="@font/ui2font"
+                android:textAppearance="@style/ui2MediumFont"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

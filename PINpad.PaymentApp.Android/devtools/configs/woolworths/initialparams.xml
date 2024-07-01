@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<parameter>
+    <!-- TID & MID Settings -->
+    <stid>W7042004</stid>
+    <mid>611000602007042</mid>
+    <!-- Terminal Location   -->
+    <terminalTimeZone>Australia/Sydney</terminalTimeZone>
+    <bankTimeZone>Australia/Sydney</bankTimeZone>
+</parameter>

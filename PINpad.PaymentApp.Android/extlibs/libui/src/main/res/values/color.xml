@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="kbdCancelKeyColor">#DC0202</color>
+    <color name="kbdDoneKeyColor">#126B27</color>
+    <color name="kbdDelKeyColor">#FDC400</color>
+
+    <color name="kbdMainKeyColor">@color/colorTwo</color>
+    <color name="kbdBackgroundColor">@color/colorOne</color>
+
+    <color name="colorOne">#FF0090D8</color> <!--/ light blue for menu bottons and background fade  -->
+    <color name="colorTwo">#FF1C1342</color> <!--// dark blue for borders, headers and text -->
+    <color name="colorKeyboardborder">#dae0e2</color>
+    <color name="colorled">#eceff0</color>
+
+</resources>

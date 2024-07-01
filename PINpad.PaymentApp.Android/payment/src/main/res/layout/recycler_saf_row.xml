@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.linkly.payment.viewmodel.FragSAFViewAndClearViewModel.SAFTransaction" />
+        <variable
+            name="buttonClickListener"
+            type="com.linkly.payment.adapters.ItemButtonClickListener" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/row_trans_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/uiTextFont"
+            android:gravity="center"
+            android:text="@{model.date}"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/row_trans_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/row_trans_date"
+            android:gravity="start"
+            android:textAppearance="@style/uiTextFont"
+            android:text="@{model.type}"
+            tools:text="Purchase"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/row_trans_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/row_trans_date"
+            android:gravity="end|center_vertical"
+            android:text="@{model.amount}"
+            tools:text="$1,232.52"
+            android:textAppearance="@style/uiTextFont"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/row_trans_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_type"
+            android:gravity="center"
+            android:text="@{model.status}"
+            tools:text="Advice"
+            android:textAppearance="@style/uiTextFont"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/row_trans_pan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_status"
+            android:gravity="center"
+            android:text="@{model.pan}"
+            tools:text="428418******2100"
+            android:textAppearance="@style/uiTextFont"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/row_trans_rrn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_pan"
+            android:gravity="center"
+            android:text="@{model.rrn}"
+            tools:text="RRN:000000000004"
+            android:textAppearance="@style/uiTextFont"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/row_btn_print_and_delete"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/row_trans_amount"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/ui2_buttonstyle_light"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="@{() -> buttonClickListener.itemButtonClicked(model)}"
+            android:text="Print and Delete"
+            android:textAppearance="@style/uiTextFont"
+            android:layout_margin="@dimen/button_margin"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+    </RelativeLayout>
+</layout>

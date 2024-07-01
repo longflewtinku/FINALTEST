@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/text_ap_dhcp_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Access Point(AP) Setup - 2/2"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:id="@+id/view_separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_below="@+id/text_ap_dhcp_setup"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <Switch
+        android:id="@+id/switch_static"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_separator"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="Use DHCP :  "
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_apply_dhcp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch_static"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:id="@+id/text_apply_dhcp_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Apply Network settings"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+        <Button
+            android:id="@+id/btn_apply_dhcp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="Apply"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_dhcp_start_ip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_apply_dhcp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/text_dhcp_start_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:gravity="start|center_vertical"
+            android:text="DHCP Start IP :"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:layout_weight=".8"
+            />
+
+        <EditText
+            android:id="@+id/editText_dhcp_start_ip"
+            android:layout_width="550dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:layout_weight="1.2"
+            android:inputType="number"
+            android:digits="0123456789."
+            android:imeOptions="actionNext"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_dhcp_end_ip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_dhcp_start_ip"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/text_dhcp_end_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:gravity="start|center_vertical"
+            android:text="DHCP End IP :"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:layout_weight=".8"
+            android:inputType="number"
+            android:digits="0123456789."
+            android:nextFocusDown="@+id/editText_subnet_mask"
+            android:imeOptions="actionNext"
+            />
+
+        <EditText
+            android:id="@+id/editText_dhcp_end_ip"
+            android:layout_width="550dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:layout_weight="1.2"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/next_setting_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/text_next_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Testing the Connection"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:layout_weight="1.1"
+            android:visibility="gone"
+            />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next >"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_alignParentBottom="true"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_weight=".9"/>
+
+    </LinearLayout>
+        <Button
+            android:id="@+id/btn_cancel_setup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel Setup"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentBottom="true"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="visible"
+            android:background="@color/colorRed"/>
+
+
+
+
+</RelativeLayout>

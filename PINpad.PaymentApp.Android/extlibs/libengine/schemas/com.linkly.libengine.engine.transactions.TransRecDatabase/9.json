@@ -1,0 +1,983 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 9,
+    "identityHash": "0df602d2777f125ee52a41c769db13a1",
+    "entities": [
+      {
+        "tableName": "transrecs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `transType` INTEGER, `finalised` INTEGER NOT NULL, `approved` INTEGER NOT NULL, `cancelled` INTEGER NOT NULL, `declined` INTEGER NOT NULL, `referred` INTEGER NOT NULL, `deferredAuth` INTEGER NOT NULL, `emvTagsString` TEXT, `ctlsTagsString` TEXT, `reportedToPOS` INTEGER NOT NULL, `summedOrReced` INTEGER NOT NULL, `preauthUid` INTEGER, `prot_canAuthOffline` INTEGER, `prot_messageStatus` INTEGER, `prot_reversalReason` INTEGER, `prot_hostResult` INTEGER, `prot_authMethod` INTEGER, `prot_stan` INTEGER, `prot_originalStan` INTEGER, `prot_originalMessageType` INTEGER, `prot_originalTransmissionDateTime` INTEGER, `prot_authEntity` INTEGER, `prot_avsHouseNumberResult` INTEGER, `prot_avsPostcodeResult` INTEGER, `prot_cscResult` INTEGER, `prot_aavResult` INTEGER, `prot_mastercardAssignedID` TEXT, `prot_uniqueTransactionResponseReferenceNumber` TEXT, `prot_paymentAccountReference` TEXT, `prot_serverTransDateTime` TEXT, `prot_voidItemNumber` INTEGER, `prot_eftPaymentId` TEXT, `prot_acquirerReferenceData` TEXT, `prot_paymentChannelCounter` TEXT, `prot_authDateTimeUtc` TEXT, `prot_cardAcceptorNumber` TEXT, `prot_acquirerId` TEXT, `prot_schemeId` TEXT, `prot_schemeData` TEXT, `prot_merchantDepartmentId` TEXT, `prot_errorCode` TEXT, `prot_userTerminalId` TEXT, `prot_batchNumber` INTEGER, `prot_accountType` INTEGER, `prot_authCode` TEXT, `prot_RRN` TEXT, `prot_reversalState` INTEGER, `prot_reversalCount` INTEGER, `prot_reversed` INTEGER, `prot_serverResponseCode` TEXT, `prot_settlementCode` TEXT, `prot_authCount` INTEGER, `prot_adviceAttempts` INTEGER, `prot_sessionNumber` INTEGER, `prot_messageNumber` TEXT, `prot_referralNumber` TEXT, `prot_schemeReferenceData` TEXT, `prot_merchantTokenId` TEXT, `prot_cardHash` TEXT, `prot_cardReference` TEXT, `prot_diagnosticCode` TEXT, `prot_confirmationCode` TEXT, `prot_paxstoreUploaded` INTEGER, `prot_bankDate` TEXT, `prot_bankTime` TEXT, `prot_settlementDate` TEXT, `prot_signatureRequired` INTEGER, `prot_merchantEmailToUpload` INTEGER, `prot_customerEmailToUpload` INTEGER, `prot_mailCustomerAddress` TEXT, `prot_operationToken` TEXT, `prot_operationGUID` TEXT, `prot_additionalResponseText` TEXT, `prot_cardAcceptorPrinterData` TEXT, `prot_posResponseText` TEXT, `card_cardType` INTEGER, `card_cvmType` INTEGER, `card_captureMethod` INTEGER, `card_cardholderPresent` INTEGER, `card_cardIndex` INTEGER, `card_psi` TEXT, `card_expiry` TEXT, `card_validFrom` TEXT, `card_serviceCode` TEXT, `card_cvv` TEXT, `card_cardName` TEXT, `card_cardHolderName` TEXT, `card_aid` TEXT, `card_tvr` TEXT, `card_tsi` TEXT, `card_cvr` TEXT, `card_atc` TEXT, `card_psn` INTEGER, `card_cryptogramType` INTEGER, `card_cryptogram` BLOB, `card_genAc2Required` INTEGER, `card_cardDeclined` INTEGER, `card_houseNumber` TEXT, `card_postCodeNumber` TEXT, `card_mailOrder` INTEGER, `card_overTelephone` INTEGER, `card_ctlsBalanceValueAOSA` TEXT, `card_faultyMsr` INTEGER, `card_maskedPan` TEXT, `card_origTransClass` INTEGER, `card_arc` TEXT, `card_ctlsMcrPerformed` INTEGER, `amts_amount` INTEGER, `amts_preAuthedAmount` INTEGER, `amts_topupAmount` INTEGER, `amts_cashbackAmount` INTEGER, `amts_tip` INTEGER, `amts_surcharge` INTEGER, `amts_amountUserEntered` TEXT, `amts_currency` TEXT, `amts_tipEntered` INTEGER, `amts_discountedAmount` INTEGER, `amts_voucherCode` TEXT, `sec_encPan` TEXT, `sec_encTrack2` TEXT, `sec_packedCardDetails` TEXT, `sec_ksn` TEXT, `sec_pinBlock` TEXT, `sec_pinBlockKsn` TEXT, `sec_cvv` TEXT, `audit_uti` TEXT, `audit_userId` TEXT, `audit_terminalId` TEXT, `audit_merchantId` TEXT, `audit_reference` TEXT, `audit_virtualTid` TEXT, `audit_virtualMid` TEXT, `audit_virtualName` TEXT, `audit_countryCode` TEXT, `audit_transDateTime` INTEGER, `audit_transFinishedDateTime` INTEGER, `audit_reversalDateTime` INTEGER, `audit_lastTransmissionDateTime` INTEGER, `audit_receiptNumber` INTEGER, `audit_reversalReceiptNumber` INTEGER, `audit_disablePrinting` INTEGER, `audit_rejectReasonType` INTEGER, `audit_reasonOnlineCode` INTEGER, `audit_departmentId` TEXT, `audit_adviceRetryCount` INTEGER, `audit_signatureChecked` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transType",
+            "columnName": "transType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "finalised",
+            "columnName": "finalised",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "approved",
+            "columnName": "approved",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cancelled",
+            "columnName": "cancelled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "declined",
+            "columnName": "declined",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referred",
+            "columnName": "referred",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deferredAuth",
+            "columnName": "deferredAuth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "emvTagsString",
+            "columnName": "emvTagsString",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ctlsTagsString",
+            "columnName": "ctlsTagsString",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "reportedToPOS",
+            "columnName": "reportedToPOS",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "summedOrReced",
+            "columnName": "summedOrReced",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preauthUid",
+            "columnName": "preauthUid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.canAuthOffline",
+            "columnName": "prot_canAuthOffline",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.messageStatus",
+            "columnName": "prot_messageStatus",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.reversalReason",
+            "columnName": "prot_reversalReason",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.hostResult",
+            "columnName": "prot_hostResult",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.authMethod",
+            "columnName": "prot_authMethod",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.stan",
+            "columnName": "prot_stan",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.originalStan",
+            "columnName": "prot_originalStan",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.originalMessageType",
+            "columnName": "prot_originalMessageType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.originalTransmissionDateTime",
+            "columnName": "prot_originalTransmissionDateTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.authEntity",
+            "columnName": "prot_authEntity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.avsHouseNumberResult",
+            "columnName": "prot_avsHouseNumberResult",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.avsPostcodeResult",
+            "columnName": "prot_avsPostcodeResult",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.cscResult",
+            "columnName": "prot_cscResult",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.aavResult",
+            "columnName": "prot_aavResult",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.mastercardAssignedID",
+            "columnName": "prot_mastercardAssignedID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.uniqueTransactionResponseReferenceNumber",
+            "columnName": "prot_uniqueTransactionResponseReferenceNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.paymentAccountReference",
+            "columnName": "prot_paymentAccountReference",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.serverTransDateTime",
+            "columnName": "prot_serverTransDateTime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.voidItemNumber",
+            "columnName": "prot_voidItemNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.eftPaymentId",
+            "columnName": "prot_eftPaymentId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.acquirerReferenceData",
+            "columnName": "prot_acquirerReferenceData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.paymentChannelCounter",
+            "columnName": "prot_paymentChannelCounter",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.authDateTimeUtc",
+            "columnName": "prot_authDateTimeUtc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.cardAcceptorNumber",
+            "columnName": "prot_cardAcceptorNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.acquirerId",
+            "columnName": "prot_acquirerId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.schemeId",
+            "columnName": "prot_schemeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.schemeData",
+            "columnName": "prot_schemeData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.merchantDepartmentId",
+            "columnName": "prot_merchantDepartmentId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.errorCode",
+            "columnName": "prot_errorCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.userTerminalId",
+            "columnName": "prot_userTerminalId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.batchNumber",
+            "columnName": "prot_batchNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.accountType",
+            "columnName": "prot_accountType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.authCode",
+            "columnName": "prot_authCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.RRN",
+            "columnName": "prot_RRN",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.reversalState",
+            "columnName": "prot_reversalState",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.reversalCount",
+            "columnName": "prot_reversalCount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.reversed",
+            "columnName": "prot_reversed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.serverResponseCode",
+            "columnName": "prot_serverResponseCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.settlementCode",
+            "columnName": "prot_settlementCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.authCount",
+            "columnName": "prot_authCount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.adviceAttempts",
+            "columnName": "prot_adviceAttempts",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.sessionNumber",
+            "columnName": "prot_sessionNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.messageNumber",
+            "columnName": "prot_messageNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.referralNumber",
+            "columnName": "prot_referralNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.schemeReferenceData",
+            "columnName": "prot_schemeReferenceData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.merchantTokenId",
+            "columnName": "prot_merchantTokenId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.cardHash",
+            "columnName": "prot_cardHash",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.cardReference",
+            "columnName": "prot_cardReference",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.diagnosticCode",
+            "columnName": "prot_diagnosticCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.confirmationCode",
+            "columnName": "prot_confirmationCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.paxstoreUploaded",
+            "columnName": "prot_paxstoreUploaded",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.bankDate",
+            "columnName": "prot_bankDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.bankTime",
+            "columnName": "prot_bankTime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.settlementDate",
+            "columnName": "prot_settlementDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.signatureRequired",
+            "columnName": "prot_signatureRequired",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.merchantEmailToUpload",
+            "columnName": "prot_merchantEmailToUpload",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.customerEmailToUpload",
+            "columnName": "prot_customerEmailToUpload",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.mailCustomerAddress",
+            "columnName": "prot_mailCustomerAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.operationToken",
+            "columnName": "prot_operationToken",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.operationGUID",
+            "columnName": "prot_operationGUID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.additionalResponseText",
+            "columnName": "prot_additionalResponseText",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.cardAcceptorPrinterData",
+            "columnName": "prot_cardAcceptorPrinterData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol.posResponseText",
+            "columnName": "prot_posResponseText",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cardType",
+            "columnName": "card_cardType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cvmType",
+            "columnName": "card_cvmType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.captureMethod",
+            "columnName": "card_captureMethod",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cardholderPresent",
+            "columnName": "card_cardholderPresent",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cardIndex",
+            "columnName": "card_cardIndex",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.psi",
+            "columnName": "card_psi",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.expiry",
+            "columnName": "card_expiry",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.validFrom",
+            "columnName": "card_validFrom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.serviceCode",
+            "columnName": "card_serviceCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cvv",
+            "columnName": "card_cvv",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cardName",
+            "columnName": "card_cardName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cardHolderName",
+            "columnName": "card_cardHolderName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.aid",
+            "columnName": "card_aid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.tvr",
+            "columnName": "card_tvr",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.tsi",
+            "columnName": "card_tsi",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cvr",
+            "columnName": "card_cvr",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.atc",
+            "columnName": "card_atc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.psn",
+            "columnName": "card_psn",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cryptogramType",
+            "columnName": "card_cryptogramType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cryptogram",
+            "columnName": "card_cryptogram",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.genAc2Required",
+            "columnName": "card_genAc2Required",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.cardDeclined",
+            "columnName": "card_cardDeclined",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.houseNumber",
+            "columnName": "card_houseNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.postCodeNumber",
+            "columnName": "card_postCodeNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.mailOrder",
+            "columnName": "card_mailOrder",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.overTelephone",
+            "columnName": "card_overTelephone",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.ctlsBalanceValueAOSA",
+            "columnName": "card_ctlsBalanceValueAOSA",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.faultyMsr",
+            "columnName": "card_faultyMsr",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.maskedPan",
+            "columnName": "card_maskedPan",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.origTransClass",
+            "columnName": "card_origTransClass",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.arc",
+            "columnName": "card_arc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "card.ctlsMcrPerformed",
+            "columnName": "card_ctlsMcrPerformed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.amount",
+            "columnName": "amts_amount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.preAuthedAmount",
+            "columnName": "amts_preAuthedAmount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.topupAmount",
+            "columnName": "amts_topupAmount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.cashbackAmount",
+            "columnName": "amts_cashbackAmount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.tip",
+            "columnName": "amts_tip",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.surcharge",
+            "columnName": "amts_surcharge",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.amountUserEntered",
+            "columnName": "amts_amountUserEntered",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.currency",
+            "columnName": "amts_currency",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.tipEntered",
+            "columnName": "amts_tipEntered",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.discountedAmount",
+            "columnName": "amts_discountedAmount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amounts.voucherCode",
+            "columnName": "amts_voucherCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.encPan",
+            "columnName": "sec_encPan",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.encTrack2",
+            "columnName": "sec_encTrack2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.packedCardDetails",
+            "columnName": "sec_packedCardDetails",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.ksn",
+            "columnName": "sec_ksn",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.pinBlock",
+            "columnName": "sec_pinBlock",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.pinBlockKsn",
+            "columnName": "sec_pinBlockKsn",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "security.cvv",
+            "columnName": "sec_cvv",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.uti",
+            "columnName": "audit_uti",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.userId",
+            "columnName": "audit_userId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.terminalId",
+            "columnName": "audit_terminalId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.merchantId",
+            "columnName": "audit_merchantId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.reference",
+            "columnName": "audit_reference",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.virtualTid",
+            "columnName": "audit_virtualTid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.virtualMid",
+            "columnName": "audit_virtualMid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.virtualName",
+            "columnName": "audit_virtualName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.countryCode",
+            "columnName": "audit_countryCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.transDateTime",
+            "columnName": "audit_transDateTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.transFinishedDateTime",
+            "columnName": "audit_transFinishedDateTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.reversalDateTime",
+            "columnName": "audit_reversalDateTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.lastTransmissionDateTime",
+            "columnName": "audit_lastTransmissionDateTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.receiptNumber",
+            "columnName": "audit_receiptNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.reversalReceiptNumber",
+            "columnName": "audit_reversalReceiptNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.disablePrinting",
+            "columnName": "audit_disablePrinting",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.rejectReasonType",
+            "columnName": "audit_rejectReasonType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.reasonOnlineCode",
+            "columnName": "audit_reasonOnlineCode",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.departmentId",
+            "columnName": "audit_departmentId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.adviceRetryCount",
+            "columnName": "audit_adviceRetryCount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "audit.signatureChecked",
+            "columnName": "audit_signatureChecked",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_transrecs_cancelled",
+            "unique": false,
+            "columnNames": [
+              "cancelled"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_cancelled` ON `${TABLE_NAME}` (`cancelled`)"
+          },
+          {
+            "name": "index_transrecs_summedOrReced",
+            "unique": false,
+            "columnNames": [
+              "summedOrReced"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_summedOrReced` ON `${TABLE_NAME}` (`summedOrReced`)"
+          },
+          {
+            "name": "index_transrecs_transType",
+            "unique": false,
+            "columnNames": [
+              "transType"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_transType` ON `${TABLE_NAME}` (`transType`)"
+          },
+          {
+            "name": "index_transrecs_prot_messageStatus",
+            "unique": false,
+            "columnNames": [
+              "prot_messageStatus"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_prot_messageStatus` ON `${TABLE_NAME}` (`prot_messageStatus`)"
+          },
+          {
+            "name": "index_transrecs_audit_receiptNumber",
+            "unique": false,
+            "columnNames": [
+              "audit_receiptNumber"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_audit_receiptNumber` ON `${TABLE_NAME}` (`audit_receiptNumber`)"
+          },
+          {
+            "name": "index_transrecs_audit_uti",
+            "unique": false,
+            "columnNames": [
+              "audit_uti"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_audit_uti` ON `${TABLE_NAME}` (`audit_uti`)"
+          },
+          {
+            "name": "index_transrecs_prot_reversalState",
+            "unique": false,
+            "columnNames": [
+              "prot_reversalState"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_prot_reversalState` ON `${TABLE_NAME}` (`prot_reversalState`)"
+          },
+          {
+            "name": "index_transrecs_audit_userId",
+            "unique": false,
+            "columnNames": [
+              "audit_userId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_audit_userId` ON `${TABLE_NAME}` (`audit_userId`)"
+          },
+          {
+            "name": "index_transrecs_audit_transDateTime",
+            "unique": false,
+            "columnNames": [
+              "audit_transDateTime"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transrecs_audit_transDateTime` ON `${TABLE_NAME}` (`audit_transDateTime`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0df602d2777f125ee52a41c769db13a1')"
+    ]
+  }
+}

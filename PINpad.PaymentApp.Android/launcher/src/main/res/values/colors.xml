@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- not really used much -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#3B5998</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGreenDark">#009E0F</color>
+    <color name="colorYellow">#F0F000</color>
+    <color name="colorBlue">#0000A0</color>
+
+    <color name="ui2Grey">@color/ui2ColorSix</color>
+    <color name="ui2TextColour">@color/ui2ColorTwo</color>
+
+    <color name="ui2TabTextColour">@color/ui2ColorFive</color>
+    <color name="ui2TabSelectedTextColour">@color/ui2ColorOne</color>
+
+    <color name="ui2BgTabMenuHdrStart">@color/ui2ColorThree</color>
+    <color name="ui2BgTabMenuHdrEnd">@color/ui2ColorThree</color>
+
+    <color name="ui2BgMenuHdrStart">@color/ui2ColorTwo</color>
+    <color name="ui2BgMenuHdrEnd">@color/ui2ColorTwo</color>
+
+    <color name="ui2BgMenuStart">@color/ui2ColorThree</color>
+    <color name="ui2BgMenuCenter">@color/ui2ColorThree</color>
+    <color name="ui2BgMenuEnd">@color/ui2ColorThree</color>
+
+    <color name="ui2BgStart">@color/ui2ColorTwo</color>
+    <color name="ui2BgCenter">@color/ui2ColorTwo</color>
+    <color name="ui2BgEnd">@color/ui2ColorTwo</color>
+
+    <color name="ui2BgLightStart">@color/ui2ColorThree</color>
+    <color name="ui2BgLightCenter">@color/ui2ColorThree</color>
+    <color name="ui2BgLightEnd">@color/ui2ColorThree</color>
+
+    <color name="ui2EditTextBorder">@color/ui2ColorOne</color>
+    <color name="ui2EditTextColour">@color/ui2ColorTwo</color>
+
+    <color name="ui2MenuButton">@color/ui2ColorThree</color>
+    <color name="ui2MenuButtonBorder">@color/ui2ColorOne</color>
+
+    <color name="ui2ColorCancelled">@color/ui2ColorSeven</color>
+    <color name="ui2ColorProcessing">@color/ui2ColorFour</color>
+    <color name="ui2ColorApproved">@color/ui2ColorEight</color>
+    <color name="buttonBackGround">#eceff0</color>
+
+
+    <!-- system made of 3 colours -->
+    <color name="ui2ColorOne">#ff0090D8</color> <!--/ light blue for menu bottons and background fade  -->
+    <color name="ui2ColorTwo">#ff1C1342</color> <!--// dark blue for borders, headers and text -->
+    <color name="ui2ColorThree">#FFFFFF</color> <!-- this color must contrast with colorOne as it goes behind the menu buttons and on top of it as text -->
+    <color name="ui2ColorFour">#009CDC</color>
+    <color name="ui2ColorFive">#889698</color>
+    <color name="ui2ColorSix">#E9E9EB</color>
+    <color name="ui2ColorSeven">#E7484B</color>
+    <color name="ui2ColorEight">#30CC8F</color>
+
+    <color name="colorTextColor">@color/colorGreenWoolWorths</color>
+    <color name="colorGreenWoolWorths">#3d6850</color>
+
+    <color name="color_linkly_primary">#FF591F</color>
+</resources>

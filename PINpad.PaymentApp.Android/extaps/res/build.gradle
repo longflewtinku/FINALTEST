@@ -1,0 +1,212 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply from: "$project.rootDir/jacoco.gradle"
+
+def versionPropsFile = file('version.properties')
+def versionProps = new Properties()
+
+if (versionPropsFile.exists()) {
+    versionProps.load(new FileInputStream(versionPropsFile))
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.google.com'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/'
+    }
+}
+
+android {
+    namespace 'com.linkly.res'
+    compileSdkVersion compileSdkVer
+
+    defaultConfig {
+        applicationId 'com.linkly.' + project.name
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionCode versionProps['versionCode'].toInteger()
+        versionName versionProps['versionName']
+        archivesBaseName = project.name + "-$versionName"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        signingConfig signingConfigs.debug
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+        debug {
+            testCoverageEnabled true
+        }
+    }
+
+    flavorDimensions "customer"
+    productFlavors {
+        // Have to mirror the original app id's. Cannot use applicationIDSuffix as this auto appends a '.'
+        till {
+            dimension "customer"
+            applicationId "com.linkly.restill"
+        }
+        livegroup {
+            dimension "customer"
+            applicationId "com.linkly.reslivegroup"
+        }
+        ttfuel {
+            dimension "customer"
+            applicationId "com.linkly.resttfuel"
+        }
+        virgin {
+            dimension "customer"
+            applicationId "com.linkly.resvirgin"
+        }
+        woolworths {
+            dimension "customer"
+            applicationId "com.linkly.reswoolworths"
+        }
+        netcabs {
+            dimension "customer"
+            applicationId "com.linkly.resnetcabs"
+        }
+        demo {
+            dimension "customer"
+            applicationId "com.linkly.resdemo"
+        }
+    }
+
+    sourceSets {
+        till {
+            assets.srcDirs = ["src/till/assets"]
+        }
+        livegroup {
+            assets.srcDirs = ["src/livegroup/assets"]
+        }
+        ttfuel {
+            assets.srcDirs = ["src/ttfuel/assets"]
+        }
+        virgin {
+            assets.srcDirs = ["src/virgin/assets"]
+        }
+        woolworths {
+            assets.srcDirs = ["src/woolworths/assets"]
+        }
+        netcabs {
+            assets.srcDirs = ["src/netcabs/assets"]
+        }
+        demo {
+            assets.srcDirs = ["src/demo/assets"]
+        }
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlin.stdlib
+    // The following line is needed because of inclusion of libsecapp; this NeptuneLite jar dependency is 'compile-only' there.
+    implementation files(libs.versions.neptune.get())
+    implementation(libs.linkly.mal) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation libs.constraintlayout
+    implementation libs.appcompat
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation libs.annotation
+    implementation(libs.linkly.logger)
+}
+
+// Task used to update version.properties
+task updateVersion {
+    doLast {
+        // Determine the tag used to build the latest commit of this module
+        def lastCommitTag = getLatestCommitTag()
+
+        // Load the current version properties
+        def versionPropertiesFile = file('version.properties')
+        def versionProperties = new Properties()
+        versionProperties.load(new FileInputStream(versionPropertiesFile))
+
+        // Get the buildType from the pipeline argument
+        def buildType = project.hasProperty("buildType") ? project.property("buildType") : "D"
+
+        // Get the applicable versionCode and versionName based on last commit
+        def versionComponents = getVersionComponents(lastCommitTag, buildType)
+
+        // Calculated versionCode and update versionName
+        def newVersionCode = versionComponents[0]
+        def newVersionName = versionComponents[1]
+
+        // Update the version properties
+        versionProperties.setProperty('versionCode', newVersionCode.toString())
+        versionProperties.setProperty('versionName', newVersionName)
+
+        // Save the updated version properties
+        versionProperties.store(versionPropertiesFile.newWriter(), null)
+
+        println "Updated versionCode: $newVersionCode"
+        println "Updated versionName: $newVersionName"
+    }
+}
+
+// Identify the tag to use for versioning, based on the latest commit made for this module
+def getLatestCommitTag() {
+    def currentModulePath = project.projectDir //path of current module
+    // Run a git command to get the tag associated with the latest commit
+    def gitCommand = "git rev-list -n 1 HEAD -- ${currentModulePath}".execute()
+    def commitHash = gitCommand.text.trim()
+    println "Recent commit hash: $commitHash"
+    def command = "git describe --tags --abbrev=0 ${commitHash}".execute()
+    def tag = command.text.trim()
+
+    return tag
+}
+
+// Derive the version code and version name, based on build type and tag
+def getVersionComponents(tag, buildType) {
+
+    println "TAG: $tag"
+    println "buildType: $buildType"
+    // Remove the leading 'v' if present and split the tag into components
+    def components = tag.replaceFirst(/^v/, '').tokenize('.')
+
+    if (components.size() >= 3) {
+        def majorVersion = components[0].toInteger()
+        def minorVersion = components[1].toInteger()
+        def revision = components[2].toInteger()
+
+        // Determine the build type-specific suffix
+        def buildTypeSuffix = buildType == 'R' ? '10' : (buildType == 'P' ? '11' : '')
+
+        // Calculate versionCode by combining components and build type suffix
+        def versionCode = majorVersion * 10000 + minorVersion * 100 + revision
+        if (!buildTypeSuffix.empty) {
+            versionCode = Integer.parseInt("${versionCode}${buildTypeSuffix}")
+        }
+
+        // Construct versionName
+        def versionName = "${majorVersion}.${minorVersion}.${revision}-${buildType}"
+        println "versionCode: $versionCode"
+        println "versionName: $versionName"
+        return [versionCode, versionName]
+    } else {
+        error "Invalid tag format: $tag"
+    }
+}
+
+updateVersion.dependsOn 'clean'

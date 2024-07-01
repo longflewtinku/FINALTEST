@@ -1,0 +1,122 @@
+{
+  "apns": [
+    {
+      "apn": "mobile.o2.co.uk",
+      "name": "O2",
+      "pwd": "",
+      "user": ""
+    }
+  ],
+  "brandName": "Payment",
+  "customerName": "Demo",
+  "unattendedModeAllowed": false,
+  "kioskMode": false,
+  "kioskScreenText": "",
+  "unattendedLockedDownMessage": {
+    "portrait": "Out of Service",
+    "landscape": "Out of\nService"
+  },
+  "menus": [
+    {
+      "autoStart": false,
+      "displayName": "Payments",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.payment"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Payment Demo",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.positivelauncher"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Register",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.smartvg.tcr.demo"
+    },
+    {
+      "autoStart": false,
+      "displayName": "CCTech",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.cctech.payapp"
+    },
+    {
+      "autoStart": true,
+      "displayName": "POS Connect",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.connect.linkly"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Local Loyalty",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.idl.merchant"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Local Loyalty",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.localvalu.merchant"
+    },
+    {
+      "autoStart": true,
+      "displayName": "MPOS",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.mpos"
+    }
+  ],
+  "settingsMenus": {
+    "showSettingsMenu": "false",
+    "showSetupWifiBaseMenu": "true",
+    "showBluetoothSettingsMenu":  "true",
+    "showWifiSettingsMenu": "true",
+    "showSoundSettingsMenu": "true",
+    "showEthernetSettingsMenu":  "true",
+    "showApnSettingsMenu": "true",
+    "showCellularSettingsMenu":  "true",
+    "showAirplaneModeMenu": "false",
+    "showInputSettingsMenu":  "false",
+    "showInjectKeysSettingsMenu": "false",
+    "showDisplaySettingsMenu":  "true"
+  },
+  "paxstorePaymentKey": "J2GD90VM0EQPJ4Q8AEVW",
+  "paxstorePaymentSecret": "DT31CVZDQUQ0G2CWHVY2QMJP3LF4ZMHTNFM4BHVU",
+  "paxstoreServiceKey": "FMLO8OIQN9Y2ZTJ4BXUV",
+  "paxstoreServiceSecret": "ESJFDKEXYSTA8I6R08769NP5T1PDPYVDL7EZQ0K0",
+  "paymentMenus": {
+    "userMenuLists": [
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Daily Batch,Reprint Rec,User Manager",
+        "level": "USER",
+        "mainMenu": "Sale,Cash,Pre-Auth,Completion,Test Acquiring Connection,Card Not Present,Reprint Manager,Reversal"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Daily Batch,Reprint Rec,User Manager",
+        "level": "SUPERVISOR",
+        "mainMenu": "Sale,Cash,Refund,Pre-Auth,Completion,Reconciliation,Test Acquiring Connection,Card Not Present,Reprint Manager,Reversal"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Daily Batch,Reprint Rec,User Manager",
+        "level": "MANAGER",
+        "mainMenu": "Sale,Cash,Refund,Pre-Auth,Completion,Reconciliation,Test Acquiring Connection,Card Not Present,Reprint Manager,Reversal"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Daily Batch,Reprint Rec,Reversal,User Manager",
+        "level": "DEFAULT",
+        "mainMenu": "Sale,Cash,Refund,Pre-Auth,Completion,Reconciliation,Test Acquiring Connection,Card Not Present,Reprint Manager,Reversal"
+      }
+    ]
+  },
+  "paymentName": "LinklyPA",
+  "serviceName": "Launcher",
+  "version": "0.00.00"
+}

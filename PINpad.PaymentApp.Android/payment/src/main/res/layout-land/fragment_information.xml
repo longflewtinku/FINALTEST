@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragInfoViewModel"
+            type="com.linkly.payment.viewmodel.FragInfoViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:background="@android:color/white"
+        android:id="@+id/container">
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"/>
+
+
+        <!-- LED Bar for Contactless -->
+        <fragment
+            android:id="@+id/ctls_leds_frag"
+            android:layout_below="@id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragLed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            tools:layout="@layout/fragment_leds"/>
+
+        <TextView
+            android:id="@+id/infoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ctls_leds_frag"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/ui2font"
+            android:layout_marginTop="11dp"
+            android:gravity="center"
+            android:text='@{fragInfoViewModel.title}'
+            android:visibility="@{safeUnbox(fragInfoViewModel.getTitleVisible()) ? View.VISIBLE : View.INVISIBLE}"
+            android:textAppearance="@style/uiHeadlineFont"
+            />
+
+        <TextView
+            android:id="@+id/infoPrompt"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/infoTitle"
+            android:layout_above="@+id/bottomHalf"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:gravity="center"
+            android:text='@{fragInfoViewModel.prompt}'
+            android:visibility="@{safeUnbox(fragInfoViewModel.getPromptVisible()) ? View.VISIBLE : View.INVISIBLE}"
+            android:textAppearance="@style/uiTextFont" />
+
+        <LinearLayout
+            android:id="@+id/bottomHalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infoTitle"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="111dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/bg_color"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@{ContextCompat.getDrawable(context, safeUnbox(fragInfoViewModel.getBackgroundResource()))}"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="@{safeUnbox(fragInfoViewModel.getBackground()) ? View.VISIBLE : View.GONE}">
+
+                <ImageView
+                    android:id="@+id/imageProcessing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/PROCESSING"
+                    android:visibility="@{safeUnbox(fragInfoViewModel.getImageProcessing()) ? View.VISIBLE : View.GONE}"
+                    app:srcCompat="@drawable/ic_processing"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/imageDeclined"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="@string/DECLINED"
+                    android:visibility="@{safeUnbox(fragInfoViewModel.getImageDeclined()) ? View.VISIBLE : View.GONE}"
+                    app:srcCompat="@drawable/ic_declinied" />
+
+                <ImageView
+                    android:id="@+id/imageCheck"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="@string/APPROVED"
+                    android:visibility="@{safeUnbox(fragInfoViewModel.getImageCheck()) ? View.VISIBLE : View.GONE}"
+                    app:srcCompat="@drawable/animated_check" />
+
+                <ImageView
+                    android:id="@+id/imagePrinting"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:contentDescription="@string/PRINTING"
+                    android:src="@mipmap/mreprint2"
+                    android:visibility="@{safeUnbox(fragInfoViewModel.getImagePrinting()) ? View.VISIBLE : View.GONE}" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_marginTop="@dimen/button_padding_top"
+                android:background="@drawable/ui2_buttonstyle"
+                android:fontFamily="@font/ui2font"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="@string/CANCEL_NL_RETURN_TO_MAIN_MENU"
+                android:textAppearance="@style/ui2SmallFontDark"
+                android:visibility="visible" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@android:color/white"
+                android:indeterminateTintMode="src_in"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/paddingPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/ui2font"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text=""
+                android:textAppearance="@style/ui2MediumFontDark"
+                android:visibility="@{safeUnbox(fragInfoViewModel.getPadding()) ? View.VISIBLE : View.GONE}" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</layout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Launcher</string>
+    <string name="action_settings">Stillingar</string>
+    <string name="battery_low">Rafhlaða lág</string>
+    <string name="pos_service_version">Launcher útgáfa:</string>
+    <string name="placeholder">placeholder</string>
+    <string name="pay_version">Payment Version:</string>
+    <string name="welcome">Velkomin</string>
+</resources>

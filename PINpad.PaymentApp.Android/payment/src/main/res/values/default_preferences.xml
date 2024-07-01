@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="defaultScreenSaverTimer">60</integer>
+    <bool name="defaultMerchantReceiptFirst">true</bool>
+    <bool name="defaultPrintMerchantReceipt">true</bool>
+    <bool name="defaultPrintContactlessReceipts">true</bool>
+    <bool name="defaultPrintToScreen">false</bool>
+    <bool name="defaultAutologin">true</bool>
+    <bool name="defaultAutoLogoff">true</bool>
+    <integer name="defaultAutoLogoffTimeout">30</integer>
+    <integer name="defaultPresentCardTimeout">120</integer>
+    <bool name="defaultDateMenuPanel">true</bool>
+    <bool name="defaultDisplayDevMenu">true</bool>
+    <string name="defaultUsbMode" translatable="false">Default Mode</string>
+</resources>

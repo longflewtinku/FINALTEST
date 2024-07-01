@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/ui2BgLightStart"
+        android:paddingTop="@dimen/appbar_padding_top"
+        tools:context="com.linkly.payment.activities.ActPrint">
+
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/btns"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_margin="10dp"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:weightSum="11"
+            >
+            <WebView
+                android:id="@+id/textField"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:scrollHorizontally="true"
+                android:scrollbars="horizontal|vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            >
+
+            <Button
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/DONE"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_buttonstyle"
+                android:textAppearance="@style/uiDoneBtn"
+                android:layout_alignParentEnd="true"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</layout>

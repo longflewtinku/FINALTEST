@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Linkly Launcher</string>
+    <string name="action_settings">Settings</string>
+    <string name="battery_low">BATTERY LOW</string>
+    <string name="pos_service_version">Launcher Version:</string>
+    <string name="placeholder">placeholder</string>
+    <string name="pay_version">Payment Version:</string>
+    <string name="welcome">Welcome</string>
+    <string name="app_name_version" translatable="false">%s %s</string>
+    <string name="auto_launching" translatable="false">Auto-launching\n%s\n\nPlease Wait</string>
+</resources>

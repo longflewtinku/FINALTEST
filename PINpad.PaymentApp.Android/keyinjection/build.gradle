@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+apply from: "$project.rootDir/jacoco.gradle"
+
+repositories {
+    mavenLocal()
+    maven { url 'https://maven.google.com' }
+    maven { url "https://jitpack.io" }
+    maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/' }
+}
+
+android {
+    namespace 'com.linkly.keyinjection'
+    compileSdkVersion compileSdkVer
+
+    defaultConfig {
+        applicationId "com.linkly.keyinjection"
+        minSdkVersion 24
+        targetSdkVersion targetSdkVer
+        versionCode 3
+        versionName "1.2"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:all" << "-Werror" //TODO: Fix all unchecked/deprecation warnings
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlin.stdlib
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.gson
+    implementation libs.appcompat
+    implementation libs.android.support.design
+
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    testImplementation libs.junit
+
+    implementation libs.recyclerview
+    implementation(libs.linkly.mal) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation project(':extlibs:libui')
+    implementation project(':extlibs:libconfig')
+    implementation(libs.linkly.logger)
+    implementation(libs.linkly.libkotlinandroidtoolkit)
+}

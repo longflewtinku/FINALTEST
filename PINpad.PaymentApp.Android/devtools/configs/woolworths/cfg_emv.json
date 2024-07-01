@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "schemes": [
+    {
+      "scheme_label" : "AMEX",
+      "rid" : "A000000025",
+      "aids": [
+        {
+          "aid": "A00000002501",
+          "appName": "American Exp.",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 5,
+          "linklyBinNumberDebit": 5
+        }
+      ]
+    },
+    {
+      "scheme_label" : "VISA",
+      "rid" : "A000000003",
+      "aids": [
+        {
+          "aid": "A0000000031010",
+          "appName": "Visa",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 4,
+          "linklyBinNumberDebit": 28
+        },
+        {
+          "aid": "A0000000031020",
+          "appName": "Visa",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 4,
+          "linklyBinNumberDebit": 28
+        }
+      ]
+    },
+    {
+      "scheme_label" : "MASTERCARD",
+      "rid" : "A000000004",
+      "aids": [
+        {
+          "aid": "A0000000041010",
+          "appName": "MasterCard",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 3,
+          "linklyBinNumberDebit": 29
+        }
+      ]
+    },
+    {
+      "scheme_label" : "EFTPOS",
+      "rid" : "A000000384",
+      "aids": [
+        {
+          "aid": "A00000038410",
+          "appName": "EFTPOS Saving",
+          "defaultAccount": "SAV",
+          "linklyBinNumberCredit": 1,
+          "linklyBinNumberDebit": 1
+        },
+        {
+          "aid": "A00000038420",
+          "appName": "EFTPOS Cheque",
+          "defaultAccount": "CHQ",
+          "linklyBinNumberCredit": 1,
+          "linklyBinNumberDebit": 1
+        }
+      ]
+    },
+    {
+      "scheme_label" : "JCB",
+      "rid" : "A000000065",
+      "aids": [
+        {
+          "aid": "A0000000651010",
+          "appName": "JCB",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 7,
+          "linklyBinNumberDebit": 7
+        }
+      ]
+    },
+    {
+      "scheme_label" : "UPI",
+      "rid" : "A000000333",
+      "aids": [
+        {
+          "aid": "A000000333010102",
+          "appName": "UPI Credit",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 30,
+          "linklyBinNumberDebit": 31
+        },
+        {
+          "aid": "A000000333010103",
+          "appName": "UPI Quasi Cr",
+          "defaultAccount": "CRD",
+          "linklyBinNumberCredit": 30,
+          "linklyBinNumberDebit": 31
+        },
+        {
+          "aid": "A000000333010101",
+          "appName": "UPI Debit",
+          "defaultAccount": "SAV",
+          "linklyBinNumberCredit": 30,
+          "linklyBinNumberDebit": 31
+        }
+      ]
+    }
+  ]
+}

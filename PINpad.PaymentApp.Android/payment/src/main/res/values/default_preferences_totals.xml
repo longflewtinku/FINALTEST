@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="defaultShiftTotalsEnabled">false</bool>
+    <bool name="defaultSettlementEnabled">true</bool>
+    <bool name="defaultAutomaticShiftTotalsEnabled">false</bool>
+    <string name="defaultAutomaticShiftTotalsTimeOfDay">00:00</string>
+</resources>

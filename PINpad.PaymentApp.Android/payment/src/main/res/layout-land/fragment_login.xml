@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="fragKeyboardViewModel"
+            type="com.linkly.payment.viewmodel.FragKeyboardViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp">
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:fontFamily="@font/ui2font"
+            android:text="@string/WELCOME"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TitleFontDarkAllcaps" />
+
+        <TextView
+            android:id="@+id/prompt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/ui2font"
+            android:text="@string/ENTER_USER_CREDENTIALS"
+            android:textAlignment="center"
+            android:textAppearance="@style/SubTitleFontDark"
+             />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_gravity="center_horizontal">
+
+            <com.linkly.libui.views.CustomEditText
+                android:id="@+id/userid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_edittextstyle"
+                android:backgroundTint="@color/editTextColor"
+                android:ems="10"
+                android:fontFamily="@font/ui2font"
+                android:gravity="start"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingTop="6dp"
+                android:textColor="@color/editTextColor"
+                android:textColorHint="@color/editTextColor"
+                android:textCursorDrawable="@null"
+                android:textSize="27sp"
+                android:textStyle="normal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_gravity="center_horizontal">
+
+            <com.linkly.libui.views.CustomEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_edittextstyle"
+                android:backgroundTint="@color/editTextColor"
+                android:ems="10"
+                android:fontFamily="@font/ui2font"
+                android:gravity="start"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingTop="6dp"
+                android:textColor="@color/editTextColor"
+                android:textColorHint="@color/editTextColor"
+                android:textCursorDrawable="@null"
+                android:textSize="27sp"
+                android:textStyle="normal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/saveCred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="37dp"
+            android:buttonTint="@color/colorBlack"
+            android:fontFamily="@font/ui2font"
+            android:text="@string/SAVE_CREDS"
+            android:textSize="@dimen/checkbox_text_size" />
+
+    </LinearLayout>
+</layout>

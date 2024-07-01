@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_ap_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/AP_SETUP"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view_separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/text_ap_setup"
+        android:layout_margin="10dp"
+        android:background="@android:color/black" />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_separator">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout_ssid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_ssid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:gravity="start|center_vertical"
+                    android:labelFor="@id/editText_ssid"
+                    android:text="@string/SSID"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_ssid"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:autofillHints="wifi,ssid"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:gravity="start|center_vertical"
+                    android:labelFor="@id/editText_password"
+                    android:maxLines="1"
+                    android:text="@string/AP_PASSWORD"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_password"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:autofillHints="wifi,password"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_static"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/ENABLE_WIFI_BASE_DHCP"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/layout_dhcp_start_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_dhcp_start_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:gravity="start|center_vertical"
+                    android:labelFor="@id/editText_dhcp_start_ip"
+                    android:text="@string/DHCP_START_IP"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_dhcp_start_ip"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:autofillHints="dhcp,ip,network"
+                    android:digits="0123456789."
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_dhcp_end_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_dhcp_end_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight=".8"
+                    android:gravity="start|center_vertical"
+                    android:labelFor="@+id/editText_dhcp_end_ip"
+                    android:text="@string/DHCP_END_IP"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText_dhcp_end_ip"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1.2"
+                    android:autofillHints="dhcp,ip,network"
+                    android:digits="0123456789."
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_apply_ap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/APPLY"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_cancel_setup"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/CANCEL_SETUP"
+            android:textColor="@color/colorRed"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/NEXT"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

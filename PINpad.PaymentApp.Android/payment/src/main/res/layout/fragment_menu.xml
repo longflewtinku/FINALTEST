@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                tools:context="com.linkly.payment.fragments.FragMenu">
+
+    <TextView
+        android:textAppearance="@style/ui2MediumFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+
+       <!-- <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"/>-->
+
+        <GridView
+            android:id="@+id/adminMenuList"
+            style="@style/ButtonMenu"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:numColumns="@integer/columns"
+            android:paddingTop="0dp"/>
+
+
+        <LinearLayout        android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:fitsSystemWindows="true"
+                             android:orientation="vertical"
+                             android:gravity="bottom"
+                             android:layout_gravity="bottom"
+                             android:weightSum="2">
+
+            <GridLayout        android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:fitsSystemWindows="true"
+                               android:orientation="vertical"
+                               android:gravity="bottom"
+                               android:layout_gravity="bottom"
+                               android:background="@drawable/lightbackgroundstyle"
+                               android:weightSum="2"
+                               android:columnCount="2">
+
+                <!-- Grid Row 1 - EFT Service -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sales: (5): "
+                    android:textAppearance="@style/ui2TinyFontDarkBold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="£123.45"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:textAppearance="@style/ui2TinyFontDark"
+                    />
+
+                <!-- Grid Row 2 - Mal Version-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reversals (6)"
+                    android:textAppearance="@style/ui2TinyFontDarkBold"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="£0.00"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:textAppearance="@style/ui2TinyFontDark"/>
+
+            </GridLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

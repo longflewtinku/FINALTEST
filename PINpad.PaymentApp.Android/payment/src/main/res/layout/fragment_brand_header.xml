@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                tools:context="com.linkly.payment.fragments.FragHeader">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ui2ColorThree"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <!-- Branding Image -->
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_linkly"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageButton
+            android:id="@+id/menu_but"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:src="@drawable/btn_hamburger"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/battery_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="14dp"
+        android:visibility="gone">
+
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:paddingEnd="0dp"
+            android:paddingStart="2dp"
+            android:src="@mipmap/battery"/>
+
+        <TextView
+            android:id="@+id/text_battery_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:text="@string/BATTERY_LOW"
+            android:textColor="@color/colorWhite"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/batch_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:paddingStart="0dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/batchindi"
+        android:paddingTop="14dp"
+        android:layout_marginBottom="10dp">
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/database"/>
+
+            <TextView
+                android:id="@+id/batch_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

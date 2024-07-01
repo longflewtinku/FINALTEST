@@ -1,0 +1,144 @@
+{
+  "apns": [
+    {
+      "apn": "m2m.tns.prod1",
+      "name": "TNS",
+      "pwd": "",
+      "user": ""
+    }
+  ],
+  "brandName": "Payment",
+  "customerName": "LiveGroup",
+  "unattendedModeAllowed": false,
+  "menus": [
+    {
+      "autoStart": false,
+      "displayName": "Payments",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.payment"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Payment Demo",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.positivelauncher"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Register",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.smartvg.tcr.demo"
+    },
+    {
+      "autoStart": false,
+      "displayName": "CCTech",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.cctech.payapp"
+    },
+    {
+      "autoStart": false,
+      "displayName": "POS Connect",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.connect.linkly"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Local Loyalty",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.idl.merchant"
+    },
+    {
+      "autoStart": false,
+      "displayName": "Local Loyalty",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.localvalu.merchant"
+    },
+    {
+      "autoStart": false,
+      "displayName": "EPAY",
+      "enableNavBar": true,
+      "imageName": "",
+      "packageName": "de.epay.epaypos"
+    },
+    {
+      "autoStart": true,
+      "displayName": "Key Injection",
+      "enableNavBar": true,
+      "imageName": "",
+      "packageName": "com.linkly.keyinjection",
+      "priority": 2,
+      "autoStartDelay": 2
+    },
+    {
+      "autoStart": false,
+      "displayName": "CLOUD POS",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.cloudtestpos"
+    },
+    {
+      "autoStart": true,
+      "displayName": "MPOS",
+      "enableNavBar": false,
+      "imageName": "",
+      "packageName": "com.linkly.mpos"
+    }
+  ],
+  "settingsMenus": {
+    "showSettingsMenu": "false",
+    "showSetupWifiBaseMenu": "true",
+    "showBluetoothSettingsMenu":  "true",
+    "showWifiSettingsMenu": "true",
+    "showSoundSettingsMenu": "true",
+    "showEthernetSettingsMenu":  "true",
+    "showApnSettingsMenu": "true",
+    "showCellularSettingsMenu":  "true",
+    "showAirplaneModeMenu": "false",
+    "showInputSettingsMenu":  "false",
+    "showInjectKeysSettingsMenu": "false",
+    "showDisplaySettingsMenu":  "true"
+  },
+  "paxstorePaymentKey": "I00FXR4IMSMCJ8AYTB3O",
+  "paxstorePaymentSecret": "3MAAM3B8DM2KZLJ0LWHHZ06LBIZK82VMYUYNQT0Z",
+  "paxstoreServiceKey": "SR8Q66SU4Q0RVNTA042P",
+  "paxstoreServiceSecret": "CE2OS8J2JWCEY34AV3TZT8XPF1EKUQI3GMOPYTMZ",
+  "paymentMenus": {
+    "userMenuLists": [
+      {
+        "adminMenu": "User Manager",
+        "level": "USER",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Completion,Pre-Auth Cancel,Reconciliation,MOTO Sale,MOTO Refund,Reprint Manager,Pre-Auth Search and View"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Transaction History,History,Reprint Rec,RSA Logon,Logon,User Manager",
+        "level": "SUPERVISOR",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Completion,Pre-Auth Cancel,Reconciliation,MOTO Sale,MOTO Refund,Reprint Manager,Pre-Auth Search and View"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Transaction History,History,Reprint Rec,RSA Logon,Logon,User Manager,View and Clear SAF",
+        "level": "MANAGER",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Completion,Pre-Auth Cancel,Reconciliation,MOTO Sale,MOTO Refund,Reprint Manager,Pre-Auth Search and View"
+      },
+      {
+        "adminMenu": "",
+        "level": "TECHNICIAN",
+        "mainMenu": "Logon,Initiate RKI,RSA Logon,System Info,Exit"
+      },
+      {
+        "adminMenu": "System Info,Submit Transactions,Reconciliation,Transaction History,History,Reprint Rec,Reversal,RSA Logon,Logon,User Manager",
+        "level": "DEFAULT",
+        "mainMenu": "Sale,Cash,Sale+Cash,Reversal,Refund,Pre-Auth,Pre-Auth Completion,Pre-Auth Cancel,Reconciliation,MOTO Sale,MOTO Refund,Reprint Manager,Pre-Auth Search and View"
+      }
+    ]
+  },
+  "paymentName": "LinklyPA",
+  "serviceName": "Launcher",
+  "version": "0.00.00"
+}

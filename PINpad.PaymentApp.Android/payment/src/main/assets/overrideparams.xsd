@@ -1,0 +1,1712 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="numeric_0-3">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="3" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-365">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="365" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-60">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="60" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-999">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="999" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-9999">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="9999" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-999999999">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="999999999" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_1-10">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="10" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_1-7">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="7" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_8-10">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9]{8,10}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_8-13">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9]{8,13}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-1000">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="1000" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-100">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxExclusive value="100" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeric_0-20">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="20" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0">
+        <xs:restriction base="xs:string">
+            <xs:length value="0" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-1">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="1" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-3">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="3" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_4-6">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="4" />
+            <xs:maxLength value="6" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_6-12">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="6" />
+            <xs:maxLength value="12" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-12">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="12" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-16">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="16" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-20">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="20" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-24">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="24" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-25">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="25" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_1-25">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="25" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-1024">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="1024" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_0-64">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="64" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="emailAddress_or_empty">
+        <xs:union memberTypes="string_0 emailAddress" />
+    </xs:simpleType>
+
+    <xs:simpleType name="emailAddress">
+        <xs:restriction base="xs:token">
+            <xs:maxLength value="254" />
+            <xs:pattern value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_time_hhmm">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([2][0-3])|([0-1][0-9]))([0-5][0-9])" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_mail_host">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".{1,}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_ipaddr_port">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".{1,}:\d{1,}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_ipaddr_port_or_empty">
+        <xs:union memberTypes="string_0 string_ipaddr_port" />
+    </xs:simpleType>
+
+    <xs:simpleType name="string_json_filename">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*\.json" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_json_filename_or_empty">
+        <xs:union memberTypes="string_0 string_json_filename" />
+    </xs:simpleType>
+
+    <xs:simpleType name="string_crt_or_pem_filename">
+        <xs:union memberTypes="string_0 string_pem_filename string_crt_filename" />
+    </xs:simpleType>
+
+    <xs:simpleType name="string_pem_filename">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*\.pem" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_crt_filename">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*\.crt" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="string_num_0-2">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{0,2}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_num_0-3">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{0,3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_port">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{3,4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_num_0-11">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{0,11}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="string_lock_time">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="15 secs">
+                <xs:annotation>
+                    <xs:documentation>Screen will be locked after 15 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="30 secs">
+                <xs:annotation>
+                    <xs:documentation>Screen will be locked after 30 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1 min">
+                <xs:annotation>
+                    <xs:documentation>Screen will be locked after 1 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2 min">
+                <xs:annotation>
+                    <xs:documentation>Screen will be locked after 2 mins</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5 min">
+                <xs:annotation>
+                    <xs:documentation>Screen will be locked after 5 mins</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="30 min">
+                <xs:annotation>
+                    <xs:documentation>Screen will be locked after 30 mins</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disabled">
+                <xs:annotation>
+                    <xs:documentation>Screen auto lock timer disabled</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_Yes_No">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Y">
+                <xs:annotation>
+                    <xs:documentation>Yes</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation>No</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_language">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="en_AU">
+                <xs:annotation>
+                    <xs:documentation>en_AU</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_cur_code">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AUD">
+                <xs:annotation>
+                    <xs:documentation>AUD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ZAR">
+                <xs:annotation>
+                    <xs:documentation>ZAR</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="USD">
+                <xs:annotation>
+                    <xs:documentation>USD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="USD">
+                <xs:annotation>
+                    <xs:documentation>GBP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_bin_table">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>All Cards</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>No Mastercard</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_eftpos_type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="%">
+                <xs:annotation>
+                    <xs:documentation>"Percent (e.g. 1.95%)"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="$">
+                <xs:annotation>
+                    <xs:documentation>"Fixed Amount (e.g. $1.95)"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_cust_ref">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OPTIONAL">
+                <xs:annotation>
+                    <xs:documentation>OPTIONAL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MANDATORY">
+                <xs:annotation>
+                    <xs:documentation>MANDATORY</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DISABLED">
+                <xs:annotation>
+                    <xs:documentation>DISABLED</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_payment_switch_comms_type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="POS_ROUTED">
+                <xs:annotation>
+                    <xs:documentation>Route via POS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TWO_BYTE_LENGTH_FIVE_BYTE_TPDU_HEADER_TCP_DIRECT">
+                <xs:annotation>
+                    <xs:documentation>TCP Direct TPDU Header</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TWO_BYTE_LENGTH_TCP_DIRECT">
+                <xs:annotation>
+                    <xs:documentation>TCP Direct No TPDU</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="IP_GATEWAY_PROXY_APP">
+                <xs:annotation>
+                    <xs:documentation>IP Gateway Proxy</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_day_of_week">
+        <xs:union memberTypes="string_day_of_week_full string_dow" />
+    </xs:simpleType>
+
+    <xs:simpleType name="string_day_of_week_full">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(monday|tuesday|wednesday|thursday|friday|saturday|sunday)" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_dow">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(mon|tue|wed|thu|fri|sat|sun)" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="hex_0-5">
+        <xs:restriction base="xs:hexBinary">
+            <xs:minLength value="0" />
+            <xs:maxLength value="5" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_pwd_attempt_window">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="10">
+                <xs:annotation>
+                    <xs:documentation>10 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="30">
+                <xs:annotation>
+                    <xs:documentation>30 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="50">
+                <xs:annotation>
+                    <xs:documentation>50 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="70">
+                <xs:annotation>
+                    <xs:documentation>70 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="90">
+                <xs:annotation>
+                    <xs:documentation>90 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="120">
+                <xs:annotation>
+                    <xs:documentation>120 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_pwd_max_age">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="30">
+                <xs:annotation>
+                    <xs:documentation>30 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="40">
+                <xs:annotation>
+                    <xs:documentation>40 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="50">
+                <xs:annotation>
+                    <xs:documentation>50 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="60">
+                <xs:annotation>
+                    <xs:documentation>60 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="70">
+                <xs:annotation>
+                    <xs:documentation>70 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="80">
+                <xs:annotation>
+                    <xs:documentation>80 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="90">
+                <xs:annotation>
+                    <xs:documentation>90 days</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_pwd_retry_limit">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="6">
+                <xs:annotation>
+                    <xs:documentation>6</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="8">
+                <xs:annotation>
+                    <xs:documentation>8</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:documentation>12</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="16">
+                <xs:annotation>
+                    <xs:documentation>16</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="20">
+                <xs:annotation>
+                    <xs:documentation>20</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="24">
+                <xs:annotation>
+                    <xs:documentation>24</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_feature_timeouts">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>2 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>3 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>5 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="15">
+                <xs:annotation>
+                    <xs:documentation>15 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="30">
+                <xs:annotation>
+                    <xs:documentation>30 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="60">
+                <xs:annotation>
+                    <xs:documentation>1 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="120">
+                <xs:annotation>
+                    <xs:documentation>2 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="300">
+                <xs:annotation>
+                    <xs:documentation>5 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_access_timeouts">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>3 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>5 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="10">
+                <xs:annotation>
+                    <xs:documentation>10 secs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="120">
+                <xs:annotation>
+                    <xs:documentation>2 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="180">
+                <xs:annotation>
+                    <xs:documentation>3 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="240">
+                <xs:annotation>
+                    <xs:documentation>4 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="300">
+                <xs:annotation>
+                    <xs:documentation>5 min</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_password_retry_limit">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>1</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>2</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>3</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation>4</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>5</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string_ALWAYS_ASK_NEVER">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALWAYS">
+                <xs:annotation>
+                    <xs:documentation>ALWAYS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASK">
+                <xs:annotation>
+                    <xs:documentation>ASK</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NEVER">
+                <xs:annotation>
+                    <xs:documentation>NEVER</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="parameter">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs='0' ref="seller_id" />
+                <xs:element minOccurs='0' ref="seller_email" />
+                <xs:element minOccurs='0' ref="seller_telephone" />
+                <xs:element minOccurs='0' ref="payment_facilitator" />
+                <xs:element minOccurs='0' ref="loginManagerUserName" />
+                <xs:element minOccurs='0' ref="loginManagerUserId" />
+                <xs:element minOccurs='0' ref="loginManagerInitialPwd" />
+                <xs:element minOccurs='0' ref="motoRefundPassword" />
+                <xs:element minOccurs='0' ref="refundPassword" />
+                <xs:element minOccurs='0' ref="loginTechnicianUserName" />
+                <xs:element minOccurs='0' ref="loginTechnicianUserId" />
+                <xs:element minOccurs='0' ref="loginTechnicianInitialPwd" />
+                <xs:element minOccurs='0' ref="standInMaxNumberStandInTrans" />
+                <xs:element minOccurs='0' ref="binRangeTableVer" />
+                <xs:element minOccurs='1' ref="screenLockTime" />
+                <xs:element minOccurs='1' ref="pciRebootTime" />
+                <xs:element minOccurs='0' ref="autoSettlementEnabled" />
+                <xs:element minOccurs='0' ref="autoSettlementTime" />
+                <xs:element minOccurs='0' ref="autoSettlementTimeWindow" />
+                <xs:element minOccurs='0' ref="autoSettlementRetryCount" />
+                <xs:element minOccurs='0' ref="autoSettlementPrintTransactionListing" />
+                <xs:element minOccurs='0' ref="autoSettlementIdlingPeriod" />
+                <xs:element minOccurs='0' ref="maxDaysTransactionsToStore" />
+                <xs:element minOccurs='0' ref="passcodeSecuritySupported" />
+                <xs:element minOccurs='0' ref="passwordRetryLimit" />
+                <xs:element minOccurs='0' ref="passwordAttemptWindow" />
+                <xs:element minOccurs='0' ref="passwordAttemptLockoutDuration" />
+                <xs:element minOccurs='0' ref="passwordMaximumAge" />
+                <xs:element minOccurs='0' ref="refundPasswordRetryLimit" />
+                <xs:element minOccurs='0' ref="motoPasswordRetryLimit" />
+                <xs:element minOccurs='0' ref="rrnRetryLimit" />
+                <xs:element minOccurs='0' ref="authcodeRetryLimit" />
+                <xs:element minOccurs='0' ref="currencyCode" />
+                <xs:element minOccurs='0' ref="currencyNum" />
+                <xs:element minOccurs='0' ref="countryNum" />
+                <xs:element minOccurs='0' ref="language" />
+                <xs:element minOccurs='1' ref="paymentSwitch_commsType" />
+                <xs:element minOccurs='0' ref="posCommsEnabled" />
+                <xs:element minOccurs='0' ref="posCommsHostId" />
+                <xs:element minOccurs='0' ref="posCommsInterfaceType" />
+                <xs:element minOccurs='0' ref="paymentSwitch_useSsl" />
+                <xs:element minOccurs='0' ref="paymentSwitch_ip_host" />
+                <xs:element minOccurs='0' ref="paymentSwitch_ip_host2nd" />
+                <xs:element minOccurs='0' ref="paymentSwitch_certificateFile" />
+                <xs:element minOccurs='0' ref="paymentSwitch_privateKeyFile" />
+                <xs:element minOccurs='0' ref="paymentSwitch_privateKeyPassword" />
+                <xs:element minOccurs='0' ref="paymentSwitch_privateKeyCertificate" />
+                <xs:element minOccurs='0' ref="paymentSwitch_aiic" />
+                <xs:element minOccurs='0' ref="paymentSwitch_nii" />
+                <xs:element minOccurs='0' ref="paymentSwitch_receiveTimeout" />
+                <xs:element minOccurs='0' ref="paymentSwitch_dialTimeout" />
+                <xs:element minOccurs='0' ref="paymentSwitch_reversalAdviceTimeout" />
+                <xs:element minOccurs='0' ref="paymentSwitch_disableSecurity" />
+                <xs:element minOccurs='0' ref="customerName" />
+                <xs:element minOccurs='0' ref="bankDescription" />
+                <xs:element minOccurs='0' ref="retailerName" />
+                <xs:element minOccurs='0' ref="commsFallbackEnabled" />
+                <xs:element minOccurs='0' ref="commsFallbackHost" />
+                <xs:element minOccurs='0' ref="paxstoreUpload" />
+                <xs:element minOccurs='0' ref="mailMerchant" />
+                <xs:element minOccurs='0' ref="mailStoreName" />
+                <xs:element minOccurs='0' ref="mailMerchantAddress" />
+                <xs:element minOccurs='0' ref="mailHost" />
+                <xs:element minOccurs='0' ref="mailPort" />
+                <xs:element minOccurs='0' ref="mailUser" />
+                <xs:element minOccurs='0' ref="mailPassword" />
+                <xs:element minOccurs='0' ref="mailSender" />
+                <xs:element minOccurs='0' ref="acquirerIdCode" />
+                <xs:element minOccurs='0' ref="issuer1Name" />
+                <xs:element minOccurs='0' ref="issuer1Enabled" />
+                <xs:element minOccurs='0' ref="issuer1DeferredAuthEnabled" />
+                <xs:element minOccurs='0' ref="issuer2Name" />
+                <xs:element minOccurs='0' ref="issuer2Enabled" />
+                <xs:element minOccurs='0' ref="issuer2DeferredAuthEnabled" />
+                <xs:element minOccurs='0' ref="issuer3Name" />
+                <xs:element minOccurs='0' ref="issuer3Enabled" />
+                <xs:element minOccurs='0' ref="issuer3DeferredAuthEnabled" />
+                <xs:element minOccurs='0' ref="issuer4Name" />
+                <xs:element minOccurs='0' ref="issuer4Enabled" />
+                <xs:element minOccurs='0' ref="issuer4DeferredAuthEnabled" />
+                <xs:element minOccurs='0' ref="issuer5Name" />
+                <xs:element minOccurs='0' ref="issuer5Enabled" />
+                <xs:element minOccurs='0' ref="issuer5DeferredAuthEnabled" />
+                <xs:element minOccurs='0' ref="issuer6Name" />
+                <xs:element minOccurs='0' ref="issuer6Enabled" />
+                <xs:element minOccurs='0' ref="issuer6DeferredAuthEnabled" />
+                <xs:element minOccurs='0' ref="issuer7Name" />
+                <xs:element minOccurs='0' ref="issuer7Enabled" />
+                <xs:element minOccurs='0' ref="issuer7DeferredAuthEnabled" />
+                <xs:element minOccurs='1' ref="cardProductFile" />
+                <xs:element minOccurs='1' ref="cfgEmvFile" />
+                <xs:element minOccurs='1' ref="cfgCtlsFile" />
+                <xs:element minOccurs='0' ref="blacklistFile" />
+                <xs:element minOccurs='0' ref="epatFile" />
+                <xs:element minOccurs='0' ref="pktFile" />
+                <xs:element minOccurs='0' ref="cardsFile" />
+
+                <xs:element minOccurs='0' ref="amountEntryTimeoutSecs" />
+                <xs:element minOccurs='0' ref="presentCardTimeoutSecs" />
+                <xs:element minOccurs='0' ref="accountSelectionTimeoutSecs" />
+                <xs:element minOccurs='0' ref="appSelectionTimeoutSecs" />
+                <xs:element minOccurs='0' ref="cardPinEntryTimeoutSecs" />
+                <xs:element minOccurs='0' ref="confirmSignatureTimeoutSecs" />
+                <xs:element minOccurs='0' ref="customerReceiptPrintPromptTimeoutSecs" />
+                <xs:element minOccurs='0' ref="receiptRemovePromptTimeoutSecs" />
+                <xs:element minOccurs='0' ref="cardRemovePromptTimeoutSecs" />
+                <xs:element minOccurs='0' ref="paperOutTimeoutSecs" />
+                <xs:element minOccurs='0' ref="decisionScreenTimeoutSecs" />
+                <xs:element minOccurs='0' ref="accessModePresentCardTimeoutSecs" />
+                <xs:element minOccurs='0' ref="accessModeAccountSelectionTimeoutSecs" />
+                <xs:element minOccurs='0' ref="accessModeAppSelectionTimeoutSecs" />
+                <xs:element minOccurs='0' ref="accessModePinEntryTimeoutSecs" />
+                <xs:element minOccurs='0' ref="accessModeDecisionScreenTimeoutSecs" />
+                <xs:element minOccurs='0' ref="offlineFlightModeAllowed" />
+                <xs:element minOccurs='0' ref="offlineTransactionCeilingLimitCentsContact" />
+                <xs:element minOccurs='0' ref="offlineTransactionCeilingLimitCentsContactless" />
+                <xs:element minOccurs='0' ref="offlineSoftLimitAmountCents" />
+                <xs:element minOccurs='0' ref="offlineSoftLimitCount" />
+                <xs:element minOccurs='0' ref="offlineUpperLimitAmountCents" />
+                <xs:element minOccurs='0' ref="offlineUpperLimitCount" />
+                <xs:element minOccurs='0' ref="unattendedModeAllowed" />
+                <xs:element minOccurs='0' ref="cdoAllowedEftpos" />
+                <xs:element minOccurs='0' ref="cdoAllowedMastercardCredit" />
+                <xs:element minOccurs='0' ref="cdoAllowedMastercardDebit" />
+                <xs:element minOccurs='0' ref="cdoAllowedVisaCredit" />
+                <xs:element minOccurs='0' ref="cdoAllowedVisaDebit" />
+                <xs:element minOccurs='0' ref="cdoAllowedAmex" />
+                <xs:element minOccurs='0' ref="cdoAllowedDinersClub" />
+                <xs:element minOccurs='0' ref="cdoAllowedJcb" />
+                <xs:element minOccurs='0' ref="cdoAllowedUnionpayCredit" />
+                <xs:element minOccurs='0' ref="preauthExpiry_default" />
+                <xs:element minOccurs='0' ref="preauthExpiry_eftpos" />
+                <xs:element minOccurs='0' ref="preauthExpiry_mastercard_credit" />
+                <xs:element minOccurs='0' ref="preauthExpiry_mastercard_debit" />
+                <xs:element minOccurs='0' ref="preauthExpiry_visa_credit" />
+                <xs:element minOccurs='0' ref="preauthExpiry_visa_debit" />
+                <xs:element minOccurs='0' ref="preauthExpiry_amex" />
+                <xs:element minOccurs='0' ref="preauthExpiry_diners_club" />
+                <xs:element minOccurs='0' ref="preauthExpiry_jcb" />
+                <xs:element minOccurs='0' ref="preauthExpiry_unionpay_credit" />
+                <xs:element minOccurs='0' ref="brandDisplayLogoHeader" />
+                <xs:element minOccurs='0' ref="brandDisplayLogoIdle" />
+                <xs:element minOccurs='0' ref="brandDisplayLogoSplash" />
+                <xs:element minOccurs='0' ref="brandDisplayStatusBarColour" />
+                <xs:element minOccurs='0' ref="brandDisplayButtonColour" />
+                <xs:element minOccurs='0' ref="brandDisplayButtonTextColour" />
+                <xs:element minOccurs="0" ref="brandDisplayPrimaryColour" />
+                <xs:element minOccurs='0' ref="brandReceiptLogoHeader" />
+                <xs:element minOccurs='0' ref="bin_eftpos" />
+                <xs:element minOccurs='0' ref="bin_mastercard_credit" />
+                <xs:element minOccurs='0' ref="bin_mastercard_debit" />
+                <xs:element minOccurs='0' ref="bin_visa_credit" />
+                <xs:element minOccurs='0' ref="bin_visa_debit" />
+                <xs:element minOccurs='0' ref="bin_amex" />
+                <xs:element minOccurs='0' ref="bin_diners_club" />
+                <xs:element minOccurs='0' ref="bin_jcb" />
+                <xs:element minOccurs='0' ref="bin_unionpay_credit" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="seller_id" type="string_0-20">
+        <xs:annotation>
+            <xs:documentation>Amex seller id</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="seller_email" type="emailAddress_or_empty">
+        <xs:annotation>
+            <xs:documentation>Seller Email ID</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="seller_telephone" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Seller Telephone Number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="payment_facilitator" default="Live Payments" type="string_0-25">
+        <xs:annotation>
+            <xs:documentation>Amex Payment Facilitator</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="loginManagerUserName" default="MANAGER" type="string_0-12">
+        <xs:annotation>
+            <xs:documentation>Manager User Name for Manager login</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="loginManagerUserId" default="1234" type="string_4-6">
+        <xs:annotation>
+            <xs:documentation>Login manager user ID</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="loginManagerInitialPwd" default="567890" type="string_6-12">
+        <xs:annotation>
+            <xs:documentation>Initial PIN for Manager User ID (you will be prompted to change this
+                at first login)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="motoRefundPassword" default="123456" type="string_6-12">
+        <xs:annotation>
+            <xs:documentation>PIN for Refunds &amp; Moto Transaction</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="refundPassword" default="123456" type="string_6-12">
+        <xs:annotation>
+            <xs:documentation>PIN for Refunds</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="loginTechnicianUserName" default="TECHNICIAN" type="string_0-12">
+        <xs:annotation>
+            <xs:documentation>Technician User Name for Technician login</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="loginTechnicianUserId" default="1357" type="string_4-6">
+        <xs:annotation>
+            <xs:documentation>Technician User ID for Technician login</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="loginTechnicianInitialPwd" default="024680" type="string_6-12">
+        <xs:annotation>
+            <xs:documentation>Initial PIN for Technician User ID (you will be prompted to change
+                this at first login)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="unattendedModeAllowed" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>True if system unattended mode should be used to determine if
+                transactions are to be performed in petrol payment scenarios.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="standInMaxNumberStandInTrans" default="0" type="numeric_0-1000">
+        <xs:annotation>
+            <xs:documentation>Stand In Max Number Stand In Trans</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineFlightModeAllowed" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>True if system flight mode should be used to determine if transactions
+                are to be performed offline. Note offline transactions may still be allowed if this
+                is set to N, according to rules below
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineSoftLimitAmountCents" default="0" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>A warning will be displayed to the user if stored trans amount will
+                exceed this $ limit. Transaction will still be allowed
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineSoftLimitCount" default="0" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>A warning will be displayed to the user if stored trans count will
+                exceed this limit. Transaction will still be allowed
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineUpperLimitAmountCents" default="0" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Transaction will not be allowed if $ total of stored offline
+                transactions exceeds this limit
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineUpperLimitCount" default="0" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Transaction will not be allowed if count of offline transactions
+                exceeds this limit
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="screenLockTime" default="30 secs" type="string_lock_time">
+        <xs:annotation>
+            <xs:documentation>Screen off Time</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="passwordRetryLimit" default="6" type="string_pwd_retry_limit">
+        <xs:annotation>
+            <xs:documentation>Number of Failed Passcode Attempts Before Account or Function is
+                Locked. Capped to Max 20 attempts
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="pciRebootTime" default="0000" type="string_time_hhmm">
+        <xs:annotation>
+            <xs:documentation>PCI Reboot Time of the Day</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="binRangeTableVer" default="1" type="string_bin_table">
+        <xs:annotation>
+            <xs:documentation>BIN table ID</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="posCommsEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Route Bank msgs through POS</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="posCommsHostId" type="string_0-12">
+        <xs:annotation>
+            <xs:documentation>Host ID for routing transactions via EFT Server</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="posCommsInterfaceType" type="string_0-3">
+        <xs:annotation>
+            <xs:documentation>Host ID for routing transactions via EFT Server</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="currencyCode" default="AUD" type="string_cur_code">
+        <xs:annotation>
+            <xs:documentation>Currency Code</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="currencyNum" default="036" type="string_num_0-3">
+        <xs:annotation>
+            <xs:documentation>Currency Number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="countryNum" default="036" type="string_num_0-3">
+        <xs:annotation>
+            <xs:documentation>Country Number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="language" default="en_AU" type="string_language">
+        <xs:annotation>
+            <xs:documentation>Language Selection</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_ip_host" type="string_ipaddr_port_or_empty">
+        <xs:annotation>
+            <xs:documentation>Primary Host URL</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_ip_host2nd" type="string_ipaddr_port_or_empty">
+        <xs:annotation>
+            <xs:documentation>Secondary Host URL</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_useSsl" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Use SSL Comms</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_disableSecurity" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Payment switch disable security</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_commsType" default="TWO_BYTE_LENGTH_TCP_DIRECT"
+        type="string_payment_switch_comms_type">
+        <xs:annotation>
+            <xs:documentation>Payment switch comms type</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_certificateFile" type="string_crt_or_pem_filename">
+        <xs:annotation>
+            <xs:documentation>SSL Certificate File</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_privateKeyFile" type="string_0-1024">
+        <xs:annotation>
+            <xs:documentation>SSL Client Private Key</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_privateKeyPassword" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>SSL Client Private Key Password</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_privateKeyCertificate" type="string_0-1024">
+        <xs:annotation>
+            <xs:documentation>SSL Client Private Key Client Certificate File</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_aiic" default="00062800000" type="string_num_0-11">
+        <xs:annotation>
+            <xs:documentation>Acquirer identification code AIIC</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_nii" default="001" type="numeric_0-3">
+        <xs:annotation>
+            <xs:documentation>Acquirer Network Identifier (NII)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_receiveTimeout" default="20" type="numeric_0-1000">
+        <xs:annotation>
+            <xs:documentation>Acquirer host response timeout (sec)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_reversalAdviceTimeout" default="20" type="numeric_0-1000">
+        <xs:annotation>
+            <xs:documentation>Acquirer host response timeout for reversal/advice (sec)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paymentSwitch_dialTimeout" default="10" type="numeric_0-1000">
+        <xs:annotation>
+            <xs:documentation>Payment switch timeout (sec)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="customerName" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>Customer name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="retailerName" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>Retailer name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="commsFallbackEnabled" default="Y" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Fallback to secondary comms method (e.g. 4G) if primary internet
+                connection (e.g. WiFi, Ethernet) is down
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="commsFallbackHost" type="string_ipaddr_port_or_empty">
+        <xs:annotation>
+            <xs:documentation>Internet test host + port to use when checking health of primary
+                internet connection. Only used when in 'fallback' mode
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bankDescription" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>Bank Description</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paxstoreUpload" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Upload transaction data to Paxstore and GoInsight</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailMerchant" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Email Merchant</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailStoreName" type="string_0-24">
+        <xs:annotation>
+            <xs:documentation>Merchant store name for the receipt</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailMerchantAddress" default="positiveterminals@gmail.com"
+        type="emailAddress">
+        <xs:annotation>
+            <xs:documentation>Merchant email address</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailHost" default="smtp.gmail.com" type="string_mail_host">
+        <xs:annotation>
+            <xs:documentation>Email server to use for receipts</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailPort" default="465" type="string_port">
+        <xs:annotation>
+            <xs:documentation>Port on the email server</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailUser" default="positiveterminals@gmail.com" type="emailAddress">
+        <xs:annotation>
+            <xs:documentation>User on email server</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailPassword" default="3ftsolution5" type="string_0-12">
+        <xs:annotation>
+            <xs:documentation>Password on the email server</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mailSender" default="positiveterminals@gmail.com" type="emailAddress">
+        <xs:annotation>
+            <xs:documentation>Email "from" address</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <!-- keeping acquirerIdCode here. even though it's deprecated, if an older template provides it in config file, we don't want the terminal to fail schema validation and not start -->
+    <xs:element name="acquirerIdCode" type="string_0-1">
+        <xs:annotation>
+            <xs:documentation>Linkly Acquirer Code - DEPRECATED, DO NOT USE</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineTransactionCeilingLimitCentsContact" default="0"
+        type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Maximum allowed transaction value in offline mode for Contact/Insert
+                transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="offlineTransactionCeilingLimitCentsContactless" default="0"
+        type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Maximum allowed transaction value in offline mode for Contactless/Tap
+                transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer1Name" default="VISA" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer1Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer1DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer2Name" default="MASTERCARD" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer2Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer2DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer3Name" default="EFTPOS" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer3Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer3DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer4Name" default="AMEX" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer4Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer4DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer5Name" default="DINERS" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer5Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer5DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer6Name" default="JCB" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer6Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer6DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer7Name" default="UPI" type="string_0-16">
+        <xs:annotation>
+            <xs:documentation>Issuer Name</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer7Enabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Enabled</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issuer7DeferredAuthEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Issuer Deferred Auths Enabled for Transit/Flight Mode Transactions
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedEftpos" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for EFTPOS</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedMastercardCredit" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for Mastercard Credit</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedMastercardDebit" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for Mastercard Debit</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedVisaCredit" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for Visa Credit</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedVisaDebit" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for Visa Credit</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedAmex" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for Amex</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedDinersClub" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for Diners Club</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedJcb" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for JCB</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cdoAllowedUnionpayCredit" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>CDO allowed for UnionPay Credit</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cardProductFile" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>Card product file (cardproduct.json)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cfgEmvFile" type="string_json_filename">
+        <xs:annotation>
+            <xs:documentation>EMV config defaults file (cfg_emv.json)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cfgCtlsFile" type="string_json_filename">
+        <xs:annotation>
+            <xs:documentation>Contactless config defaults file (cfg_ctls_emv.json)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="blacklistFile" type="string_json_filename_or_empty">
+        <xs:annotation>
+            <xs:documentation>Contactless config defaults file (cfg_ctls_emv.json)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="epatFile" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>EPAT file (optional, EMV/CTLS parameter file)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="pktFile" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>PKT file (optional, EMV/CTLS public key file)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cardsFile" type="string_0-64">
+        <xs:annotation>
+            <xs:documentation>default cards mapping file (optional), e.g. cards.xml
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="brandDisplayLogoHeader" type="string_0-24">
+        <xs:annotation>
+            <xs:documentation>Brand Display Logo Header</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandDisplayLogoIdle" type="string_0-24">
+        <xs:annotation>
+            <xs:documentation>Brand Display Logo Idle</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandDisplayLogoSplash" type="string_0-24">
+        <xs:annotation>
+            <xs:documentation>Brand Display Logo Splash</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandDisplayStatusBarColour" type="hex_0-5">
+        <xs:annotation>
+            <xs:documentation>Status Bar Colour Code (RGB HEX)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandDisplayButtonColour" type="hex_0-5">
+        <xs:annotation>
+            <xs:documentation>Button Colour Code (RGB HEX)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandDisplayButtonTextColour" type="hex_0-5">
+        <xs:annotation>
+            <xs:documentation>Button Text Colour Code (RGB HEX)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandDisplayPrimaryColour" type="hex_0-5">
+        <xs:annotation>
+            <xs:documentation>Button Text Colour Code (RGB HEX)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="brandReceiptLogoHeader" type="string_0-24">
+        <xs:annotation>
+            <xs:documentation>Brand Receipt Logo Header</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_default" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_eftpos" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_mastercard_credit" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_mastercard_debit" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_visa_credit" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_visa_debit" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_amex" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_diners_club" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_jcb" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="preauthExpiry_unionpay_credit" type="numeric_0-365">
+        <xs:annotation>
+            <xs:documentation>Days after Pre-Auth expires</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="amountEntryTimeoutSecs" default="240" type="numeric_0-999">
+        <xs:annotation>
+            <xs:documentation>Amount entry timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="presentCardTimeoutSecs" default="120" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Present card screen timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accountSelectionTimeoutSecs" default="30" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Account selection screen timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="appSelectionTimeoutSecs" default="30" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Account selection screen timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cardPinEntryTimeoutSecs" default="60" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Card pin entry timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="confirmSignatureTimeoutSecs" default="60" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Confirm signature timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="customerReceiptPrintPromptTimeoutSecs" default="15"
+        type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Customer receipt print prompt timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="receiptRemovePromptTimeoutSecs" default="60" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Customer receipt print prompt timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="cardRemovePromptTimeoutSecs" default="60" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Customer receipt print prompt timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="paperOutTimeoutSecs" default="120" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Customer receipt print prompt timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="decisionScreenTimeoutSecs" default="2" type="string_feature_timeouts">
+        <xs:annotation>
+            <xs:documentation>Decision screen timeout in secs (Approved, Declined, Cancelled)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accessModePresentCardTimeoutSecs" default="240" type="string_access_timeouts">
+        <xs:annotation>
+            <xs:documentation>Access mode present card timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accessModeAccountSelectionTimeoutSecs" default="240"
+        type="string_access_timeouts">
+        <xs:annotation>
+            <xs:documentation>Access mode Account selection timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accessModeAppSelectionTimeoutSecs" default="240"
+        type="string_access_timeouts">
+        <xs:annotation>
+            <xs:documentation>Access mode Account selection timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accessModePinEntryTimeoutSecs" default="240" type="string_access_timeouts">
+        <xs:annotation>
+            <xs:documentation>Access mode pin entry timeout in secs</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accessModeDecisionScreenTimeoutSecs" default="5"
+        type="string_access_timeouts">
+        <xs:annotation>
+            <xs:documentation>Access mode decision screen timeout in secs (Approved, Declined,
+                Cancelled)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_eftpos" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Efpos bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_mastercard_credit" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Mastercard credit bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_mastercard_debit" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Mastercard debit bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_visa_credit" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Visa credit bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_visa_debit" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Visa debit bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_amex" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Amex bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_diners_club" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Diners bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_jcb" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>JCB bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="bin_unionpay_credit" type="numeric_0-60">
+        <xs:annotation>
+            <xs:documentation>Unionpay bin number</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="passcodeSecuritySupported" default="Y" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Flag to disable the Passcode Security.Passcode protected functions
+                should still prompt for the passcode
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="passwordAttemptWindow" type="string_pwd_attempt_window">
+        <xs:annotation>
+            <xs:documentation>Time Window for Failed Passcode Attempts.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="passwordAttemptLockoutDuration" type="string_pwd_attempt_window">
+        <xs:annotation>
+            <xs:documentation>Lockout Duration. of Time Window for Failed Passcode Attempts.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="passwordMaximumAge" type="string_pwd_max_age">
+        <xs:annotation>
+            <xs:documentation>Number of Days after which Passcode must be reset.Maximum Age for
+                Passcode
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="refundPasswordRetryLimit" default="3" type="string_password_retry_limit">
+        <xs:annotation>
+            <xs:documentation>Number of Failed Refund Password Attempts Before Transaction Cancel.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="motoPasswordRetryLimit" default="3" type="string_password_retry_limit">
+        <xs:annotation>
+            <xs:documentation>Number of Failed MOTO Password Attempts Before Transaction Cancel.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="rrnRetryLimit" default="3" type="string_password_retry_limit">
+        <xs:annotation>
+            <xs:documentation>Number of Failed RRN Entry Attempts Before Transaction Cancel.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="authcodeRetryLimit" default="3" type="string_password_retry_limit">
+        <xs:annotation>
+            <xs:documentation>Number of Failed AuthCode Entry Attempts Before Transaction Cancel.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="autoSettlementEnabled" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Enable Automatic Settlement</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="autoSettlementRetryCount" default="0" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Automatic Settlement: number of attempts</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="autoSettlementPrintTransactionListing" default="N" type="string_Yes_No">
+        <xs:annotation>
+            <xs:documentation>Automatic Settlement - Print Transaction Listing</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="autoSettlementTime" default="0000" type="string_time_hhmm">
+        <xs:annotation>
+            <xs:documentation>Automatic Settlement Time of the Day</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="autoSettlementTimeWindow" default="60" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Automatic Settlement Time Window</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="autoSettlementIdlingPeriod" default="0" type="numeric_0-999999999">
+        <xs:annotation>
+            <xs:documentation>Idling before Automatic Settlement</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="maxDaysTransactionsToStore" default="1" type="numeric_1-7">
+        <xs:annotation>
+            <xs:documentation>Number of previous days (settlement periods) transaction history to
+                keep on terminal, not including current trading day. Completed transactions older
+                than this will be automatically deleted from the terminals memory
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>

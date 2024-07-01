@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/GetCardScreen"
+        android:orientation="vertical"
+        android:background="@color/ui2BgLightStart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/appbar_padding_top">
+
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header_large"
+            />
+
+        <fragment
+            android:id="@+id/ctls_leds_frag"
+            android:name="com.linkly.payment.fragments.FragLed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headlines_fragment"
+            android:layout_marginBottom="8dp"
+            tools:layout="@layout/fragment_leds"/>
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ctls_leds_frag"
+            android:gravity="center"
+            android:textAppearance="@style/uiHeadlineFont"
+            android:visibility="visible"
+            tools:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/amount_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_below="@+id/header_title"
+            android:gravity="center|top"
+            android:text="@string/_20_00"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/uiEditTextFont"
+            tools:visibility="gone"/>
+
+        <FrameLayout
+            android:id="@+id/amount_purch"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-5dp"
+            android:layout_below="@+id/amount_txt">
+            <TextView
+                android:text="@string/SALE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/uiTextFont"/>
+            <TextView
+                android:id="@+id/amount_purch_text"
+                tools:text="$20,000.00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textAppearance="@style/uiTextFont"/>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/amount_cash"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-5dp"
+            android:layout_below="@+id/amount_purch">
+            <TextView
+                android:text="@string/CASH_SHORT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/uiTextFont"/>
+            <TextView
+                android:id="@+id/amount_cash_text"
+                tools:text="$20,000.00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textAppearance="@style/uiTextFont"/>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/amount_total"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/amount_cash"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:text="@string/TOTAL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/uiTextFont"/>
+            <TextView
+                android:id="@+id/amount_total_text"
+                tools:text="$20,000.00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textAppearance="@style/uiTextFont"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/amount_sym"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_alignLeft="@+id/amount_txt"
+            android:gravity="bottom"
+            android:paddingLeft="8dp"
+            android:text=""
+            android:textAppearance="@style/ui2SmallFont"
+
+            />
+
+        <!-- ctls icon -->
+        <ImageView
+            android:id="@+id/payment_option_icon"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_below="@+id/amount_total"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="40dp"
+            android:visibility="gone"
+            tools:src="@drawable/ic_swipe_card"
+            tools:visibility="visible" />
+
+        <!-- Screen Details Area -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/payment_option_icon"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/prompt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/PLEASE_TAP_SWIPE_OR_INSERT"
+                android:textAppearance="@style/uiTextFont" />
+        </LinearLayout>
+        <!-- </LinearLayout> -->
+
+        <!-- Logo Bar for Card Issuers -->
+
+
+        <LinearLayout
+            android:id="@+id/card_logos"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:layout_above="@id/btn_cancel"
+            android:layout_margin="5dp"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btn_access"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:text="@string/ACCESS_MODE"
+                android:textAppearance="@style/uiDoneBtn"
+                android:layout_marginStart="5dp"
+                android:visibility="visible"/>
+
+            <Button
+                android:id="@+id/btn_manual"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:text="@string/CARD_NOT_PRESENT"
+                android:textAppearance="@style/uiDoneBtn"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/surcharge_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_above="@+id/card_logos"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/ui2_buttonstyle_light"
+            android:text="@string/SURCHARGES"
+            android:textAppearance="@style/uiDoneBtn"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="@drawable/ui2_buttonstyle_cancel"
+            android:text="@string/CANCEL"
+            android:textAppearance="@style/uiCancelBtn"
+            android:visibility="visible" />
+
+        <!--
+                </LinearLayout> -->
+        <!--
+            </LinearLayout>
+        -->
+
+        <View
+            android:id="@+id/access_mode_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+
+</layout>

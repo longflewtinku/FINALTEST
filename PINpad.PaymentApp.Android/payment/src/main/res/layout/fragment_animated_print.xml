@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/animatedPrintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/colorBlack"
+        tools:context="com.linkly.payment.activities.ActPrint">
+
+        <ir.beigirad.zigzagview.ZigzagView
+            android:id="@+id/zigZagView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:zigzagBackgroundColor="#ffffff"
+            app:zigzagElevation="10dp"
+            app:zigzagHeight="5dp"
+            app:zigzagShadowAlpha="0.9"
+            app:zigzagSides="top|bottom"
+            app:zigzagPaddingContent="30dp"
+            android:layout_centerInParent="true"
+            >
+
+            <ImageView
+                android:id="@+id/receiptImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="centerInside"
+                />
+
+
+        </ir.beigirad.zigzagview.ZigzagView>
+
+    </RelativeLayout>
+
+
+</layout>

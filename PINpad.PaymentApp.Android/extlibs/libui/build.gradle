@@ -1,0 +1,110 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+apply from: "$project.rootDir/jacoco.gradle"
+
+repositories {
+    mavenLocal()
+    maven { url 'https://maven.google.com' }
+    maven { url "https://jitpack.io" }
+    maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/' }
+}
+
+android {
+    namespace 'com.linkly.libui'
+    compileSdkVersion compileSdkVer
+
+    // Load version info from version.properties file
+    def versionPropsFile = file("../../version.properties")
+    def verFull
+
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        // Extract version components from version properties file
+        def verMajor    = versionProps.getProperty('MAJOR') ?: '0'
+        def verMinor    = versionProps.getProperty('MINOR') ?: '00'
+        def verRevision = versionProps.getProperty('REVISION') ?: '01'
+        def verBuild = versionProps.getProperty('BUILD') ?: '0001'
+        def verSuffix   = versionProps.getProperty('SUFFIX') ?: ''
+
+        // If not built on the build server, set the suffix to 'SNAPSHOT'
+        def buildServer = System.getenv("BUILD_SERVER")
+        if(buildServer == null) {
+            verSuffix = 'SNAPSHOT'
+            verBuild = '0001'
+        }
+
+        // Assemble the full version string
+        verFull = verMajor + '.' + verMinor + '.' + verRevision + '.' + verBuild
+        if(verSuffix.length() > 0)
+            verFull = verFull + '-' + verSuffix
+    } else {
+        throw new GradleException("Could not read version.properties.")
+    }
+
+    defaultConfig {
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionName = verFull
+        archivesBaseName = project.name + "-$versionName"
+        multiDexEnabled true
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        logger.lifecycle(project.name + ' versionName = ' + versionName)
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+
+        }
+
+    }
+
+    useLibrary 'org.apache.http.legacy'
+    productFlavors {
+    }
+
+    lint {
+        checkReleaseBuilds true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:all" << "-Werror" //TODO: Fix all unchecked/deprecation warnings
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlin.stdlib
+    implementation libs.linkly.libkotlinandroidtoolkit
+
+    androidTestImplementation(libs.espresso.core, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    implementation libs.appcompat
+
+    implementation(libs.linkly.mal) {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+
+    // ANNOYING ISSUES HERE. NEED TO MAKE THIS COMPILE ONLY TO MAKE SURE THIS BUILDS. THE APPS THAT WILL BE CALLING THIS WILL BE REQUIRED TO CALL implementation files('libs/NeptuneLiteApi_V3.33.00_20230419.jar')
+    compileOnly files(libs.versions.neptune.get())
+
+    implementation libs.material
+    testImplementation libs.junit
+    implementation libs.annotation
+
+    implementation(libs.linkly.logger)
+}

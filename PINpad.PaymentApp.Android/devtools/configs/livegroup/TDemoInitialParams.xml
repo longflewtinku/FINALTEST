@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Schema>
+    <!-- Groups Definition -->
+    <Groups>
+        <Group>
+            <ID>Initial_Config</ID>
+            <Title>Initial Config</Title>
+            <Order>1</Order>
+            <Description></Description>
+        </Group>
+
+    </Groups>
+    <!-- Files Definition -->
+    <Files>
+        <File>
+            <ID>sys_F1</ID>
+            <FileName>initialparams.xml</FileName>
+            <Description></Description>
+        </File>
+    </Files>
+    <!-- Parameter Definition -->
+    <Parameters>
+
+        <Header>
+            <Title>Initial Config</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <DefaultStyle>close</DefaultStyle>
+            <Display>true</Display>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <DataType>String</DataType>
+                <PID>stid</PID>
+                <Title>Soft TID</Title>
+                <Length>8</Length>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{STID}</Defaultvalue>
+                <Description>Enter the Terminal ID</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+
+            <!-- Merchant ID -->
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>mid</PID>
+                <Length>15</Length>
+                <Title>Merchant ID</Title>
+                <Required>true</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{MID}</Defaultvalue>
+                <Description>Merchant ID</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+        </Header>
+
+        <Header>
+            <Title>Receipt : Merchant Address</Title>
+            <DisplayStyle>foldable</DisplayStyle>
+            <Display>true</Display>
+            <DefaultStyle>close</DefaultStyle>
+            <!-- Merchant Lines  -->
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line0</PID>
+                <Title>Merchant Line 0</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR0}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line1</PID>
+                <Title>Merchant Line 1</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR1}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line2</PID>
+                <Title>Merchant Line 2</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR2}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line3</PID>
+                <Title>Merchant Line 3</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR3}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line4</PID>
+                <Title>Merchant Line 4</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR4}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line5</PID>
+                <Title>Merchant Line 5</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR5}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>receipt_merchant_line6</PID>
+                <Title>Merchant Line 6</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{ADDR6}</Defaultvalue>
+                <Description>Address Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>footerLine1</PID>
+                <Title>Footer Line 1</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{FTR1}</Defaultvalue>
+                <Description>Footer Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+
+            <Parameter>
+                <Type>single</Type>
+                <InputType>text</InputType>
+                <PID>footerLine2</PID>
+                <Title>Footer Line 2</Title>
+                <Required>false</Required>
+                <Readonly>false</Readonly>
+                <Defaultvalue>#{FTR2}</Defaultvalue>
+                <Description>Footer Line</Description>
+                <Display>true</Display>
+                <GroupID>Initial_Config</GroupID>
+                <FileID>sys_F1</FileID>
+            </Parameter>
+        </Header> <!-- Receipt Address -->
+    </Parameters>
+</Schema>
+
+

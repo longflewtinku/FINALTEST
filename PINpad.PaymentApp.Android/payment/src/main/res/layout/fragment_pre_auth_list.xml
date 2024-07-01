@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="fragPreAuthListViewModel"
+            type="com.linkly.payment.viewmodel.FragPreAuthListViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header" />
+
+        <TextView
+            android:id="@+id/textView_Response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headlines_fragment"
+            android:gravity="center"
+            android:text="@string/LIST_PRE_AUTH"
+            android:textStyle="bold"
+            android:textAppearance="@style/uiHeadlineFont" />
+
+        <TextView
+            android:id="@+id/textView_NoTransactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_Response"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="No Transactions"
+            android:textAppearance="@style/uiTextFont" />
+
+        <RelativeLayout
+            android:id="@+id/btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textView_NoTransactions">
+
+
+            <LinearLayout
+                android:id="@+id/btn_Linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btn_done"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/button_margin"
+                android:layout_marginBottom="@dimen/button_margin"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:textAppearance="@style/uiDoneBtn"
+                android:text="Done"
+                android:layout_weight="1">
+
+            </Button>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_pre_auth_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btn_Linear_layout"
+                />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

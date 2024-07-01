@@ -1,0 +1,196 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.linkly.payment.fragments.FragMoto">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="start"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="KEY1"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/text1a"/>
+
+    <TextView
+        android:id="@+id/text1a"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="VAL1"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintTop_toTopOf="@id/text1"
+        app:layout_constraintStart_toEndOf="@id/text1"
+        app:layout_constraintEnd_toEndOf="@+id/text2"/>
+
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEKEY2BIGONELONGERTHANUSUAL"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintTop_toBottomOf="@id/text1a"
+        app:layout_constraintStart_toStartOf="@id/text1a"
+        app:layout_constraintEnd_toStartOf="@id/text2a"/>
+
+    <TextView
+        android:id="@+id/text2a"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEVALUE2"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintTop_toTopOf="@id/text2"
+        app:layout_constraintStart_toEndOf="@id/text2"
+        app:layout_constraintEnd_toEndOf="@+id/text3"/>
+
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEKEY3"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintTop_toBottomOf="@id/text2a"
+        app:layout_constraintStart_toStartOf="@id/text2a"
+        app:layout_constraintEnd_toStartOf="@id/text3a"/>
+
+    <TextView
+        android:id="@+id/text3a"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEVALUE3BIGONELONGERTHANUSUAL"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintTop_toTopOf="@id/text3"
+        app:layout_constraintStart_toEndOf="@id/text3"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEKEY4"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintTop_toBottomOf="@id/text3a"
+        app:layout_constraintStart_toStartOf="@id/text3a"
+        app:layout_constraintEnd_toStartOf="@id/text4a"/>
+
+    <TextView
+        android:id="@+id/text4a"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEVALUE4"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintTop_toTopOf="@id/text4"
+        app:layout_constraintStart_toEndOf="@id/text4"
+        app:layout_constraintEnd_toEndOf="@+id/text5"/>
+
+
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEKEY5"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintTop_toBottomOf="@id/text4a"
+        app:layout_constraintStart_toStartOf="@id/text4a"
+        app:layout_constraintEnd_toStartOf="@id/text5a"/>
+
+    <TextView
+        android:id="@+id/text5a"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:textAppearance="@style/ui2SmallFontDark"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="2sp"
+        tools:text="EXAMPLEVALUE5"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintTop_toTopOf="@id/text5"
+        app:layout_constraintStart_toEndOf="@id/text5"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:constraint_referenced_ids="text1, text1a, text2, text2a, text3, text3a, text4, text4a, text5, text5a"
+        android:orientation="horizontal"
+        app:flow_wrapMode="chain"
+        app:flow_horizontalStyle="spread_inside"
+        app:flow_maxElementsWrap="2"
+        app:flow_verticalStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

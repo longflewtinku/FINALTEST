@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/ui2ColorThree"
+    android:id="@+id/rootViewrootView"
+    tools:context="com.linkly.launcher.LockedDownActivity">
+
+    <Button
+        android:id="@+id/btn_topstart"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:backgroundTint="@android:color/transparent"
+        android:soundEffectsEnabled="false"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        tools:foreground="@color/buttonBackGround"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_topend"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:backgroundTint="@android:color/transparent"
+        android:soundEffectsEnabled="false"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        tools:foreground="@color/buttonBackGround"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_bottomstart"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:backgroundTint="@android:color/transparent"
+        android:soundEffectsEnabled="false"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        tools:foreground="@color/buttonBackGround"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_bottomend"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:backgroundTint="@android:color/transparent"
+        android:soundEffectsEnabled="false"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        tools:foreground="@color/buttonBackGround"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

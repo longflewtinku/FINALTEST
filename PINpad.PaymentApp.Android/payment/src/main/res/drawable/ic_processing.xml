@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="134dp"
+            android:height="134dp"
+            android:viewportWidth="134"
+            android:viewportHeight="134">
+            <group
+                android:name="rotationGroup"
+                android:pivotX="66.8"
+                android:pivotY="67"
+                android:rotation="0">
+                <path
+                    android:fillColor="#000000"
+                    android:pathData="M44.6,115H89V97C89,90.2 86.9,84.27 82.7,79.22C78.5,74.17 73.2,71.65 66.8,71.65C60.4,71.65 55.1,74.17 50.9,79.22C46.7,84.27 44.6,90.2 44.6,97L44.6,115ZM66.8,62.35C73.2,62.35 78.5,59.82 82.7,54.77C86.9,49.72 89,43.8 89,37V19L44.6,19V37C44.6,43.8 46.7,49.72 50.9,54.77C55.1,59.82 60.4,62.35 66.8,62.35ZM104.6,121H29C28.1,121 27.38,120.7 26.83,120.1C26.28,119.5 26,118.8 26,118C26,117.1 26.28,116.37 26.83,115.82C27.38,115.27 28.1,115 29,115H38.6V97C38.6,90.1 40.52,83.85 44.37,78.25C48.22,72.65 53.4,68.9 59.9,67C53.4,65.1 48.22,61.35 44.37,55.75C40.52,50.15 38.6,43.9 38.6,37V19H29C28.1,19 27.38,18.7 26.83,18.1C26.28,17.5 26,16.8 26,16C26,15.1 26.28,14.37 26.83,13.82C27.38,13.27 28.1,13 29,13L104.6,13C105.5,13 106.23,13.3 106.78,13.9C107.33,14.5 107.6,15.2 107.6,16C107.6,16.9 107.33,17.62 106.78,18.17C106.23,18.72 105.5,19 104.6,19H95V37C95,43.9 93.08,50.15 89.23,55.75C85.38,61.35 80.2,65.1 73.7,67C80.2,68.9 85.38,72.65 89.23,78.25C93.08,83.85 95,90.1 95,97V115H104.6C105.5,115 106.23,115.3 106.78,115.9C107.33,116.5 107.6,117.2 107.6,118C107.6,118.9 107.33,119.63 106.78,120.18C106.23,120.73 105.5,121 104.6,121Z" />
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="rotationGroup">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1000"
+                android:propertyName="rotation"
+                android:repeatMode="restart"
+                android:valueFrom="0"
+                android:valueTo="180" />
+        </aapt:attr>
+    </target>
+</animated-vector>

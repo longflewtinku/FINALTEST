@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:id="@+id/normal_mode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/appbar_padding_top"
+            tools:visibility="gone">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:contentDescription="@string/SPLASH_LOGO"
+                tools:src="@drawable/logo_linkly" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo"
+                android:layout_marginTop="8dp"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/uiHeadlineFont"
+                tools:text="Tip" />
+
+            <fragment
+                android:id="@+id/ctls_leds_frag"
+                android:name="com.linkly.payment.fragments.FragLed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"
+                tools:layout="@layout/fragment_leds" />
+
+            <RelativeLayout
+                android:id="@+id/value_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ctls_leds_frag"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp">
+
+                <TextView
+                    android:id="@+id/value_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:textAppearance="@style/uiTextFont"
+                    tools:text="Amount:" />
+
+                <TextView
+                    android:id="@+id/value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@id/value_label"
+                    android:gravity="end"
+                    android:textAppearance="@style/uiTextFont"
+                    tools:text="$100.00" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/prompt_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/value_layout"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/uiTextFont"
+                tools:text="Select Account Type" />
+
+            <RelativeLayout
+                android:id="@+id/buttons_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/prompt_text"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp">
+
+                <Button
+                    android:id="@+id/cheque"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/ui2_buttonstyle"
+                    android:textAppearance="@style/uiDoneBtn"
+                    tools:text="Cheque" />
+
+                <Button
+                    android:id="@+id/savings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cheque"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/ui2_buttonstyle"
+                    android:textAppearance="@style/uiDoneBtn"
+                    tools:text="Savings" />
+
+                <Button
+                    android:id="@+id/credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/savings"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/ui2_buttonstyle"
+                    android:textAppearance="@style/uiDoneBtn"
+                    tools:text="Credit" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttons_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="4dp"
+                android:background="@drawable/ui2_buttonstyle_cancel"
+                android:textAppearance="@style/uiCancelBtn"
+                tools:text="Cancel" />
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/access_mode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <Button
+                android:id="@+id/cheque_access_mode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:enabled="false"
+                android:background="@drawable/ui2_buttonstyle"
+                android:textAppearance="@style/uiDoneBtn"
+                app:layout_constraintBottom_toTopOf="@id/savings_access_mode"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="4dp"
+                tools:text="Cheque" />
+
+            <Button
+                android:id="@+id/savings_access_mode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:enabled="false"
+                android:background="@drawable/ui2_buttonstyle"
+                android:textAppearance="@style/uiDoneBtn"
+                app:layout_constraintBottom_toTopOf="@id/credit_access_mode"
+                app:layout_constraintTop_toBottomOf="@id/cheque_access_mode"
+                tools:text="Savings" />
+
+            <Button
+                android:id="@+id/credit_access_mode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:enabled="false"
+                android:background="@drawable/ui2_buttonstyle"
+                android:textAppearance="@style/uiDoneBtn"
+                app:layout_constraintBottom_toTopOf="@id/cancel_access_mode"
+                app:layout_constraintTop_toBottomOf="@id/savings_access_mode"
+                tools:text="Credit" />
+
+            <Button
+                android:id="@+id/cancel_access_mode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:enabled="false"
+                android:background="@drawable/ui2_buttonstyle_cancel"
+                android:textAppearance="@style/uiCancelBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/credit_access_mode"
+                tools:text="Cancel" />
+            <View
+                android:id="@+id/access_mode_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</layout>

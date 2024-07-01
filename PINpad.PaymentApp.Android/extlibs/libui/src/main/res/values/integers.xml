@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Key android:codes for custom keyboards.-->
+    <!--Eft custom key codes from CustomKeyboard.java-->
+    <!--NOTE: MUST STAY IN SYNC WITH CustomKeyboard.java CONSTANTS!-->
+    <integer name="KEYCODE_UNCAPS">-10</integer>
+    <integer name="KEYCODE_CAPS">-200</integer>
+    <integer name="KEYCODE_DOUBLE_ZERO">-100</integer>
+    <integer name="KEYCODE_SET_KB_NUMERIC">-300</integer>
+    <integer name="KEYCODE_TRIPLE_ZERO">-1000</integer>
+    <integer name="KEYCODE_DUMMY">-9999</integer>
+    <!--Standard named key codes from Keyboard.class-->
+    <integer name="KEYCODE_CANCEL">-3</integer>
+    <integer name="KEYCODE_DELETE">-5</integer>
+    <integer name="KEYCODE_DONE">-4</integer>
+    <integer name="KEYCODE_SHIFT">-1</integer>
+</resources>

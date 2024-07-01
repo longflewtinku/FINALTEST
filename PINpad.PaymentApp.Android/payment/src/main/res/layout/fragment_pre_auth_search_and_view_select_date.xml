@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header" />
+
+        <TextView
+            android:id="@+id/textView_Response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/headlines_fragment"
+            android:gravity="center"
+            android:text="@string/LIST_PRE_AUTH"
+            android:textStyle="bold"
+            android:textAppearance="@style/uiHeadlineFont" />
+
+        <Button
+            android:id="@+id/btn_expire_today"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textView_Response"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ui2_buttonstyle_tip"
+            android:textAppearance="@style/uiTipBtn"
+            android:text="Expire Today" />
+
+        <Button
+            android:id="@+id/btn_expire_tomorrow"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_expire_today"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ui2_buttonstyle_tip"
+            android:textAppearance="@style/uiTipBtn"
+            android:text="Expire Tomorrow" />
+
+        <Button
+            android:id="@+id/btn_pick_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_expire_tomorrow"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ui2_buttonstyle_tip"
+            android:textAppearance="@style/uiTipBtn"
+            android:text="Expiry Date" />
+
+        <Button
+            android:id="@+id/btn_pick_date_range"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_pick_date"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ui2_buttonstyle_tip"
+            android:textAppearance="@style/uiTipBtn"
+            android:text="Expiry Date Range" />
+
+        <Button
+            android:id="@+id/btn_search_by_rrn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_pick_date_range"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ui2_buttonstyle_tip"
+            android:textAppearance="@style/uiTipBtn"
+            android:text="Search by RRN" />
+
+        <Button
+            android:id="@+id/btn_search_by_authcode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/btn_search_by_rrn"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ui2_buttonstyle_tip"
+            android:textAppearance="@style/uiTipBtn"
+            android:text="Search by AuthCode" />
+
+        <RelativeLayout
+            android:id="@+id/btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/btn_search_by_authcode">
+
+
+            <LinearLayout
+                android:id="@+id/btn_Linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true">
+                <Button
+                    android:id="@+id/btn_done"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/button_margin"
+                    android:layout_marginBottom="@dimen/button_margin"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/ui2_buttonstyle_light"
+                    android:textAppearance="@style/uiDoneBtn"
+                    android:text="Done"
+                    android:layout_weight="1">
+
+                </Button>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

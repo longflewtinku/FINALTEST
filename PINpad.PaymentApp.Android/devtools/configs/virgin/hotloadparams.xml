@@ -1,0 +1,107 @@
+<parameter>
+    <!-- Merchant Receipt Lines   -->
+    <receipt_merchant_line0>Merchant Line 0</receipt_merchant_line0>
+    <receipt_merchant_line1>Merchant Line 1</receipt_merchant_line1>
+    <receipt_merchant_line2>Merchant Line 2</receipt_merchant_line2>
+    <receipt_merchant_line3>Merchant Line 3</receipt_merchant_line3>
+    <receipt_merchant_line4></receipt_merchant_line4>
+    <receipt_merchant_line5></receipt_merchant_line5>
+    <receipt_merchant_line6>Powered by Linkly</receipt_merchant_line6>
+    <footerLine1></footerLine1>
+    <footerLine2></footerLine2>
+	
+	<!-- MCR Settings   -->
+    <mcrEnabled>Y</mcrEnabled>
+    <mcrLimit>1000</mcrLimit>
+    <mcrUpperLimit>2000</mcrUpperLimit>
+	
+	<!--  Terminal Limits  -->
+    <saleLimitCents>1000000</saleLimitCents>
+    <cashoutLimitCents>0</cashoutLimitCents>
+    <maxRefundLimit>0</maxRefundLimit> 
+    <managerRefundLimit>0</managerRefundLimit>
+    <maxRefundCount>0</maxRefundCount>
+    <maxCumulativeRefundLimit>0</maxCumulativeRefundLimit>
+    <maxTipPercent>0</maxTipPercent>
+    <maxPreAuthTrans>100</maxPreAuthTrans>
+    <maxEfbTrans>200</maxEfbTrans>
+    <preAuthLimitCents>10000</preAuthLimitCents>
+    <overrideCtlsCvmLimitEnabled>N</overrideCtlsCvmLimitEnabled>
+    <overrideCtlsCvmLimit>0</overrideCtlsCvmLimit>
+
+    <!--Terminal Configuration-->
+    <showReceiptPromptForAuto>Y</showReceiptPromptForAuto>
+    <printCustomerReceipt>ASK</printCustomerReceipt>
+    <motoPasswordPrompt>Y</motoPasswordPrompt>
+    <refundPasswordPrompt>Y</refundPasswordPrompt>
+    <motoCVVEntry>Y</motoCVVEntry>
+    <motoCVVEntryBypassAllowed>Y</motoCVVEntryBypassAllowed>
+    <mailOrder>Y</mailOrder>
+    <telephone>Y</telephone>
+    <preauth>Y</preauth>
+    <preauthCreditAccountOnly>Y</preauthCreditAccountOnly>
+    <cashback>Y</cashback>
+    <cashout>Y</cashout>
+    <refund>Y</refund>
+    <reversal>Y</reversal>
+    <tipAllowed>Y</tipAllowed>
+    <custRefRequired>DISABLED</custRefRequired>
+    <emvSupported>Y</emvSupported>
+    <cardholderPresent>Y</cardholderPresent>
+    <contactlessSupported>Y</contactlessSupported>
+    <loyaltySupported>N</loyaltySupported>
+    <version>1.00.00</version>
+    <efbSupported>Y</efbSupported>
+    <efbAcknowledgeServiceCode>Y</efbAcknowledgeServiceCode>
+    <efbPlasticCardLifeDays>1000</efbPlasticCardLifeDays>
+    <efbRefundAllowed>N</efbRefundAllowed>
+    <efbCashoutAllowed>N</efbCashoutAllowed>
+    <efbContinueInFallbackTimeoutMinutes>10</efbContinueInFallbackTimeoutMinutes>
+    <efbAuthNumberOverFloorLimitAllowed>N</efbAuthNumberOverFloorLimitAllowed>
+    <accessMode>N</accessMode>
+    <emvFallback>Y</emvFallback>
+    <msrAllowed>Y</msrAllowed>
+    <refundSecure>N</refundSecure>
+    <signatureSupported>Y</signatureSupported> 
+	<useCustomAudioForResult>N</useCustomAudioForResult>
+	
+
+    <!-- Surcharge Settings -->
+    <surchargeSupported>N</surchargeSupported>
+    <sc_eftpos_on>N</sc_eftpos_on>
+    <sc_eftpos_type>$</sc_eftpos_type>
+    <sc_eftpos_amount>20</sc_eftpos_amount>
+
+    <sc_mastercard_credit_on>N</sc_mastercard_credit_on>
+    <sc_mastercard_credit_type>%</sc_mastercard_credit_type>
+    <sc_mastercard_credit_amount>150</sc_mastercard_credit_amount>
+
+    <sc_mastercard_debit_on>N</sc_mastercard_debit_on>
+    <sc_mastercard_debit_type>%</sc_mastercard_debit_type>
+    <sc_mastercard_debit_amount>0</sc_mastercard_debit_amount>
+
+    <sc_visa_credit_on>Y</sc_visa_credit_on>
+    <sc_visa_credit_type>%</sc_visa_credit_type>
+    <sc_visa_credit_amount>150</sc_visa_credit_amount>
+
+    <sc_visa_debit_on>Y</sc_visa_debit_on>
+    <sc_visa_debit_type>%</sc_visa_debit_type>
+    <sc_visa_debit_amount>150</sc_visa_debit_amount>
+
+    <sc_amex_on>N</sc_amex_on>
+    <sc_amex_type>%</sc_amex_type>
+    <sc_amex_amount>150</sc_amex_amount>
+
+    <sc_diners_club_on>N</sc_diners_club_on>
+    <sc_diners_club_type>%</sc_diners_club_type>
+    <sc_diners_club_amount>150</sc_diners_club_amount>
+
+    <sc_jcb_on>N</sc_jcb_on>
+    <sc_jcb_type>%</sc_jcb_type>
+    <sc_jcb_amount>150</sc_jcb_amount>
+
+    <sc_unionpay_credit_on>N</sc_unionpay_credit_on>
+    <sc_unionpay_credit_type>%</sc_unionpay_credit_type>
+    <sc_unionpay_credit_amount>150</sc_unionpay_credit_amount>
+
+</parameter>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="fragSAFViewAndClearViewModel"
+            type="com.linkly.payment.viewmodel.FragSAFViewAndClearViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView_Response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/SAF_VIEW_AND_CLEAR"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAppearance="@style/uiTextFont"
+            />
+
+        <TextView
+            android:id="@+id/textView_NoTransactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_Response"
+            android:gravity="center"
+            android:text="No Transactions"
+            android:textSize="30sp"
+            android:textAppearance="@style/uiTextFont"
+            />
+
+        <RelativeLayout
+            android:id="@+id/btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textView_NoTransactions">
+
+
+            <LinearLayout
+                android:id="@+id/btn_Linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btn_done"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/button_margin"
+                android:layout_marginBottom="@dimen/button_margin"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:textAppearance="@style/uiDoneBtn"
+                android:text="Done"
+                android:layout_weight="1">
+
+            </Button>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_saf_view_and_clear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btn_Linear_layout"
+                />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

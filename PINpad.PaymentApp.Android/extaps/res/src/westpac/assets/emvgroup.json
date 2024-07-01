@@ -1,0 +1,46 @@
+{
+   "emvGroups": [
+      {
+         "contactlessCVM": 3001,
+         "contactlessFloor": 0,
+         "contactlessMax": 99999998,
+         "floor": 0,
+         "rid": "A000000003",
+         "tacDefault": "DC4000A800",
+         "tacDenial": "0010000000",
+         "tacOnline": "DC4004F800"
+      },
+      {
+         "contactlessCVM": 3000,
+         "contactlessFloor": 0,
+         "contactlessMax": 5000000,
+         "contactlessLimitNoOnDeviceCvm" : 4000,
+         "contactlessLimitOnDeviceCvm" : 4000,
+         "floor": 0,
+         "rid": "A000000004",
+         "tacDefault": "FE50B8A000",
+         "tacDenial": "",
+         "tacOnline": "FE50B8F800"
+      },
+      {
+         "contactlessCVM": 1000,
+         "contactlessFloor": 1500,
+         "contactlessMax": 1500,
+         "floor": 0,
+         "rid": "A000000065",
+         "tacDefault": "FC60242800",
+         "tacDenial": "0010000000",
+         "tacOnline": "FC60ACF800"
+      },
+      {
+         "contactlessCVM": 1000,
+         "contactlessFloor": 1500,
+         "contactlessMax": 1500,
+         "floor": 0,
+         "rid": "A000000152",
+         "tacDefault": "DC00002000",
+         "tacDenial": "0010000000",
+         "tacOnline": "FCE09CF800"
+      }
+   ]
+}

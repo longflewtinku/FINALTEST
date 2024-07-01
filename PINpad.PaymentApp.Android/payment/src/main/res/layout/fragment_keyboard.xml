@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:keyboard-namespace="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragKeyboardViewModel"
+            type="com.linkly.payment.viewmodel.FragKeyboardViewModel" />
+    </data>
+
+
+    <LinearLayout android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              android:paddingTop="@dimen/appbar_padding_top"
+              android:background="@color/ui2BgLightStart">
+
+        <FrameLayout
+            android:id="@+id/container_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_action_back"
+                app:backgroundTint="@color/colorBlack"
+                app:tint="@android:color/white" />
+
+            <fragment
+                android:id="@+id/headlines_fragment"
+                android:name="com.linkly.payment.fragments.FragHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_brand_header_large" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:orientation="vertical"
+                android:layout_above="@+id/keyRelative">
+
+            <ViewStub
+                android:id="@+id/ui2_layout_stub"
+                android:inflatedId="@+id/content_login"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                keyboard-namespace:fragKeyboardViewModel="@{fragKeyboardViewModel}"
+                android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/keyRelative">
+
+                <include layout="@layout/ui2_keyboard"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

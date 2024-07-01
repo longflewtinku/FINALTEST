@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Share folder under internal file folder. The base folder is context.getFilesDir() -->
+    <files-path name="EFT" path="" />
+    <files-path name="Installer" path="" />
+</paths>

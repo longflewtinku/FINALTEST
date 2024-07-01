@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="fragStandardViewModel"
+            type="com.linkly.payment.viewmodel.FragStandardViewModel" />
+    </data>
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/ui2BgLightStart"
+        android:paddingTop="@dimen/appbar_padding_top"
+        tools:context="com.linkly.payment.activities.ActPrint">
+
+        <!-- Branding Header -->
+        <fragment
+            android:id="@+id/headlines_fragment"
+            android:name="com.linkly.payment.fragments.FragHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_brand_header"/>
+
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/headlines_fragment"
+            android:layout_above="@+id/btns"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_margin="10dp"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:weightSum="11"
+            >
+
+
+            <TextView
+                android:id="@+id/transDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:outlineProvider="paddedBounds"
+                android:text=""
+                android:fontFamily="@font/ui2font"
+                android:textAppearance="@style/ui2MediumFontDark"/>
+
+            <TextView
+                android:id="@+id/signBelow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingBottom="60dp"
+                android:outlineProvider="paddedBounds"
+                android:text="@string/PLEASE_SIGN"
+                android:fontFamily="@font/ui2font"
+                android:textAppearance="@style/ui2MediumFontDark"/>
+
+            <LinearLayout
+                android:id="@+id/signContent"
+                android:layout_height="280dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="200dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:layout_margin="0dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/ui2_buttonstyle_light"
+                android:orientation="vertical"
+                android:weightSum="11"
+                >
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            style="?android:attr/buttonBarStyle"
+            >
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/CANCEL"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_buttonstyle_cancel"
+                android:textAppearance="@style/uiCancelBtn" />
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/CLEAR"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_buttonstyle"
+                android:textAppearance="@style/uiBorderBtn"
+                style="?android:attr/buttonBarButtonStyle"/>
+
+            <Button
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/DONE"
+                android:layout_weight="1"
+                android:background="@drawable/ui2_buttonstyle"
+                android:textAppearance="@style/uiDoneBtn"
+                style="?android:attr/buttonBarButtonStyle"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</layout>

@@ -1,0 +1,55 @@
+// some useful adb commands (please add to this list)
+
+// start and stop the eft service
+adb -d shell am force-stop eft.com.launcher
+adb -d shell am startservice eft.com.launcher/com.linkly.launcher.service.POSitiveSvc
+
+// keyboard and font related tricks
+pax_adb.exe shell ime disable com.google.android.inputmethod.pinyin/.PinyinIME
+pax_adb.exe shell ime disable com.android.inputmethod.latin/.LatinIME
+pax_adb.exe shell ime disable jp.co.omronsoft.openwnn/.OpenWnnJAJP
+pax_adb.exe shell ime enable eft.com.poskeyboard/.PosIME
+
+
+// shell access
+pax_adb.exe shell  //Grants Shell Access
+pax_adb.exe -d backup -apk -noshared -all -f A920.bk
+pax_adb.exe restore A920.bk
+
+
+// Useful commands to pull database from Android
+adb.exe pull  /data/data/eft.com.apay/databases
+adb.exe push databases/CashiersDB3  /data/data/eft.com.apay/shared_prefs
+adb.exe push cfg  /data/data/eft.com.apay/files
+
+
+
+adb shell pm uninstall -k com.pax.ipp.neptune
+          pm uninstall -k eft.com.launcher
+
+
+dpm set-device-owner eft.com.apay/eft.com.amal.ui.UIKiosk
+
+
+Crash Reporting
+APay uses Crashlytics for runtime crash reporting, if you want adding to the reporting emails contact jim
+https://fabric.io/kits/android/crashlytics
+
+
+Online Testing Service:
+
+Google Provide an excellent automated test tool: firebase.google.com
+This will run through all possible execution paths based on User Input and if configured correctly can excerise all aspects of the APP (Excluding EMV and Cardbased)
+
+
+Database Export & Examination
+It is possible on Dev Devices to download the entire Database for APay and View and Edit it on your PC:
+To pull the database use the following command:  adb.exe pull  /data/data/eft.com.apay/databases
+Once pulled use the DB Browser tool available from: https://sqlitebrowser.org/
+
+
+/* build line */
+gradlew --profile --recompile-scripts --rerun-tasks assembleDebug
+
+
+

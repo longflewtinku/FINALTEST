@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.linkly.payment.viewmodel.FragPreAuthListViewModel.PreAuthTransaction" />
+
+        <variable
+            name="buttonClickListener"
+            type="com.linkly.payment.adapters.PreAuthItemButtonClickListener" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/row_trans_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@{model.date}"
+            android:textAppearance="@style/uiTextFont" />
+
+        <TextView
+            android:id="@+id/row_trans_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/row_trans_date"
+            android:gravity="start"
+            android:textAppearance="@style/uiTextFont"
+            android:text="@{model.type}" />
+
+        <TextView
+            android:id="@+id/row_trans_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/row_trans_date"
+            android:gravity="end|center_vertical"
+            android:text="@{model.amount}"
+            android:textAppearance="@style/uiTextFont" />
+
+        <TextView
+            android:id="@+id/row_trans_pan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_type"
+            android:gravity="center"
+            android:text="@{model.pan}"
+            android:textAppearance="@style/uiTextFont" />
+
+        <TextView
+            android:id="@+id/row_trans_rrn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_pan"
+            android:gravity="center"
+            android:text="@{model.rrn}"
+            android:textAppearance="@style/uiTextFont" />
+
+        <TextView
+            android:id="@+id/row_trans_auth_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_trans_rrn"
+            android:gravity="center"
+            android:text="@{model.authCode}"
+            android:textAppearance="@style/uiTextFont" />
+
+        <Button
+            android:id="@+id/row_btn_print_and_delete"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/row_trans_amount"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/ui2_buttonstyle_light"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="@{() -> buttonClickListener.preAuthItemButtonClicked(model)}"
+            android:text="Print"
+            android:textAppearance="@style/ui2MediumBtnFont"
+            android:layout_margin="@dimen/button_margin"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+</layout>

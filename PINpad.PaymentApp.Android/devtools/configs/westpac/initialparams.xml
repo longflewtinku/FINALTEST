@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<parameter>
+    <stid>99963385</stid>
+    <mid>LINKLY_TEST_WOW</mid>
+    <tkey>4nPugC6HKKqTkNqK</tkey>
+    <receipt_merchant_line0>Woolworths Demo</receipt_merchant_line0>
+    <receipt_merchant_line1>Linkly Office</receipt_merchant_line1>
+    <receipt_merchant_line2>Suite 3.01, Level 3</receipt_merchant_line2>
+    <receipt_merchant_line3>309 George Street</receipt_merchant_line3>
+    <receipt_merchant_line4>Sydney NSW 2000</receipt_merchant_line4>
+    <receipt_merchant_line5></receipt_merchant_line5>
+    <receipt_merchant_line6></receipt_merchant_line6>
+</parameter>

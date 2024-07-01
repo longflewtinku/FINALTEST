@@ -1,0 +1,176 @@
+{
+  "version": "1.0.0",
+  "tornTransLifetime": 300,
+  "tornTransLogMaxRecords": 0,
+  "aids": [
+    {
+      "aid": "A0000000041010",
+      "cardReportedName": "Mastercard PayPass",
+      "schemeLabel": "MASTERCARD",
+      "defaultAccount": "CRD",
+      "linklyBinNumberCredit": 3,
+      "linklyBinNumberDebit": 3,
+      "cardDataInputCaps": "E0",
+      "ctlsLimitNoOnDeviceCvm": 10001,
+      "ctlsLimitOnDeviceCvm": 10001,
+      "cvmCapsCvm": 60,
+      "cvmCapsNoCvm": 8,
+      "defaultUdol": "9F6A04",
+      "kernelConfig": "30",
+      "kernelId": 0,
+      "mobileSupportInidcator": 1,
+      "msrCvmCapsCvm": 10,
+      "msrCvmCapsNoCvm": 0,
+      "paypassMsrAppVersionNumber": "0001",
+      "securityCaps": "08"
+    },
+    {
+      "TTQ": "34204000",
+      "aid": "A0000000031010",
+      "cardReportedName": "Visa PayWave",
+      "schemeLabel": "VISA",
+      "defaultAccount": "CRD",
+      "linklyBinNumberCredit": 4,
+      "linklyBinNumberDebit": 4
+    },
+    {
+      "TTQ": "04004000",
+      "aid": "A00000038410",
+      "cardReportedName": "EFTPOS Savings",
+      "schemeLabel": "EFTPOS",
+      "defaultAccount": "SAV",
+      "linklyBinNumberCredit": 1,
+      "linklyBinNumberDebit": 1
+    },
+    {
+      "TTQ": "01004000",
+      "aid": "A00000038420",
+      "cardReportedName": "EFTPOS Cheque",
+      "schemeLabel": "EFTPOS",
+      "defaultAccount": "CHQ",
+      "linklyBinNumberCredit": 1,
+      "linklyBinNumberDebit": 1
+    },
+    {
+      "TTQ": "00000000",
+      "aid": "A00000002501",
+      "cardReportedName": "Amex",
+      "schemeLabel": "AMEX",
+      "defaultAccount": "CRD",
+      "linklyBinNumberCredit": 5,
+      "amexEnhancedReaderCaps": "D8E00000"
+    },
+    {
+      "aid": "A0000000651010",
+      "cardReportedName": "JSpeedy",
+      "schemeLabel": "JCB",
+      "defaultAccount": "CRD",
+      "linklyBinNumberCredit": 7
+    },
+    {
+      "aid": "A000000333010102",
+      "cardReportedName": "UPI CTLS Credit",
+      "schemeLabel": "UPI",
+      "defaultAccount": "CRD",
+      "linklyBinNumberCredit": 30,
+      "linklyBinNumberDebit": 30
+    },
+    {
+      "aid": "A000000333010103",
+      "cardReportedName": "UPI CTLS QUASI C",
+      "schemeLabel": "UPI",
+      "defaultAccount": "CRD",
+      "linklyBinNumberCredit": 30,
+      "linklyBinNumberDebit": 30
+    },
+    {
+      "aid": "A000000333010101",
+      "cardReportedName": "UPI CTLS DEBIT",
+      "schemeLabel": "UPI",
+      "defaultAccount": "SAV",
+      "linklyBinNumberCredit": 31,
+      "linklyBinNumberDebit": 31
+    }
+  ],
+  "holdTimeValue": 0,
+  "messageHoldTime": 50,
+  "readerLimits": [
+    {
+      "cvmLimit": "5001",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "3102682620",
+      "statusCheck": false,
+      "txnLimit": "5001",
+      "txnLimitFlg": false,
+      "zeroCheck": true
+    },
+    {
+      "cvmLimit": "5001",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "3102682612000003",
+      "statusCheck": false,
+      "txnLimit": "5001",
+      "txnLimitFlg": false,
+      "zeroCheck": true
+    },
+    {
+      "cvmLimit": "5001",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "3102682612",
+      "statusCheck": false,
+      "txnLimit": "5001",
+      "txnLimitFlg": false,
+      "zeroCheck": true
+    },
+    {
+      "cvmLimit": "5001",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "3102682600",
+      "statusCheck": false,
+      "txnLimit": "5001",
+      "txnLimitFlg": false,
+      "zeroCheck": true
+    },
+    {
+      "cvmLimit": "1000",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "00000001",
+      "statusCheck": true,
+      "txnLimit": "1500",
+      "txnLimitFlg": true,
+      "zeroCheck": true
+    },
+    {
+      "cvmLimit": "200",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "00000006",
+      "statusCheck": true,
+      "txnLimit": "700",
+      "txnLimitFlg": true,
+      "zeroCheck": true
+    },
+    {
+      "cvmLimit": "200",
+      "cvmLimitFlg": true,
+      "floorLimit": "0",
+      "floorLimitFlg": true,
+      "programId": "00000011",
+      "statusCheck": true,
+      "txnLimit": "300",
+      "txnLimitFlg": true,
+      "zeroCheck": true
+    }
+  ]
+}
