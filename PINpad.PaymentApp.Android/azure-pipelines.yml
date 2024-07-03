@@ -325,6 +325,39 @@ jobs:
     env:
       SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 
+- job: BuildWithGradle4_4_0
+  displayName: 'Build with Gradle 4.4.0'
+  steps:
+  - task: UseJavaVersion@0
+    inputs:
+      versionSpec: '11.0.23'
+      jdkArchitectureOption: 'x64'
+  - script: |
+      export JAVA_HOME=$(JAVA_11_HOME)
+      export GRADLE_HOME=$(GRADLE_4_4_0_HOME)
+      export PATH=$GRADLE_HOME/bin:$PATH
+      source ~/.bashrc
+      gradle -v
+      gradle build
+    displayName: 'Build with Gradle 4.4.0'
+
+- job: BuildWithGradle8_2
+  displayName: 'Build with Gradle 8.2'
+  steps:
+  - task: UseJavaVersion@0
+    inputs:
+      versionSpec: '17.0.11'
+      jdkArchitectureOption: 'x64'
+  - script: |
+      export JAVA_HOME=$(JAVA_17_HOME)
+      export GRADLE_HOME=$(GRADLE_8_2_HOME)
+      export PATH=$GRADLE_HOME/bin:$PATH
+      source ~/.bashrc
+      gradle -v
+      gradle build
+    displayName: 'Build with Gradle 8.2'
+
+
   - task: Gradle@3
     inputs:
       gradleWrapperFile: 'gradlew'
